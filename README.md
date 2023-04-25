@@ -1,2 +1,2 @@
-# ExamGame-TicketToRide
-Repository for out Exam Game
+# ExamGame TicketToRide
+ Exam Game
