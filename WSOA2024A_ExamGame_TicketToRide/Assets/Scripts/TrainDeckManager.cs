@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class TrainDeckManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> trainCards = new List<GameObject>();
-    private GameObject[] trainDeck;
-
 
     #region TRAIN INT VARIABLES:
     private int redTrains = 12;
@@ -17,7 +17,7 @@ public class TrainDeckManager : MonoBehaviour
     private int pinkTrains = 12;
     private int orangeTrains = 12;
     private int yellowTrains = 12;
-    private int locomotive = 12;
+    private int locomotive = 14;
     #endregion
 
     #region TRAIN GAME OBJECTS VARIABLES:
@@ -51,17 +51,14 @@ public class TrainDeckManager : MonoBehaviour
         {
             trainCards.Add (cardType);
         }
-
-        if (trainCards.Count == 108) 
-        {
-            trainDeck = trainCards.ToArray ();
-        }
     }
 
     public void DrawCard()
     {
         int randomNumber = Random.Range(0, trainCards.Count - 1);
-
-        Instantiate(trainDeck[randomNumber], Vector2.zero, Quaternion.identity);
+        Instantiate(trainCards[randomNumber], Vector2.zero, Quaternion.identity);
+        trainCards.RemoveAt(randomNumber);
+        Debug.Log("Cards left in Train Deck: " + trainCards.Count);
     }
+
 }

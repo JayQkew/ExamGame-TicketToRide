@@ -11,7 +11,7 @@ public class TrainCard : MonoBehaviour
     void Start()
     {
         text.text = colour;
-        Debug.Log("Card colour is: "+ colour);
-        Debug.Log("Card faceUP: " + faceUp);
+        // Debug.Log("Card colour is: "+ colour);
+        // Debug.Log("Card faceUP: " + faceUp);
     }
 }
