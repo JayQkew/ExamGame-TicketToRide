@@ -30,8 +30,13 @@ public class TrainDeckManager : MonoBehaviour
     [SerializeField] GameObject orangeCard;
     [SerializeField] GameObject yellowCard;
     [SerializeField] GameObject locomotiveCard;
+    [SerializeField] GameObject trainDeck;
     #endregion
 
+    #region OTHER SCRIPTS:
+    [SerializeField] TrainCard cs_trainCard;
+    [SerializeField] GameObject go_trainCard;
+    #endregion
     void Start()
     {
         AddingCards(redTrains, redCard);
@@ -53,12 +58,18 @@ public class TrainDeckManager : MonoBehaviour
         }
     }
 
-    public void DrawCard()
+    public void DrawCard(Vector3 position)
     {
         int randomNumber = Random.Range(0, trainCards.Count - 1);
-        Instantiate(trainCards[randomNumber], Vector2.zero, Quaternion.identity);
+        Instantiate(trainCards[randomNumber], position, Quaternion.identity);
+        cs_trainCard.faceUp = true;
         trainCards.RemoveAt(randomNumber);
-        Debug.Log("Cards left in Train Deck: " + trainCards.Count);
+        Debug.Log("Face Up: " + cs_trainCard.faceUp);
+        // Debug.Log("Cards left in Train Deck: " + trainCards.Count);
     }
 
+    public void OnPressDeck()
+    {
+        DrawCard(Vector3.zero); // players hand
+    }
 }
