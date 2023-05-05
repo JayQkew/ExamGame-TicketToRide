@@ -24,71 +24,36 @@ public class TrainCard : MonoBehaviour
         cs_playerHand = go_playerhand.GetComponent<PlayerHand>();
         go_marketManager = GameObject.Find("TrainMarket");
         cs_marketManager = go_marketManager.GetComponent<MarketManager>();
-
-        if (isLocomotive == true)
+        if (isLocomotive == true)                                                               // try make it a switch statement
         {
             if (transform.IsChildOf(cs_marketManager.cardSlot1.transform))
             {
-                cs_marketManager.locomotivesOnMarket += 1;
+                cs_marketManager.locomotivesOnMarket++;
                 Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
             }
             else if (transform.IsChildOf(cs_marketManager.cardSlot2.transform))
             {
-                cs_marketManager.locomotivesOnMarket += 1;
+                cs_marketManager.locomotivesOnMarket++;
                 Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
             }
             else if (transform.IsChildOf(cs_marketManager.cardSlot3.transform))
             {
-                cs_marketManager.locomotivesOnMarket += 1;
+                cs_marketManager.locomotivesOnMarket++;
                 Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
             }
             else if (transform.IsChildOf(cs_marketManager.cardSlot4.transform))
             {
-                cs_marketManager.locomotivesOnMarket += 1;
+                cs_marketManager.locomotivesOnMarket++;
                 Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
             }
             else if (transform.IsChildOf(cs_marketManager.cardSlot5.transform))
             {
-                cs_marketManager.locomotivesOnMarket += 1;
+                cs_marketManager.locomotivesOnMarket++;
                 Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
             }
         }
         // Debug.Log("Card colour is: "+ colour);
         // Debug.Log("Card faceUP: " + faceUp);
-    }
-    private void LateUpdate()
-    {
-        if (isLocomotive == true)
-        {
-            if (transform.IsChildOf(cs_marketManager.cardSlot1.transform))
-            {
-                cs_marketManager.locomotivesOnMarket += 1;
-                Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
-            }
-            else if (transform.IsChildOf(cs_marketManager.cardSlot2.transform))
-            {
-                cs_marketManager.locomotivesOnMarket += 1;
-                Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
-            }
-            else if (transform.IsChildOf(cs_marketManager.cardSlot3.transform))
-            {
-                cs_marketManager.locomotivesOnMarket += 1;
-                Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
-            }
-            else if (transform.IsChildOf(cs_marketManager.cardSlot4.transform))
-            {
-                cs_marketManager.locomotivesOnMarket += 1;
-                Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
-            }
-            else if (transform.IsChildOf(cs_marketManager.cardSlot5.transform))
-            {
-                cs_marketManager.locomotivesOnMarket += 1;
-                Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
-            }
-
-
-        }
-
     }
 
     public void OnMouseDown()

@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 211278250}
   - component: {fileID: 211278249}
   - component: {fileID: 211278251}
+  - component: {fileID: 211278252}
   m_Layer: 0
   m_Name: cardSlot4
   m_TagString: Untagged
@@ -335,8 +336,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211278248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 0, z: 0.84212804}
-  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 625758884}
@@ -368,6 +369,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &211278252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211278248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843c44e179c67564888f095637a1ed3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSlot: {fileID: 211278248}
+  cardSlotAvailable: 1
+  cs_trainCard: {fileID: 3000957155664388266, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  go_trainCard: {fileID: 3000957155664388268, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  cs_marketManager: {fileID: 625758883}
+  go_marketManager: {fileID: 625758882}
 --- !u!1 &392239953
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +398,7 @@ GameObject:
   - component: {fileID: 392239955}
   - component: {fileID: 392239954}
   - component: {fileID: 392239956}
+  - component: {fileID: 392239957}
   m_Layer: 0
   m_Name: cardSlot1
   m_TagString: Untagged
@@ -446,8 +466,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392239953}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0.84212804}
-  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 625758884}
@@ -479,6 +499,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &392239957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392239953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843c44e179c67564888f095637a1ed3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSlot: {fileID: 392239953}
+  cardSlotAvailable: 1
+  cs_trainCard: {fileID: 3000957155664388266, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  go_trainCard: {fileID: 3000957155664388268, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  cs_marketManager: {fileID: 625758883}
+  go_marketManager: {fileID: 625758882}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,6 +1075,7 @@ GameObject:
   - component: {fileID: 930855804}
   - component: {fileID: 930855803}
   - component: {fileID: 930855805}
+  - component: {fileID: 930855806}
   m_Layer: 0
   m_Name: cardSlot2
   m_TagString: Untagged
@@ -1104,8 +1143,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930855802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0, z: 0.84212804}
-  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_LocalPosition: {x: -2.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 625758884}
@@ -1137,6 +1176,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &930855806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930855802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843c44e179c67564888f095637a1ed3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSlot: {fileID: 930855802}
+  cardSlotAvailable: 1
+  cs_trainCard: {fileID: 3000957155664388266, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  go_trainCard: {fileID: 3000957155664388268, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  cs_marketManager: {fileID: 625758883}
+  go_marketManager: {fileID: 625758882}
 --- !u!1 &1125430749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,6 +1456,7 @@ GameObject:
   - component: {fileID: 1717095498}
   - component: {fileID: 1717095497}
   - component: {fileID: 1717095499}
+  - component: {fileID: 1717095500}
   m_Layer: 0
   m_Name: cardSlot5
   m_TagString: Untagged
@@ -1466,8 +1524,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717095496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0.84212804}
-  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 625758884}
@@ -1499,6 +1557,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1717095500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717095496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843c44e179c67564888f095637a1ed3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSlot: {fileID: 1717095496}
+  cardSlotAvailable: 1
+  cs_trainCard: {fileID: 3000957155664388266, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  go_trainCard: {fileID: 3000957155664388268, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  cs_marketManager: {fileID: 625758883}
+  go_marketManager: {fileID: 625758882}
 --- !u!1 &1791648250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,6 +1756,7 @@ GameObject:
   - component: {fileID: 1894071944}
   - component: {fileID: 1894071943}
   - component: {fileID: 1894071945}
+  - component: {fileID: 1894071946}
   m_Layer: 0
   m_Name: cardSlot3
   m_TagString: Untagged
@@ -1747,8 +1824,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894071942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.84212804}
-  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 625758884}
@@ -1780,6 +1857,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1894071946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894071942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843c44e179c67564888f095637a1ed3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSlot: {fileID: 1894071942}
+  cardSlotAvailable: 1
+  cs_trainCard: {fileID: 3000957155664388266, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  go_trainCard: {fileID: 3000957155664388268, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  cs_marketManager: {fileID: 625758883}
+  go_marketManager: {fileID: 625758882}
 --- !u!1 &1912700329
 GameObject:
   m_ObjectHideFlags: 0
