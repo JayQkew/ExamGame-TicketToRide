@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[SerializeField]
 public class PlayerHand : MonoBehaviour
 {
-    [SerializeField] GameObject handSlot;
+    [SerializeField] public GameObject handSlot;
     [SerializeField] public bool playerTurn;
 
     #region OTHER SCRIPTS:
@@ -14,5 +15,16 @@ public class PlayerHand : MonoBehaviour
     [SerializeField] GameObject go_trainCard;
     #endregion
 
+    private void Start()
+    {
+        cs_trainCard = go_trainCard.GetComponent<TrainCard>();
+        cs_trainDeckManager = go_trainDeckManager.GetComponent<TrainDeckManager>();
+    }
 
+    public void CreateHandSlot()
+    {
+        if (cs_trainCard == true)
+        {
+        }
+    }
 }

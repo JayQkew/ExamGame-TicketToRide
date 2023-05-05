@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TrainDeckManager : MonoBehaviour
@@ -31,14 +32,20 @@ public class TrainDeckManager : MonoBehaviour
     [SerializeField] GameObject yellowCard;
     [SerializeField] GameObject locomotiveCard;
     [SerializeField] GameObject trainDeck;
+    [SerializeField] GameObject trainHand;
     #endregion
 
     #region OTHER SCRIPTS:
     [SerializeField] TrainCard cs_trainCard;
     [SerializeField] GameObject go_trainCard;
+    [SerializeField] PlayerHand cs_playerHand;
+    [SerializeField] GameObject go_playerHand;
+    [SerializeField] MarketManager cs_marketManager;
+    [SerializeField] GameObject go_marketManager;
     #endregion
     void Start()
     {
+        #region ADDING CARDS:
         AddingCards(redTrains, redCard);
         AddingCards(greenTrains, greenCard);
         AddingCards(blueTrains, blueCard);
@@ -48,6 +55,13 @@ public class TrainDeckManager : MonoBehaviour
         AddingCards(orangeTrains, orangeCard);
         AddingCards(yellowTrains, yellowCard);
         AddingCards(locomotive, locomotiveCard);
+        #endregion
+
+        #region GETTING COMPONENTS:
+        cs_playerHand = go_playerHand.GetComponent<PlayerHand>();
+        cs_trainCard = go_trainCard.GetComponent<TrainCard>();
+        cs_marketManager = go_marketManager.GetComponent<MarketManager>();
+        #endregion
     }
 
     private void AddingCards(int trainType, GameObject cardType)
@@ -58,18 +72,18 @@ public class TrainDeckManager : MonoBehaviour
         }
     }
 
-    public void DrawCard(Vector3 position)
+    public void DrawCard(Vector3 position, Transform parent)
     {
         int randomNumber = Random.Range(0, trainCards.Count - 1);
-        Instantiate(trainCards[randomNumber], position, Quaternion.identity);
-        cs_trainCard.faceUp = true;
+        Instantiate(trainCards[randomNumber], position, Quaternion.identity, parent);
         trainCards.RemoveAt(randomNumber);
-        Debug.Log("Face Up: " + cs_trainCard.faceUp);
+
+        // Debug.Log("Face Up: " + cs_trainCard.faceUp);
         // Debug.Log("Cards left in Train Deck: " + trainCards.Count);
     }
 
     public void OnPressDeck()
     {
-        DrawCard(Vector3.zero); // players hand
+        DrawCard(cs_playerHand.handSlot.transform.position, cs_playerHand.handSlot.transform); // players hand
     }
 }

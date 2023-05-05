@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 9047107}
   - component: {fileID: 9047106}
   m_Layer: 5
-  m_Name: Button
+  m_Name: AddCard Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,8 +336,8 @@ Transform:
   m_GameObject: {fileID: 211278248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5, y: 0, z: 0.84212804}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 625758884}
   m_RootOrder: 3
@@ -447,8 +447,8 @@ Transform:
   m_GameObject: {fileID: 392239953}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 0, z: 0.84212804}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 625758884}
   m_RootOrder: 0
@@ -908,7 +908,8 @@ MonoBehaviour:
   trainDeck: {fileID: 906244361}
   cs_trainCard: {fileID: 3000957155664388266, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
   trainCard: {fileID: 3000957155664388268, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
-  slotEmpty: 1
+  maxLocomotives: 3
+  locomotivesOnMarket: 0
 --- !u!4 &625758884
 Transform:
   m_ObjectHideFlags: 0
@@ -917,8 +918,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625758882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.76, y: 3.2, z: -0.84212804}
-  m_LocalScale: {x: 0.61, y: 0.61, z: 0.61}
+  m_LocalPosition: {x: 1.08, y: 3.2, z: -0.84212804}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 392239955}
@@ -1001,8 +1002,13 @@ MonoBehaviour:
   yellowCard: {fileID: 5561480609312532968, guid: 3c935c5f1a0a0534ea2395ae99099685, type: 3}
   locomotiveCard: {fileID: 5018036713820985735, guid: d7058160c95e4bf46b99817f0a685b76, type: 3}
   trainDeck: {fileID: 906244361}
+  trainHand: {fileID: 656021908}
   cs_trainCard: {fileID: 3000957155664388266, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
   go_trainCard: {fileID: 3000957155664388268, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  cs_playerHand: {fileID: 1916443994}
+  go_playerHand: {fileID: 1916443992}
+  cs_marketManager: {fileID: 625758883}
+  go_marketManager: {fileID: 625758882}
 --- !u!4 &906244363
 Transform:
   m_ObjectHideFlags: 0
@@ -1099,8 +1105,8 @@ Transform:
   m_GameObject: {fileID: 930855802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.5, y: 0, z: 0.84212804}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 625758884}
   m_RootOrder: 1
@@ -1189,8 +1195,8 @@ Transform:
   m_GameObject: {fileID: 1312934123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3, z: 0.0034571765}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 656021909}
   m_RootOrder: 0
@@ -1461,8 +1467,8 @@ Transform:
   m_GameObject: {fileID: 1717095496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 0, z: 0.84212804}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 625758884}
   m_RootOrder: 4
@@ -1742,8 +1748,8 @@ Transform:
   m_GameObject: {fileID: 1894071942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.84212804}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 625758884}
   m_RootOrder: 2
@@ -1867,6 +1873,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1916443993}
+  - component: {fileID: 1916443994}
   m_Layer: 0
   m_Name: player1
   m_TagString: Untagged
@@ -1881,15 +1888,33 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916443992}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5661663}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 656021909}
   m_Father: {fileID: 1125430750}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1916443994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916443992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506bc34c8f9bd9948b4a16068b563d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handSlot: {fileID: 1312934123}
+  playerTurn: 0
+  cs_trainDeckManager: {fileID: 906244362}
+  go_trainDeckManager: {fileID: 625758882}
+  cs_trainCard: {fileID: 3000957155664388266, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
+  go_trainCard: {fileID: 3000957155664388268, guid: 9afc752f8a410494795b1c8b710657e7, type: 3}
 --- !u!1 &2093072805
 GameObject:
   m_ObjectHideFlags: 0
