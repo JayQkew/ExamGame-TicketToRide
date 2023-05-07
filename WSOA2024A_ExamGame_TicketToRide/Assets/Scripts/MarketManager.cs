@@ -1,17 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MarketManager : MonoBehaviour
 {
-    #region CARD SLOTS:
-    [SerializeField] public GameObject cardSlot1;
-    [SerializeField] public GameObject cardSlot2;
-    [SerializeField] public GameObject cardSlot3;
-    [SerializeField] public GameObject cardSlot4;
-    [SerializeField] public GameObject cardSlot5;
-    #endregion
-
     #region OTHER SCRIPTS:
     [SerializeField] TrainDeckManager cs_trainDeckManager;
     [SerializeField] GameObject trainDeck;
@@ -19,31 +12,43 @@ public class MarketManager : MonoBehaviour
     [SerializeField] GameObject trainCard;
     #endregion
 
-    [SerializeField] private int maxLocomotives = 3;
+    [SerializeField] public GameObject[] cardSlots = new GameObject[5];
+    [SerializeField] GameObject[] trainCards;
     [SerializeField] public int locomotivesOnMarket = 0;
+
     private void Start()
     {
+        #region GETTING OTHER SCRIPTS:
         cs_trainDeckManager = trainDeck.GetComponent<TrainDeckManager>();
         cs_trainCard = trainCard.GetComponent<TrainCard>();
-        Mathf.Clamp(locomotivesOnMarket, 0, 3);
-        FillSlots();
+        #endregion
+        // FillSlots();
+    }
+    private void Update()
+    {
+        ResetMarket();
     }
     public void FillSlots()
     {
-        // Debug.Log("function start");
-        cs_trainDeckManager.DrawCard(cardSlot1.transform.position, cardSlot1.transform);
-        cs_trainDeckManager.DrawCard(cardSlot2.transform.position, cardSlot2.transform);
-        cs_trainDeckManager.DrawCard(cardSlot3.transform.position, cardSlot3.transform);
-        cs_trainDeckManager.DrawCard(cardSlot4.transform.position, cardSlot4.transform);
-        cs_trainDeckManager.DrawCard(cardSlot5.transform.position, cardSlot5.transform);
-        // Debug.Log("function end");
+        for (int i = 0; i < cardSlots.Length; i++)
+        {
+            cs_trainDeckManager.DrawCard(cardSlots[i].transform.position, cardSlots[i].transform, "marketTrainCard");
+            // Debug.Log("tag assigned");
+        }
     }
 
     public void ResetMarket()
     {
-        if (locomotivesOnMarket == maxLocomotives)
+        if (locomotivesOnMarket >= 3)
         {
-
+            trainCards = GameObject.FindGameObjectsWithTag("marketTrainCard");
+            // Debug.Log("put in array");
+            foreach (GameObject go in trainCards)
+            {
+                //Debug.Log("forloop running");
+                cs_trainDeckManager.DiscardCard(go);
+            }
+            
         }
     }
 

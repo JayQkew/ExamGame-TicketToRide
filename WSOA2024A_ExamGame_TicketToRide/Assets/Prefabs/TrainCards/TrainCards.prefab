@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3000957155664388266}
   m_Layer: 0
   m_Name: TrainCards
-  m_TagString: trainCard
+  m_TagString: marketTrainCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +54,8 @@ MonoBehaviour:
   go_playerhand: {fileID: 0}
   cs_marketManager: {fileID: 0}
   go_marketManager: {fileID: 0}
+  cs_trainDeckManager: {fileID: 0}
+  go_trainDeckManager: {fileID: 0}
 --- !u!1 &3000957156112899698
 GameObject:
   m_ObjectHideFlags: 0

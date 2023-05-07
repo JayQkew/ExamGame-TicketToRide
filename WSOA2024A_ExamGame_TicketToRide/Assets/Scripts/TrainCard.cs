@@ -1,8 +1,5 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using Unity.VisualScripting;
 
 public class TrainCard : MonoBehaviour
 {
@@ -16,63 +13,90 @@ public class TrainCard : MonoBehaviour
     [SerializeField] GameObject go_playerhand;
     [SerializeField] MarketManager cs_marketManager;
     [SerializeField] GameObject go_marketManager;
+    [SerializeField] TrainDeckManager cs_trainDeckManager;
+    [SerializeField] GameObject go_trainDeckManager;
     #endregion
 
     void Start()
     {
+        #region GETTING OTHER SCRIPTS:
         go_playerhand = GameObject.Find("player1");
         cs_playerHand = go_playerhand.GetComponent<PlayerHand>();
+
         go_marketManager = GameObject.Find("TrainMarket");
         cs_marketManager = go_marketManager.GetComponent<MarketManager>();
-        if (isLocomotive == true)                                                               // try make it a switch statement
+
+        go_trainDeckManager = GameObject.Find("TrainDeck");
+        cs_trainDeckManager = go_trainDeckManager.GetComponent<TrainDeckManager>();
+        #endregion
+
+        if (isLocomotive == true)
         {
-            if (transform.IsChildOf(cs_marketManager.cardSlot1.transform))
+            switch (transform.parent.name)  // checks if the parents name is "cardSlot_", if it is... add 1 to the locomotivesOnMarket.
             {
-                cs_marketManager.locomotivesOnMarket++;
-                Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
+                case "cardSlot1":
+                case "cardSlot2":
+                case "cardSlot3":
+                case "cardSlot4":
+                case "cardSlot5":
+                    cs_marketManager.locomotivesOnMarket++;
+                    Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
+                    break;
+                default:
+                    Debug.Log("you fucked up");
+                    break;
             }
-            else if (transform.IsChildOf(cs_marketManager.cardSlot2.transform))
-            {
-                cs_marketManager.locomotivesOnMarket++;
-                Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
-            }
-            else if (transform.IsChildOf(cs_marketManager.cardSlot3.transform))
-            {
-                cs_marketManager.locomotivesOnMarket++;
-                Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
-            }
-            else if (transform.IsChildOf(cs_marketManager.cardSlot4.transform))
-            {
-                cs_marketManager.locomotivesOnMarket++;
-                Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
-            }
-            else if (transform.IsChildOf(cs_marketManager.cardSlot5.transform))
-            {
-                cs_marketManager.locomotivesOnMarket++;
-                Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
-            }
+
         }
-        // Debug.Log("Card colour is: "+ colour);
-        // Debug.Log("Card faceUP: " + faceUp);
     }
 
     public void OnMouseDown()
     {
         if (Input.GetMouseButton(0))
         {
-            transform.parent = cs_playerHand.handSlot.transform;
-            transform.position = cs_playerHand.handSlot.transform.position;
-            cardSelected = true;
 
-            if (isLocomotive == true)
+            if (isLocomotive == true)       // checking if its a locomotive
             {
-                cs_marketManager.locomotivesOnMarket -= 1;
-                Debug.Log("locomotivesOnMarket - 1");
-                Debug.Log("locomotivesOnMarket =" + cs_marketManager.locomotivesOnMarket);
+                cs_marketManager.locomotivesOnMarket --;  // if it is, decreace the locomotives count on the market
+                // Debug.Log("locomotivesOnMarket - 1");
+                // Debug.Log("locomotivesOnMarket =" + cs_marketManager.locomotivesOnMarket);
             }
 
 
-        }   
+            switch (transform.parent.name)  // checks if the parents name is "cardSlot_". If it is, replace it with another card.
+            {
+                case "cardSlot1":
+                    cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[0].transform.position, cs_marketManager.cardSlots[0].transform, "marketTrainCard");
+                    // Debug.Log("card replaced");
+                    cs_marketManager.ResetMarket();
+                    break;
+                case "cardSlot2":
+                    cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[1].transform.position, cs_marketManager.cardSlots[1].transform, "marketTrainCard");
+                    cs_marketManager.ResetMarket();
+                    break;
+                case "cardSlot3":
+                    cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[2].transform.position, cs_marketManager.cardSlots[2].transform, "marketTrainCard");
+                    cs_marketManager.ResetMarket();
+                    break;
+                case "cardSlot4":
+                    cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[3].transform.position, cs_marketManager.cardSlots[3].transform, "marketTrainCard");
+                    cs_marketManager.ResetMarket();
+                    break;
+                case "cardSlot5":
+                    cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[4].transform.position, cs_marketManager.cardSlots[4].transform, "marketTrainCard");
+                    cs_marketManager.ResetMarket();
+                    break;
+                default:
+                    Debug.Log("you fucked up");
+                    break;
+
+            }
+            gameObject.tag = "trainCard";
+            transform.parent = cs_playerHand.handSlot.transform;    // object is parented to handSlot
+            transform.position = cs_playerHand.handSlot.transform.position;     // change position to handSlot
+            Debug.Log("card added");
+
+        }
     }
 
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8439962506993965921}
   m_Layer: 0
   m_Name: BlueTrainCard
-  m_TagString: trainCard
+  m_TagString: marketTrainCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +54,8 @@ MonoBehaviour:
   go_playerhand: {fileID: 0}
   cs_marketManager: {fileID: 0}
   go_marketManager: {fileID: 0}
+  cs_trainDeckManager: {fileID: 0}
+  go_trainDeckManager: {fileID: 0}
 --- !u!61 &-8599637155974409673
 BoxCollider2D:
   m_ObjectHideFlags: 0
