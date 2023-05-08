@@ -22,7 +22,7 @@ public class MarketManager : MonoBehaviour
         cs_trainDeckManager = trainDeck.GetComponent<TrainDeckManager>();
         cs_trainCard = trainCard.GetComponent<TrainCard>();
         #endregion
-        // FillSlots();
+        FillSlots();
     }
     private void Update()
     {
@@ -42,13 +42,12 @@ public class MarketManager : MonoBehaviour
         if (locomotivesOnMarket >= 3)
         {
             trainCards = GameObject.FindGameObjectsWithTag("marketTrainCard");
-            // Debug.Log("put in array");
             foreach (GameObject go in trainCards)
             {
-                //Debug.Log("forloop running");
                 cs_trainDeckManager.DiscardCard(go);
             }
-            
+            locomotivesOnMarket = 0;
+            FillSlots();
         }
     }
 

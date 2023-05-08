@@ -94,7 +94,7 @@ public class TrainCard : MonoBehaviour
             gameObject.tag = "trainCard";
             transform.parent = cs_playerHand.handSlot.transform;    // object is parented to handSlot
             transform.position = cs_playerHand.handSlot.transform.position;     // change position to handSlot
-            Debug.Log("card added");
+            // Debug.Log("card added");
 
         }
     }

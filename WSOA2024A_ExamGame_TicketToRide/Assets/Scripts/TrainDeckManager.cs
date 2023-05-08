@@ -45,7 +45,7 @@ public class TrainDeckManager : MonoBehaviour
     [SerializeField] GameObject go_marketManager;
     #endregion
 
-    void Start()
+    void Awake()
     {
         #region ADDING CARDS:
         AddingCards(redTrains, redCard);
@@ -64,6 +64,11 @@ public class TrainDeckManager : MonoBehaviour
         cs_trainCard = go_trainCard.GetComponent<TrainCard>();
         cs_marketManager = go_marketManager.GetComponent<MarketManager>();
         #endregion
+    }
+
+    private void Update()
+    {
+        ShuffleDeck();
     }
 
     private void AddingCards(int trainType, GameObject cardType)
@@ -95,5 +100,28 @@ public class TrainDeckManager : MonoBehaviour
         DrawCard(cs_playerHand.handSlot.transform.position, cs_playerHand.handSlot.transform, "trainCard"); // players hand
     }
 
+    public void ShuffleDeck()
+    {
+        if (trainCards.Count <= 0) 
+        {
+            for (int i = 0; i < discardedTrainCard.Count ; i++) 
+            {
+                discardedTrainCard[i].SetActive(true);
+                trainCards.Add(discardedTrainCard[i]);
+                Debug.Log("cards reshuffled" + i);
+
+                if (trainCards.Count == discardedTrainCard.Count)
+                {
+                    Debug.Log("Condition met");
+                    for (int j = i; j >= 0; j--)
+                    {
+                        discardedTrainCard.Remove(discardedTrainCard[j]);
+                        Debug.Log("cards removed from discarded pile: " + j);
+                    }
+                }
+            }
+            Debug.Log("deck reshuffled");
+        }
+    }
 
 }

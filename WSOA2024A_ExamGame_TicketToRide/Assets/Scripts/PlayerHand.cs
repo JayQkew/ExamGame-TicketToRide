@@ -5,7 +5,8 @@ using UnityEngine;
 [SerializeField]
 public class PlayerHand : MonoBehaviour
 {
-    [SerializeField] public GameObject handSlot;
+    [SerializeField] public List <GameObject> handSlots = new List<GameObject>();
+    [SerializeField] public GameObject handSlot;    //test
     [SerializeField] public bool playerTurn;
 
     #region OTHER SCRIPTS:
