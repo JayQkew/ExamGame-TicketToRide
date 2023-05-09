@@ -1,12 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrainDeckManager : MonoBehaviour
 {
+    #region CARD PILE LISTS:
     [SerializeField] List<GameObject> trainCards = new List<GameObject>();
-    private GameObject[] trainDeck;
-
+    [SerializeField] List<GameObject> discardedTrainCard = new List<GameObject>();
+    #endregion
 
     #region TRAIN INT VARIABLES:
     private int redTrains = 12;
@@ -17,7 +17,7 @@ public class TrainDeckManager : MonoBehaviour
     private int pinkTrains = 12;
     private int orangeTrains = 12;
     private int yellowTrains = 12;
-    private int locomotive = 12;
+    private int locomotive = 14;
     #endregion
 
     #region TRAIN GAME OBJECTS VARIABLES:
@@ -30,10 +30,24 @@ public class TrainDeckManager : MonoBehaviour
     [SerializeField] GameObject orangeCard;
     [SerializeField] GameObject yellowCard;
     [SerializeField] GameObject locomotiveCard;
+
+    [SerializeField] GameObject trainDeck;
+    [SerializeField] GameObject trainHand;
+    [SerializeField] GameObject discardedPile;
     #endregion
 
-    void Start()
+    #region OTHER SCRIPTS:
+    [SerializeField] TrainCard cs_trainCard;
+    [SerializeField] GameObject go_trainCard;
+    [SerializeField] PlayerHand cs_playerHand;
+    [SerializeField] GameObject go_playerHand;
+    [SerializeField] MarketManager cs_marketManager;
+    [SerializeField] GameObject go_marketManager;
+    #endregion
+
+    void Awake()
     {
+        #region ADDING CARDS:
         AddingCards(redTrains, redCard);
         AddingCards(greenTrains, greenCard);
         AddingCards(blueTrains, blueCard);
@@ -43,25 +57,71 @@ public class TrainDeckManager : MonoBehaviour
         AddingCards(orangeTrains, orangeCard);
         AddingCards(yellowTrains, yellowCard);
         AddingCards(locomotive, locomotiveCard);
+        #endregion
+
+        #region GETTING OTHER SCRIPTS:
+        cs_playerHand = go_playerHand.GetComponent<PlayerHand>();
+        cs_trainCard = go_trainCard.GetComponent<TrainCard>();
+        cs_marketManager = go_marketManager.GetComponent<MarketManager>();
+        #endregion
+    }
+
+    private void Update()
+    {
+        ShuffleDeck();
     }
 
     private void AddingCards(int trainType, GameObject cardType)
     {
         for (int i = 0;i < trainType; i++)
         {
-            trainCards.Add (cardType);
-        }
-
-        if (trainCards.Count == 108) 
-        {
-            trainDeck = trainCards.ToArray ();
+            trainCards.Add (cardType); // adds the trainCard into the list
         }
     }
 
-    public void DrawCard()
+    public void DrawCard(Vector3 position, Transform parent, string tag)
     {
         int randomNumber = Random.Range(0, trainCards.Count - 1);
-
-        Instantiate(trainDeck[randomNumber], Vector2.zero, Quaternion.identity);
+        Instantiate(trainCards[randomNumber], position, Quaternion.identity, parent);
+        trainCards.RemoveAt(randomNumber);
+        trainCards[randomNumber].gameObject.tag = tag;
     }
+
+    public void DiscardCard(GameObject card)
+    {
+        discardedTrainCard.Add(card);
+        card.transform.parent = discardedPile.transform;
+        card.SetActive(false);
+        Debug.Log("card destroyed");
+    }
+
+    public void OnPressDeck()
+    {
+        DrawCard(cs_playerHand.handSlot.transform.position, cs_playerHand.handSlot.transform, "trainCard"); // players hand
+    }
+
+    public void ShuffleDeck()
+    {
+        if (trainCards.Count <= 0) 
+        {
+            for (int i = 0; i < discardedTrainCard.Count ; i++) 
+            {
+                discardedTrainCard[i].SetActive(true);
+                trainCards.Add(discardedTrainCard[i]);
+                Debug.Log("cards reshuffled" + i);
+
+                if (trainCards.Count == discardedTrainCard.Count)
+                {
+                    Debug.Log("Condition met");
+                    for (int j = i; j >= 0; j--)
+                    {
+                        discardedTrainCard.Remove(discardedTrainCard[j]);
+                        Debug.Log("cards removed from discarded pile: " + j);
+                    }
+                }
+            }
+            Debug.Log("deck reshuffled");
+        }
+    }
+
 }
