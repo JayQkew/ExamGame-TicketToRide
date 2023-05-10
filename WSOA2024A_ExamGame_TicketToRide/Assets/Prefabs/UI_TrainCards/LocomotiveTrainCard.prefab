@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2969944313645310116}
   m_Layer: 5
   m_Name: LocomotiveTrainCard
-  m_TagString: Untagged
+  m_TagString: marketTrainCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.41509432, g: 0.23260945, b: 0.23260945, a: 1}
+  m_Color: {r: 0.46226418, g: 0.32009614, b: 0.32009614, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

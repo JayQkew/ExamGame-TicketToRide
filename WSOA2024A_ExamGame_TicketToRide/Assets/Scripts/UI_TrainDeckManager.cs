@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class UI_TrainDeckManager : MonoBehaviour
+public class UI_TrainDeckManager : MonoBehaviour, IPointerClickHandler
 {
     #region CARD PILE LISTS:
     [SerializeField] List<GameObject> trainCards = new List<GameObject>();
@@ -40,13 +41,19 @@ public class UI_TrainDeckManager : MonoBehaviour
     #region OTHER SCRIPTS:
     [SerializeField] UI_TrainCard cs_trainCard;
     [SerializeField] GameObject go_trainCard;
-    [SerializeField] PlayerHand cs_playerHand;
+    [SerializeField] UI_PlayerManager cs_playerHand;
     [SerializeField] GameObject go_playerHand;
-    [SerializeField] MarketManager cs_marketManager;
+    [SerializeField] UI_MarketManager cs_marketManager;
     [SerializeField] GameObject go_marketManager;
     #endregion
     void Awake()
     {
+        #region GETTING OTHER SCRIPTS:
+        cs_playerHand = go_playerHand.GetComponent<UI_PlayerManager>();
+        cs_trainCard = go_trainCard.GetComponent<UI_TrainCard>();
+        cs_marketManager = go_marketManager.GetComponent<UI_MarketManager>();
+        #endregion
+
         #region ADDING CARDS:
         AddingCards(redTrains, redCard);
         AddingCards(greenTrains, greenCard);
@@ -59,11 +66,6 @@ public class UI_TrainDeckManager : MonoBehaviour
         AddingCards(locomotive, locomotiveCard);
         #endregion
 
-        #region GETTING OTHER SCRIPTS:
-        cs_playerHand = go_playerHand.GetComponent<PlayerHand>();
-        cs_trainCard = go_trainCard.GetComponent<UI_TrainCard>();
-        cs_marketManager = go_marketManager.GetComponent<MarketManager>();
-        #endregion
     }
     private void Update()
     {
@@ -89,12 +91,12 @@ public class UI_TrainDeckManager : MonoBehaviour
     public void DiscardCard(GameObject card)
     {
         discardedTrainCards.Add(card);
-        card.transform.parent = discardedPile.transform;
+        card.transform.SetParent(discardedPile.transform, true);
         card.SetActive(false);
         Debug.Log("card destroyed");
     }
 
-    public void OnPressDeck()
+    public void OnPointerClick(PointerEventData eventData)
     {
         DrawCard(cs_playerHand.handSlot.transform.position, cs_playerHand.handSlot.transform, "trainCard"); // players hand
     }

@@ -1,30 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class UI_TrainCard : MonoBehaviour
+public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
 {
     #region OTHER SCRIPTS:
     [SerializeField] SO_TrainCards so_trainCards;
-    [SerializeField] PlayerHand cs_playerHand;
+    [SerializeField] UI_PlayerManager cs_playerHand;
     [SerializeField] GameObject go_playerhand;
-    [SerializeField] MarketManager cs_marketManager;
+    [SerializeField] UI_MarketManager cs_marketManager;
     [SerializeField] GameObject go_marketManager;
-    [SerializeField] TrainDeckManager cs_trainDeckManager;
+    [SerializeField] UI_TrainDeckManager cs_trainDeckManager;
     [SerializeField] GameObject go_trainDeckManager;
     #endregion
 
     void Awake()
     {
         #region GETTING OTHER SCRIPTS:
-        go_playerhand = GameObject.Find("player1");
-        cs_playerHand = go_playerhand.GetComponent<PlayerHand>();
+        go_playerhand = GameObject.Find("Player_1");
+        cs_playerHand = go_playerhand.GetComponent<UI_PlayerManager>();
 
         go_marketManager = GameObject.Find("TrainMarket");
-        cs_marketManager = go_marketManager.GetComponent<MarketManager>();
+        cs_marketManager = go_marketManager.GetComponent<UI_MarketManager>();
 
         go_trainDeckManager = GameObject.Find("TrainDeck");
-        cs_trainDeckManager = go_trainDeckManager.GetComponent<TrainDeckManager>();
+        cs_trainDeckManager = go_trainDeckManager.GetComponent<UI_TrainDeckManager>();
         #endregion
     }
 
@@ -51,11 +52,9 @@ public class UI_TrainCard : MonoBehaviour
 
     }
 
-    public void OnMouseDown()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (Input.GetMouseButton(0))
-        {
-
+        Debug.Log("even captured");
             if (so_trainCards.isLocomotive == true)       // checking if its a locomotive
             {
                 cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
@@ -92,12 +91,12 @@ public class UI_TrainCard : MonoBehaviour
                     break;
 
             }
-            gameObject.tag = "trainCard";
-            transform.parent = cs_playerHand.handSlot.transform;    // object is parented to handSlot
-            transform.position = cs_playerHand.handSlot.transform.position;     // change position to handSlot
+        gameObject.tag = "trainCard";
+        transform.SetParent(cs_playerHand.handSlot.transform, true);    // object is parented to handSlot
+        transform.position = cs_playerHand.handSlot.transform.position;     // change position to handSlot
             // Debug.Log("card added");
 
-        }
+        
     }
 
 }
