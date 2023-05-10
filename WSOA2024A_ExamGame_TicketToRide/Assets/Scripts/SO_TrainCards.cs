@@ -7,4 +7,8 @@ using UnityEngine.UI;
 public class SO_TrainCards : ScriptableObject
 {
     [SerializeField] public string colour;
+    [SerializeField] public bool isLocomotive;
+    [SerializeField] public bool faceUp;
+
+
 }
