@@ -7,6 +7,6 @@ public class SO_DestinationTicket : ScriptableObject
 {
     public string from;
     public string to;
-    public Sprite destinatnImage;
+    public Sprite destinationImage;
     public int points;
 }
