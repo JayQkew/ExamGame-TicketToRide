@@ -6,6 +6,7 @@ public class UI_PlayerManager : MonoBehaviour
 {
     [SerializeField] public List<GameObject> handSlots = new List<GameObject>();
     [SerializeField] public GameObject handSlot;    //test
+    [SerializeField] public Transform trainHand;
     [SerializeField] public bool playerTurn;
 
     #region OTHER SCRIPTS:
@@ -23,9 +24,11 @@ public class UI_PlayerManager : MonoBehaviour
 
     public void CreateHandSlot()
     {
-        if (cs_trainCard == true)
-        {
-        }
+        handSlots.Add(Instantiate(handSlot, trainHand)); // add the instantiated handSlot into the list. parent the object to the trainHand
     }
 
+    public void HandLayout()
+    {
+
+    }
 }

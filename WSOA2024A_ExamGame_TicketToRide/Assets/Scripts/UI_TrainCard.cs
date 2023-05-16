@@ -31,16 +31,16 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
-        if (so_trainCards.isLocomotive == true)
+        if (so_trainCards.isLocomotive == true) // checks if the card is a locomotive at the start of the game, if true, run the code
         {
-            switch (transform.parent.name)  // checks if the parents name is "cardSlot_", if it is... add 1 to the locomotivesOnMarket.
+            switch (transform.parent.name)  // if it is the child of any cardSlot
             {
                 case "cardSlot1":
                 case "cardSlot2":
                 case "cardSlot3":
                 case "cardSlot4":
                 case "cardSlot5":
-                    cs_marketManager.locomotivesOnMarket++;
+                    cs_marketManager.locomotivesOnMarket++; // increase the locomotiveOnMarket
                     Debug.Log("locomotiveOnMarket = " + cs_marketManager.locomotivesOnMarket);
                     break;
                 default:
@@ -54,21 +54,17 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("even captured");
             if (so_trainCards.isLocomotive == true)       // checking if its a locomotive
             {
                 cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
-                // Debug.Log("locomotivesOnMarket - 1");
-                // Debug.Log("locomotivesOnMarket =" + cs_marketManager.locomotivesOnMarket);
             }
-
 
             switch (transform.parent.name)  // checks if the parents name is "cardSlot_". If it is, replace it with another card.
             {
                 case "cardSlot1":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[0].transform.position, cs_marketManager.cardSlots[0].transform, "marketTrainCard");
                     // Debug.Log("card replaced");
-                    cs_marketManager.ResetMarket();
+                    cs_marketManager.ResetMarket(); // check if it needs to reset the market
                     break;
                 case "cardSlot2":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[1].transform.position, cs_marketManager.cardSlots[1].transform, "marketTrainCard");
@@ -91,9 +87,9 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
                     break;
 
             }
-        gameObject.tag = "trainCard";
-        transform.SetParent(cs_playerHand.handSlot.transform, true);    // object is parented to handSlot
-        transform.position = cs_playerHand.handSlot.transform.position;     // change position to handSlot
+        gameObject.tag = "trainCard"; // assign tag "trainCard" to the gameObject
+        transform.SetParent(cs_playerHand.handSlot.transform);    // object is parented to handSlot
+        transform.position = cs_playerHand.handSlot.transform.position;     // change position to handSlot ******* Change to List *********
             // Debug.Log("card added");
 
         
