@@ -7,8 +7,8 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
 {
     #region OTHER SCRIPTS:
     [SerializeField] SO_TrainCards so_trainCards;
-    [SerializeField] UI_PlayerManager cs_playerHand;
-    [SerializeField] GameObject go_playerhand;
+    [SerializeField] UI_PlayerManager cs_playerManager;
+    [SerializeField] GameObject go_playerManager;
     [SerializeField] UI_MarketManager cs_marketManager;
     [SerializeField] GameObject go_marketManager;
     [SerializeField] UI_TrainDeckManager cs_trainDeckManager;
@@ -18,8 +18,8 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
     void Awake()
     {
         #region GETTING OTHER SCRIPTS:
-        go_playerhand = GameObject.Find("Player_1");
-        cs_playerHand = go_playerhand.GetComponent<UI_PlayerManager>();
+        go_playerManager = GameObject.Find("Player_1");
+        cs_playerManager = go_playerManager.GetComponent<UI_PlayerManager>();
 
         go_marketManager = GameObject.Find("TrainMarket");
         cs_marketManager = go_marketManager.GetComponent<UI_MarketManager>();
@@ -54,43 +54,113 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-            if (so_trainCards.isLocomotive == true)       // checking if its a locomotive
-            {
-                cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
-            }
-
+        if (so_trainCards.isLocomotive == true)       // checking if its a locomotive
+        {
             switch (transform.parent.name)  // checks if the parents name is "cardSlot_". If it is, replace it with another card.
             {
                 case "cardSlot1":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[0].transform.position, cs_marketManager.cardSlots[0].transform, "marketTrainCard");
-                    // Debug.Log("card replaced");
+                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.SortTrainHand();
+                    cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
+                    break;
+                case "cardSlot2":
+                    cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[1].transform.position, cs_marketManager.cardSlots[1].transform, "marketTrainCard");
+                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.SortTrainHand();
+                    cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
+                    break;
+                case "cardSlot3":
+                    cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[2].transform.position, cs_marketManager.cardSlots[2].transform, "marketTrainCard");
+                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.SortTrainHand();
+                    cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
+                    break;
+                case "cardSlot4":
+                    cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[3].transform.position, cs_marketManager.cardSlots[3].transform, "marketTrainCard");
+                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.SortTrainHand();
+                    cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
+                    break;
+                case "cardSlot5":
+                    cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[4].transform.position, cs_marketManager.cardSlots[4].transform, "marketTrainCard");
+                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.SortTrainHand();
+                    cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
+                    break;
+                case "trainHand": // if its already in the train hand, pop it to the front of the trainhand
+                    cs_playerManager.handSlots.Remove(eventData.pointerClick.gameObject);
+                    cs_trainDeckManager.DiscardCard(eventData.pointerClick.gameObject);
+                    for (int i = 0; i < cs_playerManager.handSlots.IndexOf(eventData.pointerClick); i++)
+                    {
+                        cs_playerManager.handSlots[i].gameObject.transform.position += new Vector3(20, 0, 0);
+                    }
+                    break;
+
+                default:
+                    Debug.Log("you fucked up");
+                    break;
+            }
+        }
+        else if (so_trainCards.isLocomotive == false)
+        {
+            switch (transform.parent.name)  // checks the parents name. If it is cardSlot_, replace it with another card.
+            {
+                case "cardSlot1":
+                    cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[0].transform.position, cs_marketManager.cardSlots[0].transform, "marketTrainCard");
+                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket(); // check if it needs to reset the market
                     break;
                 case "cardSlot2":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[1].transform.position, cs_marketManager.cardSlots[1].transform, "marketTrainCard");
+                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
                 case "cardSlot3":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[2].transform.position, cs_marketManager.cardSlots[2].transform, "marketTrainCard");
+                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
                 case "cardSlot4":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[3].transform.position, cs_marketManager.cardSlots[3].transform, "marketTrainCard");
+                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
                 case "cardSlot5":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[4].transform.position, cs_marketManager.cardSlots[4].transform, "marketTrainCard");
+                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
+                case "trainHand": // if its already in the train hand, pop it to the front of the trainhand
+                    cs_playerManager.handSlots.Remove(eventData.pointerClick.gameObject);
+                    cs_trainDeckManager.DiscardCard(eventData.pointerClick.gameObject);
+                    Debug.Log(cs_playerManager.handSlots.IndexOf(gameObject));
+                    for (int i = 0; i < cs_playerManager.handSlots.IndexOf(gameObject); i++)
+                    {
+                        cs_playerManager.handSlots[i].gameObject.transform.position += new Vector3(20, 0, 0);
+                    }
+                        break;
                 default:
                     Debug.Log("you fucked up");
                     break;
 
             }
+        }
         gameObject.tag = "trainCard"; // assign tag "trainCard" to the gameObject
-        transform.SetParent(cs_playerHand.handSlot.transform);    // object is parented to handSlot
-        transform.position = cs_playerHand.handSlot.transform.position;     // change position to handSlot ******* Change to List *********
-            // Debug.Log("card added");
+        if (transform.parent.name == "trainHand") 
+        {
+            transform.SetParent(cs_trainDeckManager.discardedPile.transform);
+        }
+        else
+        {
+            transform.SetParent(cs_playerManager.trainHand);
+        }
+        transform.position = cs_playerManager.trainHand.position;
 
         
     }

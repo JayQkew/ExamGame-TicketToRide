@@ -28,21 +28,21 @@ public class UI_TrainDeckManager : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] GameObject trainDeck;
     [SerializeField] GameObject trainHand;
-    [SerializeField] GameObject discardedPile;
+    [SerializeField] public GameObject discardedPile;
     #endregion
 
     #region OTHER SCRIPTS:
     [SerializeField] UI_TrainCard cs_trainCard;
     [SerializeField] GameObject go_trainCard;
-    [SerializeField] UI_PlayerManager cs_playerHand;
-    [SerializeField] GameObject go_playerHand;
+    [SerializeField] UI_PlayerManager cs_playerManager;
+    [SerializeField] GameObject go_playerManager;
     [SerializeField] UI_MarketManager cs_marketManager;
     [SerializeField] GameObject go_marketManager;
     #endregion
     void Awake()
     {
         #region GETTING OTHER SCRIPTS:
-        cs_playerHand = go_playerHand.GetComponent<UI_PlayerManager>();
+        cs_playerManager = go_playerManager.GetComponent<UI_PlayerManager>();
         cs_trainCard = go_trainCard.GetComponent<UI_TrainCard>();
         cs_marketManager = go_marketManager.GetComponent<UI_MarketManager>();
         #endregion
@@ -84,13 +84,18 @@ public class UI_TrainDeckManager : MonoBehaviour, IPointerClickHandler
     public void DiscardCard(GameObject card) //to keep the cards that are discarded and to be used again.
     {
         discardedTrainCards.Add(card); // add the card to the list
-        card.transform.SetParent(discardedPile.transform, true); // set the cards parent to the discard pile
+        card.transform.SetParent(discardedPile.transform); // set the cards parent to the discard pile
         card.SetActive(false); // set unactive
+        Debug.Log("Card discarded");
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        DrawCard(cs_playerHand.handSlot.transform.position, cs_playerHand.handSlot.transform, "trainCard"); //puts the card in the players hand.
+        // DrawCard(cs_playerManager.handSlots[cs_playerManager.handSlots.Count - 1].transform.position, cs_playerManager.handSlots[cs_playerManager.handSlots.Count - 1].transform, "trainCard"); //puts the card in the players hand.
+        DrawCard(cs_playerManager.trainHand.position, cs_playerManager.trainHand, "trainCard");
+        int childIndex = cs_playerManager.handSlots.Count;
+        GameObject.Find(cs_playerManager.trainHand.GetChild(childIndex).gameObject.name);
+        cs_playerManager.SortTrainHand();
     }
 
     public void ShuffleDeck()

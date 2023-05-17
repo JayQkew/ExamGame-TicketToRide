@@ -22,9 +22,12 @@ public class UI_PlayerManager : MonoBehaviour
         cs_trainDeckManager = go_trainDeckManager.GetComponent<UI_TrainDeckManager>();
     }
 
-    public void CreateHandSlot()
+    public void SortTrainHand()
     {
-        handSlots.Add(Instantiate(handSlot, trainHand)); // add the instantiated handSlot into the list. parent the object to the trainHand
+        foreach (GameObject handSlot in handSlots) // for each existing handslot
+        {
+            handSlot.transform.position -= new Vector3(20, 0, 0); //move them 20 to the left
+        }
     }
 
     public void HandLayout()
