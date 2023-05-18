@@ -6,26 +6,20 @@ using UnityEngine.EventSystems;
 public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
 {
     #region OTHER SCRIPTS:
-    [SerializeField] SO_TrainCards so_trainCards;
+    [SerializeField] public SO_TrainCards so_trainCards;
     [SerializeField] UI_PlayerManager cs_playerManager;
-    [SerializeField] GameObject go_playerManager;
     [SerializeField] UI_MarketManager cs_marketManager;
-    [SerializeField] GameObject go_marketManager;
     [SerializeField] UI_TrainDeckManager cs_trainDeckManager;
-    [SerializeField] GameObject go_trainDeckManager;
     #endregion
 
     void Awake()
     {
         #region GETTING OTHER SCRIPTS:
-        go_playerManager = GameObject.Find("Player_1");
-        cs_playerManager = go_playerManager.GetComponent<UI_PlayerManager>();
+        cs_playerManager = GameObject.Find("Player_1").GetComponent<UI_PlayerManager>();
 
-        go_marketManager = GameObject.Find("TrainMarket");
-        cs_marketManager = go_marketManager.GetComponent<UI_MarketManager>();
+        cs_marketManager = GameObject.Find("TrainMarket").GetComponent<UI_MarketManager>();
 
-        go_trainDeckManager = GameObject.Find("TrainDeck");
-        cs_trainDeckManager = go_trainDeckManager.GetComponent<UI_TrainDeckManager>();
+        cs_trainDeckManager = GameObject.Find("TrainDeck").GetComponent<UI_TrainDeckManager>();
         #endregion
     }
 
@@ -60,41 +54,37 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
             {
                 case "cardSlot1":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[0].transform.position, cs_marketManager.cardSlots[0].transform, "marketTrainCard");
-                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.trainHandCards.Add(eventData.pointerClick);
                     cs_playerManager.SortTrainHand();
                     cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
                     break;
                 case "cardSlot2":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[1].transform.position, cs_marketManager.cardSlots[1].transform, "marketTrainCard");
-                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.trainHandCards.Add(eventData.pointerClick);
                     cs_playerManager.SortTrainHand();
                     cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
                     break;
                 case "cardSlot3":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[2].transform.position, cs_marketManager.cardSlots[2].transform, "marketTrainCard");
-                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.trainHandCards.Add(eventData.pointerClick);
                     cs_playerManager.SortTrainHand();
                     cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
                     break;
                 case "cardSlot4":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[3].transform.position, cs_marketManager.cardSlots[3].transform, "marketTrainCard");
-                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.trainHandCards.Add(eventData.pointerClick);
                     cs_playerManager.SortTrainHand();
                     cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
                     break;
                 case "cardSlot5":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[4].transform.position, cs_marketManager.cardSlots[4].transform, "marketTrainCard");
-                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.trainHandCards.Add(eventData.pointerClick);
                     cs_playerManager.SortTrainHand();
                     cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
                     break;
                 case "trainHand": // if its already in the train hand, pop it to the front of the trainhand
-                    cs_playerManager.handSlots.Remove(eventData.pointerClick.gameObject);
+                    cs_playerManager.trainHandCards.Remove(eventData.pointerClick.gameObject);
                     cs_trainDeckManager.DiscardCard(eventData.pointerClick.gameObject);
-                    for (int i = 0; i < cs_playerManager.handSlots.IndexOf(eventData.pointerClick); i++)
-                    {
-                        cs_playerManager.handSlots[i].gameObject.transform.position += new Vector3(20, 0, 0);
-                    }
                     break;
 
                 default:
@@ -108,41 +98,41 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
             {
                 case "cardSlot1":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[0].transform.position, cs_marketManager.cardSlots[0].transform, "marketTrainCard");
-                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.trainHandCards.Add(eventData.pointerClick);
                     cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket(); // check if it needs to reset the market
                     break;
                 case "cardSlot2":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[1].transform.position, cs_marketManager.cardSlots[1].transform, "marketTrainCard");
-                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.trainHandCards.Add(eventData.pointerClick);
                     cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
                 case "cardSlot3":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[2].transform.position, cs_marketManager.cardSlots[2].transform, "marketTrainCard");
-                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.trainHandCards.Add(eventData.pointerClick);
                     cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
                 case "cardSlot4":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[3].transform.position, cs_marketManager.cardSlots[3].transform, "marketTrainCard");
-                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.trainHandCards.Add(eventData.pointerClick);
                     cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
                 case "cardSlot5":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[4].transform.position, cs_marketManager.cardSlots[4].transform, "marketTrainCard");
-                    cs_playerManager.handSlots.Add(eventData.pointerClick);
+                    cs_playerManager.trainHandCards.Add(eventData.pointerClick);
                     cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
                 case "trainHand": // if its already in the train hand, pop it to the front of the trainhand
-                    cs_playerManager.handSlots.Remove(eventData.pointerClick.gameObject);
+                    cs_playerManager.trainHandCards.Remove(eventData.pointerClick.gameObject);
                     cs_trainDeckManager.DiscardCard(eventData.pointerClick.gameObject);
-                    Debug.Log(cs_playerManager.handSlots.IndexOf(gameObject));
-                    for (int i = 0; i < cs_playerManager.handSlots.IndexOf(gameObject); i++)
+                    Debug.Log(cs_playerManager.trainHandCards.IndexOf(gameObject));
+                    for (int i = 0; i < cs_playerManager.trainHandCards.IndexOf(gameObject); i++)
                     {
-                        cs_playerManager.handSlots[i].gameObject.transform.position += new Vector3(20, 0, 0);
+                        cs_playerManager.trainHandCards[i].gameObject.transform.position += new Vector3(20, 0, 0);
                     }
                         break;
                 default:

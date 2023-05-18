@@ -168,8 +168,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   so_trainCards: {fileID: 11400000, guid: e7cf9aaaadfd7384f9100d288fbbabc9, type: 2}
   cs_playerManager: {fileID: 0}
-  go_playerManager: {fileID: 0}
   cs_marketManager: {fileID: 0}
-  go_marketManager: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  go_trainDeckManager: {fileID: 0}

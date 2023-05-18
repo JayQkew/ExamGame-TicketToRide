@@ -1,24 +1,144 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DestinationDeck : MonoBehaviour
+public class DestinationDeck : MonoBehaviour, IPointerClickHandler
 {
-    //THe list of destination tickets for the game
-    List<DestinationCard> destinationCards = new List<DestinationCard>();
+    
+    #region LISTS:
+    [SerializeField] List<DestinationCard> sO_destinationCards = new List<DestinationCard>(); //THe list of destination tickets for the game]
+    [SerializeField] List<GameObject> destinationCards = new List<GameObject>();
+    [SerializeField] List<GameObject> discardedDestinationCards = new List<GameObject>();
+    #endregion
 
+    #region DESTINATION CARDS:
+    [SerializeField] GameObject BostonMiami;
+    [SerializeField] GameObject CalgaryPhoenix;
+    [SerializeField] GameObject CalgarySaltLakeCity;
+    [SerializeField] GameObject ChicagoNewOrleans;
+    [SerializeField] GameObject ChicagoSantaFe;
+    [SerializeField] GameObject DallasNewYork;
+    [SerializeField] GameObject DenverElPaso;
+    [SerializeField] GameObject DenverPittsburgh;
+    [SerializeField] GameObject DuluthElPaso;
+    [SerializeField] GameObject DuluthHouston;
+    [SerializeField] GameObject HelenaLosAngeles;
+    [SerializeField] GameObject KansasCityHouston;
+    [SerializeField] GameObject LosAngelesChicago;
+    [SerializeField] GameObject LosAngeleseMiami;
+    [SerializeField] GameObject LosAngelesNewYork;
+    [SerializeField] GameObject MontrealAtlanta;
+    [SerializeField] GameObject MontrealNewOrleans;
+    [SerializeField] GameObject NewYorkAtlanta;
+    [SerializeField] GameObject PortlandNashville;
+    [SerializeField] GameObject PortlandPhoenix;
+    [SerializeField] GameObject SanFranciscoAtlanta;
+    [SerializeField] GameObject SaultStMarieNashville;
+    [SerializeField] GameObject SaultStMarieOklahomaCity;
+    [SerializeField] GameObject SeattleLosAngeles;
+    [SerializeField] GameObject SeattleNewYork;
+    [SerializeField] GameObject TorontoMiami;
+    [SerializeField] GameObject VancouverMontreal;
+    [SerializeField] GameObject VancouverSantaFe;
+    [SerializeField] GameObject WinnipegHouston;
+    [SerializeField] GameObject WinnipegLittleRock;
+    #endregion
+
+    #region VARIABLES:
+    [SerializeField] GameObject destinationDeck;
+    [SerializeField] public GameObject destinationDiscardedPile;
+    #endregion
+
+    #region OTHER GAME OBJECTS:
+    [SerializeField] public GameObject[] choices = new GameObject[3];
+    #endregion
     void Start()
     {
         //This foreach loop looks for all the objects in the DestinationCards folder and adds them to the list
-        object[] loadedObjects = Resources.LoadAll("DestinationCards", typeof(DestinationCard));
+        object[] loadedObjects = Resources.LoadAll("SO_DestinationCards", typeof(DestinationCard));
         foreach (object obj in loadedObjects)
         {
             DestinationCard destinationCard = (DestinationCard)obj;
-            destinationCards.Add(destinationCard);
+            sO_destinationCards.Add(destinationCard);
+        }
+
+        // foreach that adds all the destinationCard prefabs into the list
+        object[] loadedObjects1 = Resources.LoadAll("p_DestinationCards", typeof(GameObject));
+        foreach (object obj in loadedObjects1)
+        {
+            GameObject go = (GameObject)obj;
+            destinationCards.Add(go);
+        }
+
+        #region ADDING DESTINATIONS:
+        destinationCards.Add(BostonMiami);
+        destinationCards.Add(CalgaryPhoenix);
+        destinationCards.Add(CalgarySaltLakeCity);
+        destinationCards.Add(ChicagoNewOrleans);
+        destinationCards.Add(ChicagoSantaFe);
+        destinationCards.Add(DallasNewYork);
+        destinationCards.Add(DenverElPaso);
+        destinationCards.Add(DenverPittsburgh);
+        destinationCards.Add(DuluthElPaso);
+        destinationCards.Add(DuluthHouston);
+        destinationCards.Add(HelenaLosAngeles);
+        destinationCards.Add(KansasCityHouston);
+        destinationCards.Add(LosAngelesChicago);
+        destinationCards.Add(LosAngeleseMiami);
+        destinationCards.Add(LosAngelesNewYork);
+        destinationCards.Add(MontrealAtlanta);
+        destinationCards.Add(MontrealNewOrleans);
+        destinationCards.Add(NewYorkAtlanta);
+        destinationCards.Add(PortlandNashville);
+        destinationCards.Add(PortlandPhoenix);
+        destinationCards.Add(SanFranciscoAtlanta);
+        destinationCards.Add(SaultStMarieNashville);
+        destinationCards.Add(SaultStMarieOklahomaCity);
+        destinationCards.Add(SeattleLosAngeles);
+        destinationCards.Add(SeattleNewYork);
+        destinationCards.Add(TorontoMiami);
+        destinationCards.Add(VancouverMontreal);
+        destinationCards.Add(VancouverSantaFe);
+        destinationCards.Add(WinnipegHouston);
+        destinationCards.Add(WinnipegLittleRock);
+        #endregion
+    }
+
+    public void DrawDestinationCards(Vector3 position, Transform parent) // method to use when drawing a random destination card
+    {
+        int randomNumber = Random.Range(0, destinationCards.Count - 1);
+        Instantiate(destinationCards[randomNumber], position, Quaternion.identity, parent);
+        destinationCards.RemoveAt(randomNumber);
+    }
+
+    public void DiscardDestinationCard(GameObject card) // method to use when discarding a destination card
+    {
+        discardedDestinationCards.Add(card);
+        card.transform.SetParent(destinationDiscardedPile.transform);
+        card.SetActive(false);
+    }
+
+    public void ShuffleDiscardedDestination()
+    {
+        if(destinationCards.Count <= 0)
+        {
+            for (int i = 0; i < discardedDestinationCards.Count; i++)
+            {
+                discardedDestinationCards[i].SetActive(true);
+                destinationCards.Add(discardedDestinationCards[i]);
+                if (destinationCards.Count == discardedDestinationCards.Count)
+                {
+                    discardedDestinationCards.Clear();
+                }
+            }
         }
     }
 
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-
+        for(int i = 0; i < 3; i++)
+        {
+            DrawDestinationCards(choices[i].transform.position, choices[i].transform);
+        }
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2969944313645310116}
   m_Layer: 5
   m_Name: LocomotiveTrainCard
-  m_TagString: marketTrainCard
+  m_TagString: trainCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

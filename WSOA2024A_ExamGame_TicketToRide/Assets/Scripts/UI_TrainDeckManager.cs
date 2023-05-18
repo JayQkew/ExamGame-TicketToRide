@@ -26,7 +26,6 @@ public class UI_TrainDeckManager : MonoBehaviour, IPointerClickHandler
     [SerializeField] GameObject yellowCard;
     [SerializeField] GameObject locomotiveCard;
 
-    [SerializeField] GameObject trainDeck;
     [SerializeField] GameObject trainHand;
     [SerializeField] public GameObject discardedPile;
     #endregion
@@ -93,8 +92,6 @@ public class UI_TrainDeckManager : MonoBehaviour, IPointerClickHandler
     {
         // DrawCard(cs_playerManager.handSlots[cs_playerManager.handSlots.Count - 1].transform.position, cs_playerManager.handSlots[cs_playerManager.handSlots.Count - 1].transform, "trainCard"); //puts the card in the players hand.
         DrawCard(cs_playerManager.trainHand.position, cs_playerManager.trainHand, "trainCard");
-        int childIndex = cs_playerManager.handSlots.Count;
-        GameObject.Find(cs_playerManager.trainHand.GetChild(childIndex).gameObject.name);
         cs_playerManager.SortTrainHand();
     }
 
