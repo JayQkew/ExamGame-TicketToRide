@@ -769,7 +769,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1485189478937563783}
   - {fileID: 7386061461790182942}
@@ -783,7 +783,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 120, y: 100}
+  m_SizeDelta: {x: 686, y: 386}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7352292684062749008
 CanvasRenderer:
@@ -836,6 +836,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sO_DestinationTicket: {fileID: 11400000, guid: d5af0cc356865f545a0ad9530c517b87, type: 2}
+  cs_playerManager: {fileID: 0}
+  cs_destinationDeck: {fileID: 0}
+  doneButton: {fileID: 0}
   tmp_from: {fileID: 6593184188345586531}
   tmp_to: {fileID: 8898150941898108053}
   tmp_points: {fileID: 9129711898909749083}

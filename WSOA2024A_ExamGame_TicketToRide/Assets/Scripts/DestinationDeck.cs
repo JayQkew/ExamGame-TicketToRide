@@ -47,10 +47,13 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
     #region VARIABLES:
     [SerializeField] GameObject destinationDeck;
     [SerializeField] public GameObject destinationDiscardedPile;
+    [SerializeField] public int cardsChosen;
     #endregion
 
     #region OTHER GAME OBJECTS:
     [SerializeField] public GameObject[] choices = new GameObject[3];
+    [SerializeField] GameObject p_destinationChoices;
+    [SerializeField] public GameObject doneButton;
     #endregion
     void Start()
     {
@@ -118,7 +121,7 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
         card.SetActive(false);
     }
 
-    public void ShuffleDiscardedDestination()
+    public void ShuffleDiscardedDestination() // Shuffles the discarded destination cards back into the destinationCards list
     {
         if(destinationCards.Count <= 0)
         {
@@ -134,11 +137,25 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData) // when the action is chosen
     {
+        p_destinationChoices.gameObject.SetActive(true); // set the panel active
         for(int i = 0; i < 3; i++)
         {
-            DrawDestinationCards(choices[i].transform.position, choices[i].transform);
+            DrawDestinationCards(choices[i].transform.position, choices[i].transform); // draw 3 random destination cards and parent them to the choices
         }
+    }
+
+    public void DoneButtonClick()
+    {
+        foreach (GameObject choice in choices) // goes through each choice 
+        {
+            if (choice.transform.childCount == 1) // if any of them have children
+            {
+                DiscardDestinationCard(choice.transform.GetChild(0).gameObject); // discard those children
+            }
+        }
+        p_destinationChoices.SetActive(false); // set the panel to false
+        doneButton.gameObject.SetActive(false); // set the button itself to false
     }
 }

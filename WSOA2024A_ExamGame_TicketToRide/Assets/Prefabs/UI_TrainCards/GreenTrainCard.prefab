@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 75}
+  m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4516017568582211716
 CanvasRenderer:
@@ -92,11 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   so_trainCards: {fileID: 11400000, guid: dcf25292a3ed18744aeba1e4d0af6cd5, type: 2}
   cs_playerManager: {fileID: 0}
-  go_playerManager: {fileID: 0}
   cs_marketManager: {fileID: 0}
-  go_marketManager: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  go_trainDeckManager: {fileID: 0}
 --- !u!1 &8187954384854222378
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +130,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 75}
+  m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4083918784318752918
 CanvasRenderer:

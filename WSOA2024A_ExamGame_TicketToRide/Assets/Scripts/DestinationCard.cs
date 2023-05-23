@@ -6,6 +6,9 @@ using TMPro;
 
 public class DestinationCard : MonoBehaviour, IPointerClickHandler
 {
+    #region VARIABLES:
+    #endregion
+
     #region OTHER SCRIPTS:
     [SerializeField] SO_DestinationTicket sO_DestinationTicket;
     [SerializeField] UI_PlayerManager cs_playerManager;
@@ -13,6 +16,7 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
     #endregion
 
     #region GAMEOBJECTS:
+    [SerializeField] GameObject doneButton;
     #endregion
 
     #region OTHER COMPONENTS:
@@ -46,7 +50,13 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
                 cs_playerManager.destinationHandCards.Add(eventData.pointerClick); // adds it to the players list of destination cards
                 eventData.pointerClick.transform.SetParent(cs_playerManager.destinationHand); // sets it parent to the destinationHand of the player (to be sorted)
                 eventData.pointerClick.transform.position = cs_playerManager.destinationHand.transform.position; // transforms its position to the destinationHand
+                cs_destinationDeck.cardsChosen += 1;
                 break;
+        }
+
+        if(cs_destinationDeck.cardsChosen >= 1)
+        {
+            cs_destinationDeck.doneButton.SetActive(true);
         }
     }
 }
