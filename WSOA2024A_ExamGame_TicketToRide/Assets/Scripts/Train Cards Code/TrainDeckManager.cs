@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UI_TrainDeckManager : MonoBehaviour, IPointerClickHandler
+public class TrainDeckManager : MonoBehaviour, IPointerClickHandler
 {
     #region CARD PILE LISTS:
     [SerializeField] List<GameObject> trainCards = new List<GameObject>();
@@ -31,19 +31,19 @@ public class UI_TrainDeckManager : MonoBehaviour, IPointerClickHandler
     #endregion
 
     #region OTHER SCRIPTS:
-    [SerializeField] UI_TrainCard cs_trainCard;
+    [SerializeField] TrainCard cs_trainCard;
     [SerializeField] GameObject go_trainCard;
-    [SerializeField] UI_PlayerManager cs_playerManager;
+    [SerializeField] PlayerManager cs_playerManager;
     [SerializeField] GameObject go_playerManager;
-    [SerializeField] UI_MarketManager cs_marketManager;
+    [SerializeField] MarketManager cs_marketManager;
     [SerializeField] GameObject go_marketManager;
     #endregion
     void Awake()
     {
         #region GETTING OTHER SCRIPTS:
-        cs_playerManager = go_playerManager.GetComponent<UI_PlayerManager>();
-        cs_trainCard = go_trainCard.GetComponent<UI_TrainCard>();
-        cs_marketManager = go_marketManager.GetComponent<UI_MarketManager>();
+        cs_playerManager = go_playerManager.GetComponent<PlayerManager>();
+        cs_trainCard = go_trainCard.GetComponent<TrainCard>();
+        cs_marketManager = go_marketManager.GetComponent<MarketManager>();
         #endregion
 
         #region ADDING CARDS:

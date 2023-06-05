@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_MarketManager : MonoBehaviour
+public class MarketManager : MonoBehaviour
 {
     #region OTHER SCRIPTS:
-    [SerializeField] UI_TrainDeckManager cs_trainDeckManager;
+    [SerializeField] TrainDeckManager cs_trainDeckManager;
     [SerializeField] GameObject go_trainDeck;
-    [SerializeField] UI_TrainCard cs_trainCard;
+    [SerializeField] TrainCard cs_trainCard;
     [SerializeField] GameObject go_trainCard;
     #endregion
 
@@ -18,8 +18,8 @@ public class UI_MarketManager : MonoBehaviour
     private void Awake()
     {
         #region GETTING OTHER SCRIPTS:
-        cs_trainDeckManager = go_trainDeck.GetComponent<UI_TrainDeckManager>();
-        cs_trainCard = go_trainCard.GetComponent<UI_TrainCard>();
+        cs_trainDeckManager = go_trainDeck.GetComponent<TrainDeckManager>();
+        cs_trainCard = go_trainCard.GetComponent<TrainCard>();
         #endregion
     }
     private void Start()

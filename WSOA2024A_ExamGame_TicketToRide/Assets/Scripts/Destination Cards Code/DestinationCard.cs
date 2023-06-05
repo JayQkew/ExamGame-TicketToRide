@@ -11,7 +11,7 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
 
     #region OTHER SCRIPTS:
     [SerializeField] SO_DestinationTicket sO_DestinationTicket;
-    [SerializeField] UI_PlayerManager cs_playerManager;
+    [SerializeField] PlayerManager cs_playerManager;
     [SerializeField] DestinationDeck cs_destinationDeck;
     #endregion
 
@@ -28,7 +28,7 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         #region GETTING OTHER SCRIPTS:
-        cs_playerManager = GameObject.Find("Player_1").GetComponent<UI_PlayerManager>();
+        cs_playerManager = GameObject.Find("Player_1").GetComponent<PlayerManager>();
 
         cs_destinationDeck = GameObject.Find("DestinationsDeck").GetComponent<DestinationDeck>();
         #endregion

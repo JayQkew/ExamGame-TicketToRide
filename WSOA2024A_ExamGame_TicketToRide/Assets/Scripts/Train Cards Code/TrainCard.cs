@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
+public class TrainCard : MonoBehaviour, IPointerClickHandler
 {
     #region OTHER SCRIPTS:
     [SerializeField] public SO_TrainCards so_trainCards;
-    [SerializeField] UI_PlayerManager cs_playerManager;
-    [SerializeField] UI_MarketManager cs_marketManager;
-    [SerializeField] UI_TrainDeckManager cs_trainDeckManager;
+    [SerializeField] PlayerManager cs_playerManager;
+    [SerializeField] MarketManager cs_marketManager;
+    [SerializeField] TrainDeckManager cs_trainDeckManager;
     #endregion
 
     void Awake()
     {
         #region GETTING OTHER SCRIPTS:
-        cs_playerManager = GameObject.Find("Player_1").GetComponent<UI_PlayerManager>();
+        cs_playerManager = GameObject.Find("Player_1").GetComponent<PlayerManager>();
 
-        cs_marketManager = GameObject.Find("TrainMarket").GetComponent<UI_MarketManager>();
+        cs_marketManager = GameObject.Find("TrainMarket").GetComponent<MarketManager>();
 
-        cs_trainDeckManager = GameObject.Find("TrainDeck").GetComponent<UI_TrainDeckManager>();
+        cs_trainDeckManager = GameObject.Find("TrainDeck").GetComponent<TrainDeckManager>();
         #endregion
     }
 
@@ -141,49 +141,49 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
             switch (so_trainCards.colour)
             {
                 case "black":
-                    transform.SetParent(cs_playerManager.colourPiles[0]);
+                    transform.SetParent(cs_playerManager.colourPiles[0].transform);
                     transform.SetAsFirstSibling();
-                    transform.position = cs_playerManager.colourPiles[0].position;
+                    transform.position = cs_playerManager.colourPiles[0].transform.position;
                     break;
                 case "blue":
-                    transform.SetParent(cs_playerManager.colourPiles[1]);
+                    transform.SetParent(cs_playerManager.colourPiles[1].transform);
                     transform.SetAsFirstSibling();
-                    transform.position = cs_playerManager.colourPiles[1].position;
+                    transform.position = cs_playerManager.colourPiles[1].transform.position;
                     break;
                 case "green":
-                    transform.SetParent(cs_playerManager.colourPiles[2]);
+                    transform.SetParent(cs_playerManager.colourPiles[2].transform);
                     transform.SetAsFirstSibling();
-                    transform.position = cs_playerManager.colourPiles[2].position;
+                    transform.position = cs_playerManager.colourPiles[2].transform.position;
                     break;
                 case "pink":
-                    transform.SetParent(cs_playerManager.colourPiles[3]);
+                    transform.SetParent(cs_playerManager.colourPiles[3].transform);
                     transform.SetAsFirstSibling();
-                    transform.position = cs_playerManager.colourPiles[3].position;
+                    transform.position = cs_playerManager.colourPiles[3].transform.position;
                     break;
                 case "red":
-                    transform.SetParent(cs_playerManager.colourPiles[4]);
+                    transform.SetParent(cs_playerManager.colourPiles[4].transform);
                     transform.SetAsFirstSibling();
-                    transform.position = cs_playerManager.colourPiles[4].position;
+                    transform.position = cs_playerManager.colourPiles[4].transform.position;
                     break;
                 case "white":
-                    transform.SetParent(cs_playerManager.colourPiles[5]);
+                    transform.SetParent(cs_playerManager.colourPiles[5].transform);
                     transform.SetAsFirstSibling();
-                    transform.position = cs_playerManager.colourPiles[5].position;
+                    transform.position = cs_playerManager.colourPiles[5].transform.position;
                     break;
                 case "orange":
-                    transform.SetParent(cs_playerManager.colourPiles[6]);
+                    transform.SetParent(cs_playerManager.colourPiles[6].transform);
                     transform.SetAsFirstSibling();
-                    transform.position = cs_playerManager.colourPiles[6].position;
+                    transform.position = cs_playerManager.colourPiles[6].transform.position;
                     break;
                 case "yellow":
-                    transform.SetParent(cs_playerManager.colourPiles[7]);
+                    transform.SetParent(cs_playerManager.colourPiles[7].transform);
                     transform.SetAsFirstSibling();
-                    transform.position = cs_playerManager.colourPiles[7].position;
+                    transform.position = cs_playerManager.colourPiles[7].transform.position;
                     break;
                 case "loco":
-                    transform.SetParent(cs_playerManager.colourPiles[8]);
+                    transform.SetParent(cs_playerManager.colourPiles[8].transform);
                     transform.SetAsFirstSibling();
-                    transform.position = cs_playerManager.colourPiles[8].position;
+                    transform.position = cs_playerManager.colourPiles[8].transform.position;
                     break;
             }
         }

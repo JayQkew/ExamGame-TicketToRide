@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2969944313645310116}
   m_Layer: 5
   m_Name: LocomotiveTrainCard
-  m_TagString: trainCard
+  m_TagString: marketTrainCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 107588955703330538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 348ece02b0c046a40951a22113ebcea3, type: 3}
+  m_Script: {fileID: 11500000, guid: df7dfe579e0000247993eb4ac988a46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   so_trainCards: {fileID: 11400000, guid: c099b5817c6e9f342bbe63d056d83182, type: 2}
