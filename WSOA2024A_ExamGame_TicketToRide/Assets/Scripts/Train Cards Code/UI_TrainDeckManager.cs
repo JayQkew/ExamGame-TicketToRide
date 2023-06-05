@@ -72,12 +72,14 @@ public class UI_TrainDeckManager : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void DrawCard(Vector3 position, Transform parent, string tag) // whenever a card is drawn into, players hand or market ...
+    public GameObject DrawCard(Vector3 position, Transform parent, string tag) // whenever a card is drawn into, players hand or market ...
     {
         int randomNumber = Random.Range(0, trainCards.Count - 1); // find a random number within the trainCards.Count (-1 to match the size)
         Instantiate(trainCards[randomNumber], position, Quaternion.identity, parent); // spawn a trainCard from the list with the randomNumber as the index, spawn it at the given postion and parent
         trainCards.RemoveAt(randomNumber); // remove that trainCard so that it cannot be repeated again.
-        trainCards[randomNumber].gameObject.tag = tag; // tag the traimCard with the given tag
+        trainCards[randomNumber].tag = tag; // tag the traimCard with the given tag
+        trainCards[randomNumber].transform.SetAsFirstSibling();
+        return trainCards[randomNumber];
     }
 
     public void DiscardCard(GameObject card) //to keep the cards that are discarded and to be used again.
@@ -90,9 +92,7 @@ public class UI_TrainDeckManager : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // DrawCard(cs_playerManager.handSlots[cs_playerManager.handSlots.Count - 1].transform.position, cs_playerManager.handSlots[cs_playerManager.handSlots.Count - 1].transform, "trainCard"); //puts the card in the players hand.
-        DrawCard(cs_playerManager.trainHand.position, cs_playerManager.trainHand, "trainCard");
-        cs_playerManager.SortTrainHand();
+        DrawCard(Vector3.zero, go_playerManager.transform, "trainCard");
     }
 
     public void ShuffleDeck()

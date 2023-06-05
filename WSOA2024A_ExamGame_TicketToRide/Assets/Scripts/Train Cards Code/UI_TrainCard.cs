@@ -48,38 +48,33 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (so_trainCards.isLocomotive == true)       // checking if its a locomotive
+        if (so_trainCards.isLocomotive)       // checking if its a locomotive
         {
             switch (transform.parent.name)  // checks if the parents name is "cardSlot_". If it is, replace it with another card.
             {
                 case "cardSlot1":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[0].transform.position, cs_marketManager.cardSlots[0].transform, "marketTrainCard");
                     cs_playerManager.trainHandCards.Add(eventData.pointerClick);
-                    cs_playerManager.SortTrainHand();
                     cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
                     break;
                 case "cardSlot2":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[1].transform.position, cs_marketManager.cardSlots[1].transform, "marketTrainCard");
                     cs_playerManager.trainHandCards.Add(eventData.pointerClick);
-                    cs_playerManager.SortTrainHand();
                     cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
                     break;
                 case "cardSlot3":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[2].transform.position, cs_marketManager.cardSlots[2].transform, "marketTrainCard");
                     cs_playerManager.trainHandCards.Add(eventData.pointerClick);
-                    cs_playerManager.SortTrainHand();
                     cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
                     break;
                 case "cardSlot4":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[3].transform.position, cs_marketManager.cardSlots[3].transform, "marketTrainCard");
                     cs_playerManager.trainHandCards.Add(eventData.pointerClick);
-                    cs_playerManager.SortTrainHand();
                     cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
                     break;
                 case "cardSlot5":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[4].transform.position, cs_marketManager.cardSlots[4].transform, "marketTrainCard");
                     cs_playerManager.trainHandCards.Add(eventData.pointerClick);
-                    cs_playerManager.SortTrainHand();
                     cs_marketManager.locomotivesOnMarket--;  // if it is, decreace the locomotives count on the market
                     break;
                 case "trainHand": // if its already in the train hand, pop it to the front of the trainhand
@@ -92,38 +87,33 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
                     break;
             }
         }
-        else if (so_trainCards.isLocomotive == false)
+        else if (!so_trainCards.isLocomotive)
         {
             switch (transform.parent.name)  // checks the parents name. If it is cardSlot_, replace it with another card.
             {
                 case "cardSlot1":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[0].transform.position, cs_marketManager.cardSlots[0].transform, "marketTrainCard");
                     cs_playerManager.trainHandCards.Add(eventData.pointerClick);
-                    cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket(); // check if it needs to reset the market
                     break;
                 case "cardSlot2":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[1].transform.position, cs_marketManager.cardSlots[1].transform, "marketTrainCard");
                     cs_playerManager.trainHandCards.Add(eventData.pointerClick);
-                    cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
                 case "cardSlot3":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[2].transform.position, cs_marketManager.cardSlots[2].transform, "marketTrainCard");
                     cs_playerManager.trainHandCards.Add(eventData.pointerClick);
-                    cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
                 case "cardSlot4":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[3].transform.position, cs_marketManager.cardSlots[3].transform, "marketTrainCard");
                     cs_playerManager.trainHandCards.Add(eventData.pointerClick);
-                    cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
                 case "cardSlot5":
                     cs_trainDeckManager.DrawCard(cs_marketManager.cardSlots[4].transform.position, cs_marketManager.cardSlots[4].transform, "marketTrainCard");
                     cs_playerManager.trainHandCards.Add(eventData.pointerClick);
-                    cs_playerManager.SortTrainHand();
                     cs_marketManager.ResetMarket();
                     break;
                 case "trainHand": // if its already in the train hand, pop it to the front of the trainhand
@@ -148,9 +138,55 @@ public class UI_TrainCard : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            transform.SetParent(cs_playerManager.trainHand);
+            switch (so_trainCards.colour)
+            {
+                case "black":
+                    transform.SetParent(cs_playerManager.colourPiles[0]);
+                    transform.SetAsFirstSibling();
+                    transform.position = cs_playerManager.colourPiles[0].position;
+                    break;
+                case "blue":
+                    transform.SetParent(cs_playerManager.colourPiles[1]);
+                    transform.SetAsFirstSibling();
+                    transform.position = cs_playerManager.colourPiles[1].position;
+                    break;
+                case "green":
+                    transform.SetParent(cs_playerManager.colourPiles[2]);
+                    transform.SetAsFirstSibling();
+                    transform.position = cs_playerManager.colourPiles[2].position;
+                    break;
+                case "pink":
+                    transform.SetParent(cs_playerManager.colourPiles[3]);
+                    transform.SetAsFirstSibling();
+                    transform.position = cs_playerManager.colourPiles[3].position;
+                    break;
+                case "red":
+                    transform.SetParent(cs_playerManager.colourPiles[4]);
+                    transform.SetAsFirstSibling();
+                    transform.position = cs_playerManager.colourPiles[4].position;
+                    break;
+                case "white":
+                    transform.SetParent(cs_playerManager.colourPiles[5]);
+                    transform.SetAsFirstSibling();
+                    transform.position = cs_playerManager.colourPiles[5].position;
+                    break;
+                case "orange":
+                    transform.SetParent(cs_playerManager.colourPiles[6]);
+                    transform.SetAsFirstSibling();
+                    transform.position = cs_playerManager.colourPiles[6].position;
+                    break;
+                case "yellow":
+                    transform.SetParent(cs_playerManager.colourPiles[7]);
+                    transform.SetAsFirstSibling();
+                    transform.position = cs_playerManager.colourPiles[7].position;
+                    break;
+                case "loco":
+                    transform.SetParent(cs_playerManager.colourPiles[8]);
+                    transform.SetAsFirstSibling();
+                    transform.position = cs_playerManager.colourPiles[8].position;
+                    break;
+            }
         }
-        transform.position = cs_playerManager.trainHand.position;
 
         
     }
