@@ -244,7 +244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sO_DestinationTicket: {fileID: 11400000, guid: 206d5906268696846999e4fc4c3cf5d8, type: 2}
-  cs_playerManager: {fileID: 0}
+  cs_playerManager1: {fileID: 0}
+  cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 2314763647541010764}
@@ -286,8 +287,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 175, y: 129}
-  m_SizeDelta: {x: 60, y: 50}
+  m_AnchoredPosition: {x: 81.539, y: 129}
+  m_SizeDelta: {x: 246.923, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5890376909225188871
 CanvasRenderer:
@@ -434,8 +435,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 175, y: 40}
-  m_SizeDelta: {x: 60, y: 50}
+  m_AnchoredPosition: {x: 49.596, y: 40}
+  m_SizeDelta: {x: 310.808, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4948857746247235158
 CanvasRenderer:
