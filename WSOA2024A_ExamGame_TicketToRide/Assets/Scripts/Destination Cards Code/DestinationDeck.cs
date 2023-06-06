@@ -55,6 +55,20 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
     [SerializeField] GameObject p_destinationChoices;
     [SerializeField] public GameObject doneButton;
     #endregion
+
+    #region OTHER SCRIPTS:
+    [SerializeField] PlayerManager cs_playerManager1;
+    [SerializeField] GameObject go_playerManager1;
+    [SerializeField] PlayerManager cs_playerManager2;
+    [SerializeField] GameObject go_playerManager2;
+    #endregion
+
+    private void Awake()
+    {
+        cs_playerManager1 = go_playerManager1.GetComponent<PlayerManager>();
+
+        cs_playerManager2 = go_playerManager2.GetComponent<PlayerManager>();
+    }
     void Start()
     {
         //This foreach loop looks for all the objects in the DestinationCards folder and adds them to the list
@@ -109,9 +123,35 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
 
     public void DrawDestinationCards(Vector3 position, Transform parent) // method to use when drawing a random destination card
     {
+        bool p1_wasDeactive = false;
+        bool p2_wasDeactive = false;
+
+        if (!go_playerManager1.activeSelf)
+        {
+            p1_wasDeactive = true;
+            go_playerManager1.SetActive(true);
+        }
+        if (!go_playerManager2.activeSelf)
+        {
+            p2_wasDeactive = true;
+            go_playerManager2.SetActive(true);
+        }
         int randomNumber = Random.Range(0, destinationCards.Count - 1);
         Instantiate(destinationCards[randomNumber], position, Quaternion.identity, parent);
         destinationCards.RemoveAt(randomNumber);
+        if (p1_wasDeactive)
+        {
+            go_playerManager1.SetActive(false);
+            p1_wasDeactive = false;
+            p2_wasDeactive = false;
+        }
+        else if (p2_wasDeactive)
+        {
+            go_playerManager2.SetActive(false);
+            p1_wasDeactive = false;
+            p2_wasDeactive = false;
+        }
+
     }
 
     public void DiscardDestinationCard(GameObject card) // method to use when discarding a destination card
