@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -12,6 +14,14 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public bool playerTurn;
     [SerializeField] public int trainPieces = 40;
     [SerializeField] public int points = 0;
+    #endregion
+
+    #region COMPONENTS:
+    [SerializeField] private TextMeshProUGUI tmp_trainPieces;
+    [SerializeField] public Slider pointSlider;
+    [SerializeField] public GameObject go_destinationCards;
+    [SerializeField] public GameObject go_colourPiles;
+    [SerializeField] public GameObject go_otherPlayer;
     #endregion
 
     #region OTHER SCRIPTS:
@@ -34,8 +44,39 @@ public class PlayerManager : MonoBehaviour
         {
             cs_colourPileLogic[i] = colourPiles[i].GetComponent<ColourPileLogic>();
         }
+
+        if (gameObject.name == "Player_2")
+        {
+            gameObject.SetActive(false);
+        }
     }
     private void Update()
+    {
+        ColourPileManager();
+        tmp_trainPieces.text = trainPieces.ToString();
+        pointSlider.value = points;
+    }
+
+    private void PlayerTurnCheck()
+    {
+        if (playerTurn)
+        {
+            go_otherPlayer.SetActive(false);
+        }
+        else if (!playerTurn)
+        {
+            go_otherPlayer.SetActive(true);
+            gameObject.SetActive(false);
+        }
+    }
+    public void EndTurnButton()
+    {
+        playerTurn = false;
+        go_otherPlayer.GetComponent<PlayerManager>().playerTurn = true;
+        PlayerTurnCheck();
+    }
+
+    private void ColourPileManager()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -96,6 +137,7 @@ public class PlayerManager : MonoBehaviour
                 }
             }
         }
+
     }
 
 }

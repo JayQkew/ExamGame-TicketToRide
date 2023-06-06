@@ -7,42 +7,50 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
 {
     #region OTHER SCIRPTS:
     [SerializeField] SO_Routes so_routes;
-    [SerializeField] PlayerManager cs_playerManager;
+    [SerializeField] PlayerManager cs_playerManager1;
+    [SerializeField] PlayerManager cs_playerManager2;
     [SerializeField] TrainDeckManager cs_trainDeckManager;
     #endregion
 
     private void Awake()
     {
-        cs_playerManager = GameObject.Find("Player_1").GetComponent<PlayerManager>();
-        cs_trainDeckManager = GameObject.Find("TrainDeck").GetComponent <TrainDeckManager>();
+        cs_playerManager1 = GameObject.Find("Player_1").GetComponent<PlayerManager>();
+        cs_playerManager2 = GameObject.Find("Player_2").GetComponent<PlayerManager>();
+        cs_trainDeckManager = GameObject.Find("TrainDeck").GetComponent<TrainDeckManager>();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        ClaimRoute();
-    }
-
-    public void ClaimRoute()
-    {
-        if (cs_playerManager.trainPieces >= so_routes.trainPieces && cs_playerManager.trainPieces > 2)
+        if (cs_playerManager1.playerTurn)
         {
-            CardCheck();
+            ClaimRoute(cs_playerManager1);
+        }
+        else if (cs_playerManager2.playerTurn)
+        {
+            ClaimRoute(cs_playerManager2);
         }
     }
 
-    private void CardCheck() // works!
+    public void ClaimRoute(PlayerManager cs_playerManagerCode)
     {
-        for (int i = 0; i < cs_playerManager.cs_colourPileLogic.Length; i++)
+        if (cs_playerManagerCode.trainPieces >= so_routes.trainPieces && cs_playerManagerCode.trainPieces > 2)
         {
-            if (cs_playerManager.cs_colourPileLogic[i].colour == so_routes.colour)
+            CardCheck(cs_playerManagerCode);
+        }
+    }
+
+    private void CardCheck(PlayerManager cs_playerManagerCode) // works!
+    {
+        for (int i = 0; i < cs_playerManagerCode.cs_colourPileLogic.Length; i++)
+        {
+            if (cs_playerManagerCode.cs_colourPileLogic[i].colour == so_routes.colour)
             {
-                if (cs_playerManager.cs_colourPileLogic[i].numberOfCards >= so_routes.trainPieces)
+                if (cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards >= so_routes.trainPieces)
                 {
-                    cs_playerManager.trainPieces -= so_routes.trainPieces;
-                    cs_playerManager.points += so_routes.points;
-                    cs_trainDeckManager.DiscardCard(cs_playerManager.colourPiles[i].transform.GetChild(0).gameObject);
+                    cs_playerManagerCode.trainPieces -= so_routes.trainPieces;
+                    cs_playerManagerCode.points += so_routes.points;
+                    cs_trainDeckManager.DiscardCard(cs_playerManagerCode.colourPiles[i].transform.GetChild(0).gameObject);
                 }
             }
         }
-
     }
 }
