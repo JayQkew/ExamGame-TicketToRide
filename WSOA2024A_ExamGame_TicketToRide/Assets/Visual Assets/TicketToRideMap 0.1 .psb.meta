@@ -1,0 +1,3395 @@
+fileFormatVersion: 2
+guid: f08198c8a86903b4cab35da49fa40d22
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: miami
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1659
+      y: 1168
+      width: 36
+      height: 32
+    spriteID: d9c2d77425755dc40b6eee91a8148b92
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1659, y: 1168}
+    spritePosition: {x: 1629, y: 35}
+  - name: charleston
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 774
+      y: 1208
+      width: 33
+      height: 36
+    spriteID: c5a98fee3ae2f4d49b743977056767b4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 774, y: 1208}
+    spritePosition: {x: 1577, y: 318}
+  - name: atlanta
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 731
+      y: 1208
+      width: 35
+      height: 34
+    spriteID: 57f0e5023e60c1a45b32265c2cd50e68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 731, y: 1208}
+    spritePosition: {x: 1404, y: 336}
+  - name: new orleans
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2010
+      y: 1092
+      width: 34
+      height: 36
+    spriteID: 984e7a8960f40ae4cbf1ca1ada2f42d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2010, y: 1092}
+    spritePosition: {x: 1228, y: 103}
+  - name: houston
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 944
+      y: 1208
+      width: 34
+      height: 32
+    spriteID: 0e16d2e71dd249248ac5227e7b6b2493
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 944, y: 1208}
+    spritePosition: {x: 1052, y: 79}
+  - name: dallas
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1311
+      y: 1208
+      width: 31
+      height: 32
+    spriteID: b21faea2f917aee42b5b1e1d11d05e76
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1311, y: 1208}
+    spritePosition: {x: 980, y: 151}
+  - name: little rock
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1389
+      y: 1208
+      width: 31
+      height: 30
+    spriteID: 23229f746d493764abf7c1b9442e017f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1389, y: 1208}
+    spritePosition: {x: 1116, y: 308}
+  - name: oklahoma city
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 857
+      y: 1208
+      width: 35
+      height: 32
+    spriteID: fe6aeeedcaef1f945b5f71fc49e1c0e2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 857, y: 1208}
+    spritePosition: {x: 942, y: 314}
+  - name: kansas city
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1828
+      y: 1166
+      width: 33
+      height: 33
+    spriteID: 6eca9256dad1da7418af118b7f716741
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1828, y: 1166}
+    spritePosition: {x: 983, y: 473}
+  - name: saint louis
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1190
+      y: 1208
+      width: 32
+      height: 33
+    spriteID: da4f7a684dcbcee43a86b8e01c1bf7fa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1190, y: 1208}
+    spritePosition: {x: 1142, y: 472}
+  - name: nashville
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1270
+      y: 1208
+      width: 33
+      height: 31
+    spriteID: d0ec063089757e84daecc1852c54847b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1270, y: 1208}
+    spritePosition: {x: 1315, y: 403}
+  - name: raleigh
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 551
+      y: 1208
+      width: 37
+      height: 39
+    spriteID: 091fe4892507c0045a043a3f95b71cb1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 551, y: 1208}
+    spritePosition: {x: 1523, y: 445}
+  - name: washington
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 642
+      y: 1208
+      width: 37
+      height: 37
+    spriteID: 09d282713d6e1f744854d191bcfeb21c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 642, y: 1208}
+    spritePosition: {x: 1637, y: 563}
+  - name: new york
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1963
+      y: 1092
+      width: 39
+      height: 40
+    spriteID: b62fb5817e697a34a917b7cf0eb6ce47
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1963, y: 1092}
+    spritePosition: {x: 1616, y: 728}
+  - name: pittsburgh
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 508
+      y: 1208
+      width: 35
+      height: 43
+    spriteID: d4f4f781d743215409654a63d5a92623
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 508, y: 1208}
+    spritePosition: {x: 1464, y: 644}
+  - name: chicago
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2010
+      y: 1164
+      width: 34
+      height: 35
+    spriteID: 0315d69c058d46642b68e3586e8500b8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2010, y: 1164}
+    spritePosition: {x: 1226, y: 620}
+  - name: boston
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 986
+      y: 1208
+      width: 32
+      height: 34
+    spriteID: b69a67e18384de44b800ebc21c25d97b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 986, y: 1208}
+    spritePosition: {x: 1718, y: 870}
+  - name: toronto
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1465
+      y: 1208
+      width: 29
+      height: 29
+    spriteID: 249246e27df49e2428deedc1f31acdac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1465, y: 1208}
+    spritePosition: {x: 1436, y: 817}
+  - name: sault st. marie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1108
+      y: 1208
+      width: 35
+      height: 31
+    spriteID: 47e4d445876c99b4a8c2793679a97e68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1108, y: 1208}
+    spritePosition: {x: 1233, y: 862}
+  - name: montreal
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1428
+      y: 1208
+      width: 29
+      height: 31
+    spriteID: ddbc41a4005c7d148ae35d1abacc9985
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1428, y: 1208}
+    spritePosition: {x: 1587, y: 979}
+  - name: duluth
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1350
+      y: 1208
+      width: 31
+      height: 31
+    spriteID: 686f371870052894bad52d7b765f278b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1350, y: 1208}
+    spritePosition: {x: 999, y: 739}
+  - name: winnepeg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1965
+      y: 1164
+      width: 37
+      height: 33
+    spriteID: 5c5d2a0b411d2aa40926b49c62db23ff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1965, y: 1164}
+    spritePosition: {x: 793, y: 951}
+  - name: calgary
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1230
+      y: 1208
+      width: 32
+      height: 33
+    spriteID: 3ee5d6d9836518d4dae7e5fe5fc8aa6b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1230, y: 1208}
+    spritePosition: {x: 381, y: 968}
+  - name: omaha
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1151
+      y: 1208
+      width: 31
+      height: 35
+    spriteID: 4580d30fda87dea4391ee57c3f49fdff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1151, y: 1208}
+    spritePosition: {x: 944, y: 569}
+  - name: helena
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1919
+      y: 1164
+      width: 38
+      height: 36
+    spriteID: 3891861934a97dd49abec92fbd1bde7a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1919, y: 1164}
+    spritePosition: {x: 563, y: 726}
+  - name: denver
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1910
+      y: 1092
+      width: 45
+      height: 35
+    spriteID: 3461d9238657cb746bfa2f76cbeb227e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1910, y: 1092}
+    spritePosition: {x: 662, y: 443}
+  - name: santa fe
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1026
+      y: 1208
+      width: 34
+      height: 32
+    spriteID: caedaa529382c9d40bbd2f3cd02bc5ac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1026, y: 1208}
+    spritePosition: {x: 659, y: 276}
+  - name: el paso
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1068
+      y: 1208
+      width: 32
+      height: 34
+    spriteID: bb8cd225b3cf6634698c6f48369f71c5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1068, y: 1208}
+    spritePosition: {x: 649, y: 111}
+  - name: phoenix
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 815
+      y: 1208
+      width: 34
+      height: 34
+    spriteID: eff0848644fdcb24e9c2ad12d80ac976
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 815, y: 1208}
+    spritePosition: {x: 431, y: 179}
+  - name: los angeles
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 687
+      y: 1208
+      width: 36
+      height: 38
+    spriteID: 0404546178fe0d34da6ddb1e65a89b55
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 687, y: 1208}
+    spritePosition: {x: 208, y: 186}
+  - name: las vegas
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 900
+      y: 1208
+      width: 36
+      height: 31
+    spriteID: 6046a4456797cf840a81310828daf472
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 900, y: 1208}
+    spritePosition: {x: 331, y: 301}
+  - name: salt lake city
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 596
+      y: 1208
+      width: 38
+      height: 37
+    spriteID: 5771e85b7f2d769449cb45d27a9f1867
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 596, y: 1208}
+    spritePosition: {x: 431, y: 499}
+  - name: san francisco
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1710
+      y: 1152
+      width: 43
+      height: 41
+    spriteID: edb00414c5202614a8031436fe77a5b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1710, y: 1152}
+    spritePosition: {x: 67, y: 380}
+  - name: portland
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1869
+      y: 1164
+      width: 42
+      height: 34
+    spriteID: babee1d8073af5e49ab48dd84ce6c75d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1869, y: 1164}
+    spritePosition: {x: 90, y: 740}
+  - name: seattle
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1581
+      y: 1155
+      width: 41
+      height: 41
+    spriteID: 15baa78cb7e718c418bdf85830a34c40
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1581, y: 1155}
+    spritePosition: {x: 128, y: 832}
+  - name: vancouver
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1774
+      y: 1161
+      width: 43
+      height: 38
+    spriteID: 4b67b12aa095664499158fa3925eea78
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1774, y: 1161}
+    spritePosition: {x: 138, y: 938}
+  - name: any2_duluth-omaha 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1984
+      y: 4
+      width: 56
+      height: 124
+    spriteID: 1e3700dd1ce0e7a47a27bb5cc27c7002
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1984, y: 4}
+    spritePosition: {x: 969, y: 605}
+  - name: any2_duluth-omaha 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1955
+      y: 473
+      width: 55
+      height: 129
+    spriteID: 729d1087032708540bb428d6c3cd88bc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1955, y: 473}
+    spritePosition: {x: 947, y: 608}
+  - name: any1_omaha-kansasCity 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1659
+      y: 1092
+      width: 43
+      height: 68
+    spriteID: d74e0b8887e1543458158aa5c94f80d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1659, y: 1092}
+    spritePosition: {x: 971, y: 507}
+  - name: any1_omaha-kansasCity 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1998
+      y: 724
+      width: 45
+      height: 67
+    spriteID: 38b354a650225184d83015857388197f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1998, y: 724}
+    spritePosition: {x: 947, y: 501}
+  - name: any2_kansasCity-oklahomaCity 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 1208
+      width: 51
+      height: 123
+    spriteID: 3afab4a48eda5f948b474af885c2771d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 256, y: 1208}
+    spritePosition: {x: 972, y: 346}
+  - name: any2_kansasCity-oklahomaCity 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 136
+      y: 1208
+      width: 55
+      height: 121
+    spriteID: 9c75b940996bef442a0e4aaeb4eb0e9c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 136, y: 1208}
+    spritePosition: {x: 944, y: 350}
+  - name: any2_oklahomaCity-dallas 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 199
+      y: 1208
+      width: 49
+      height: 129
+    spriteID: 2d28a2dc9b5cac5409a1f570ba5f8700
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 199, y: 1208}
+    spritePosition: {x: 973, y: 190}
+  - name: any2_oklahomaCity-dallas 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 315
+      y: 1208
+      width: 47
+      height: 126
+    spriteID: 9bc34cdfeebb1a64bb3fea2c1de16cd6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 315, y: 1208}
+    spritePosition: {x: 949, y: 187}
+  - name: any1_dallas-houston 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1984
+      y: 136
+      width: 58
+      height: 58
+    spriteID: 640023398f5de284fa0ce3962f843845
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1984, y: 136}
+    spritePosition: {x: 1015, y: 111}
+  - name: any1_dallas-houston 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1710
+      y: 1092
+      width: 56
+      height: 52
+    spriteID: fa4fd3df531270e4ca255a5a491daced
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1710, y: 1092}
+    spritePosition: {x: 995, y: 98}
+  - name: any2_oklaomaCity-littleRock
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 664
+      y: 1167
+      width: 120
+      height: 33
+    spriteID: 4a6272da05243f549ae8abcb7c5e3293
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 664, y: 1167}
+    spritePosition: {x: 989, y: 318}
+  - name: any2_littleRock-dallas
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1804
+      y: 806
+      width: 100
+      height: 134
+    spriteID: 8cb02ffc01b7fb647976f5656257f884
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1804, y: 806}
+    spritePosition: {x: 1018, y: 175}
+  - name: any2_houston-newOrleans
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1353
+      y: 1156
+      width: 131
+      height: 37
+    spriteID: 291226ff1d5cde746a1cdfae3af0b854
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1353, y: 1156}
+    spritePosition: {x: 1094, y: 85}
+  - name: any2_saintLouis-littleRock
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 1208
+      width: 54
+      height: 128
+    spriteID: cc5f3d649d0c0344483f84885778da04
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 74, y: 1208}
+    spritePosition: {x: 1113, y: 343}
+  - name: any2_saintLouis-nashville
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 664
+      y: 1092
+      width: 142
+      height: 67
+    spriteID: bae05a825951cea4591d426c4439378f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 664, y: 1092}
+    spritePosition: {x: 1173, y: 415}
+  - name: any1_nashville-atlanta
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1581
+      y: 1092
+      width: 70
+      height: 55
+    spriteID: 77b46b70e6cf69b4a8d33e761f7886cc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1581, y: 1092}
+    spritePosition: {x: 1340, y: 359}
+  - name: any2_atlanta-charleston
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1912
+      y: 1016
+      width: 129
+      height: 34
+    spriteID: e7c8dff33de5704469815abc2ed87f0e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1912, y: 1016}
+    spritePosition: {x: 1446, y: 314}
+  - name: any2_atlanta-raleigh 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1019
+      y: 1092
+      width: 104
+      height: 90
+    spriteID: f30eb261e5b0b624383d178a078945e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1019, y: 1092}
+    spritePosition: {x: 1444, y: 350}
+  - name: any2_atlanta-raleigh 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 548
+      y: 1092
+      width: 108
+      height: 90
+    spriteID: d5b5499b505c653449b19678912296fc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 548, y: 1092}
+    spritePosition: {x: 1418, y: 370}
+  - name: any2_raleigh-charleston
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1511
+      y: 1092
+      width: 62
+      height: 97
+    spriteID: d6f38eb4f1ee250409885f41dc3de0c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1511, y: 1092}
+    spritePosition: {x: 1551, y: 355}
+  - name: any2_washington-raleigh 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1804
+      y: 948
+      width: 99
+      height: 103
+    spriteID: 25c103b05f248b346a588243f80a14ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1804, y: 948}
+    spritePosition: {x: 1568, y: 454}
+  - name: any2_washington-raleigh 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1131
+      y: 1092
+      width: 95
+      height: 96
+    spriteID: d36e9dde66729074989512b1f5284f05
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1131, y: 1092}
+    spritePosition: {x: 1548, y: 482}
+  - name: any2_pittsburgh-raleigh
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1208
+      width: 62
+      height: 150
+    spriteID: 54a95030d097f884c87567d872093c5a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1208}
+    spritePosition: {x: 1480, y: 488}
+  - name: any2_pittsburgh-washington
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 1092
+      width: 130
+      height: 77
+    spriteID: f2ffd3f8016f91547b12b747f3ec07ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 410, y: 1092}
+    spritePosition: {x: 1505, y: 588}
+  - name: any2_toronto-pittsburgh
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 370
+      y: 1208
+      width: 44
+      height: 129
+    spriteID: 2e94904c86c0695499b0525f369cd2e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 370, y: 1208}
+    spritePosition: {x: 1450, y: 690}
+  - name: any2_montreal-boston 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1912
+      y: 911
+      width: 116
+      height: 97
+    spriteID: 4101826223b51384aa933d0e9bd3463a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1912, y: 911}
+    spritePosition: {x: 1599, y: 880}
+  - name: any2_montreal-boston 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1912
+      y: 806
+      width: 117
+      height: 97
+    spriteID: a155d8248950b184289101328058b21f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1912, y: 806}
+    spritePosition: {x: 1620, y: 906}
+  - name: any3_toronto-montreal
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1804
+      y: 473
+      width: 143
+      height: 140
+    spriteID: ae410e99eba49bb42a60bb6cafd7eb4a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1804, y: 473}
+    spritePosition: {x: 1436, y: 852}
+  - name: any3_duluth-saultStMarie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1804
+      y: 363
+      width: 219
+      height: 102
+    spriteID: 96cbf9b4a86107942b66bf318f95f30d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1804, y: 363}
+    spritePosition: {x: 1019, y: 768}
+  - name: any2_saultStMarie-toronto
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1353
+      y: 1092
+      width: 150
+      height: 56
+    spriteID: a31990e1e3045424c8d4781f028b49bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1353, y: 1092}
+    spritePosition: {x: 1276, y: 829}
+  - name: any6_winnipeg-saultStMarie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1092
+      width: 398
+      height: 108
+    spriteID: cb5cee985c0df744998f30a23d5e317c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1092}
+    spritePosition: {x: 833, y: 876}
+  - name: any2_santaFe-denver
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 422
+      y: 1208
+      width: 35
+      height: 134
+    spriteID: aacb5d9eb3cdf8f4caf04e7d6e2cf84f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 422, y: 1208}
+    spritePosition: {x: 659, y: 308}
+  - name: any2_santaFe-elPaso
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 465
+      y: 1208
+      width: 35
+      height: 129
+    spriteID: f8e76c28175345143bef2049559e955f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 465, y: 1208}
+    spritePosition: {x: 652, y: 145}
+  - name: any3_phoenix-santaFe
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1804
+      y: 621
+      width: 185
+      height: 95
+    spriteID: 921499275bef0a24094ac2326438178f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1804, y: 621}
+    spritePosition: {x: 476, y: 204}
+  - name: any3_phoenix-elPaso
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1804
+      y: 724
+      width: 186
+      height: 74
+    spriteID: f1f1b8932dd5bd249ab7e3377c2d35c5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1804, y: 724}
+    spritePosition: {x: 466, y: 128}
+  - name: any3_losAngeles-Phoenix
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 814
+      y: 1148
+      width: 189
+      height: 44
+    spriteID: 124d90426caac1e4980c6ad92faa1bb5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 814, y: 1148}
+    spritePosition: {x: 246, y: 199}
+  - name: any2_losAngeles-lasVegas
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1234
+      y: 1092
+      width: 111
+      height: 81
+    spriteID: 48bf3a6ddc90e1e48897ca839c3d965f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1234, y: 1092}
+    spritePosition: {x: 220, y: 238}
+  - name: any4_calgary-helena
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1804
+      y: 4
+      width: 172
+      height: 212
+    spriteID: 091dfa4559d408141a7bf22a360a7139
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1804, y: 4}
+    spritePosition: {x: 409, y: 763}
+  - name: any4_seattle calgary
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1804
+      y: 224
+      width: 225
+      height: 131
+    spriteID: 96d2f97b456e1fc428b60eded471ef56
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1804, y: 224}
+    spritePosition: {x: 177, y: 836}
+  - name: any3_vancouver-calgary
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 814
+      y: 1092
+      width: 197
+      height: 48
+    spriteID: 970013e755a214540b9ec2d5da1e35c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 814, y: 1092}
+    spritePosition: {x: 182, y: 951}
+  - name: any1_seattle-portland 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1997
+      y: 621
+      width: 47
+      height: 64
+    spriteID: df08d5f4e143ad44b9d34bc33bc917b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1997, y: 621}
+    spritePosition: {x: 118, y: 768}
+  - name: any1_seattle-portland 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1774
+      y: 1092
+      width: 46
+      height: 61
+    spriteID: 27e1a30c1250e2641b2bed117a3b29d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1774, y: 1092}
+    spritePosition: {x: 86, y: 783}
+  - name: any1_vancouver-seattle 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1828
+      y: 1092
+      width: 33
+      height: 66
+    spriteID: 371c892930f133741a52af29ec5a4046
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1828, y: 1092}
+    spritePosition: {x: 155, y: 872}
+  - name: any1_vancouver-seattle 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1869
+      y: 1092
+      width: 33
+      height: 64
+    spriteID: 6330af89633ecae449a60052ec2ac42d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1869, y: 1092}
+    spritePosition: {x: 121, y: 877}
+  - name: Background
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 1792
+      height: 1080
+    spriteID: 786645b036391e44da4ae0d86e84a34b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 0}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Group 4
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 831cba5662365aa46a8133cb93fe770b
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: red
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 029bfafb92ad9a14d9c5d9bb457bfe10
+    layerID: -682989005
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: red2_newYork-boston
+    spriteName: 
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 83ae81cd0e4240d4c8986441e6c7f6e7
+    layerID: 1686287759
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: red6_newOrleans-miami
+    spriteName: 
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 21fd0216e5cae3344adb17a212d338f5
+    layerID: -1172773768
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: red3_duluth-chicago
+    spriteName: 
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 6a128cf725ea49841988f0c67744d616
+    layerID: 313760614
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: red4_elPaso-dallas
+    spriteName: 
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 0de3bc3d1c04eca4e8ea84d2fa9ad4c7
+    layerID: 863423468
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: red4_denver-oklahomaCity
+    spriteName: 
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 8bfee8a545f1c7a4eb0c342877c61900
+    layerID: 1161038854
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: red5_helena-omaha
+    spriteName: 
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 2a63d1a7506d5df4587711b1d5f81198
+    layerID: 145671445
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: red3_saltLakeCity-denver
+    spriteName: 
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 844cf7320ab7b4740b271c0723ca6c99
+    layerID: -1421241358
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: black
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 26010e055a5248a49a21b8f647999242
+    layerID: 34049343
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: blck3_nashville-raleigh
+    spriteName: 
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 25bb739eb69962d4ca7c3f197b98a24f
+    layerID: -1927728795
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blck2_newYork-washington
+    spriteName: 
+    isGroup: 0
+    parentIndex: 9
+    spriteID: b43bb60fece67a24ca38f2cb138465f9
+    layerID: 777096061
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blck3_chicago-pittsburgh
+    spriteName: 
+    isGroup: 0
+    parentIndex: 9
+    spriteID: e83c29d345772944fbf4c7b9abec791a
+    layerID: -143828461
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blck5_saultStMarie-montreal
+    spriteName: 
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 949fc2fbc7ee77e45bfec7440cd4eeaa
+    layerID: -1000910707
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blck4_winnipeg-duluth
+    spriteName: 
+    isGroup: 0
+    parentIndex: 9
+    spriteID: f36891317069e2c4db37e81102a52e04
+    layerID: -1247366219
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blck4_denver-kansasCity
+    spriteName: 
+    isGroup: 0
+    parentIndex: 9
+    spriteID: eccfe1fd7e089c640bcbf4e8acc4f99a
+    layerID: -1101451602
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blk6_losAngeles-elPaso
+    spriteName: 
+    isGroup: 0
+    parentIndex: 9
+    spriteID: f0327f501c7c90d4987b341fb0d5412b
+    layerID: 49912328
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: white
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: ca7320ae4fc86624db2d2d1e96afc6e0
+    layerID: 1595307675
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: wht3_littleRock-nashville
+    spriteName: 
+    isGroup: 0
+    parentIndex: 17
+    spriteID: cb02c9d270c048246af5303795749c55
+    layerID: -2086025655
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: wht2_pittsburgh-newYork
+    spriteName: 
+    isGroup: 0
+    parentIndex: 17
+    spriteID: a633d2902caf24d49b57cce5e847510f
+    layerID: 1692094302
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: wht2_chicago_saintLouis
+    spriteName: 
+    isGroup: 0
+    parentIndex: 17
+    spriteID: d38d6c3a64e51864aa60882d292be0c7
+    layerID: -1518112050
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: wht4_chicago-toronto
+    spriteName: 
+    isGroup: 0
+    parentIndex: 17
+    spriteID: e3357e58eeb396249ae4f9c5486577eb
+    layerID: 2051548526
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: wht5_phoenix-denver
+    spriteName: 
+    isGroup: 0
+    parentIndex: 17
+    spriteID: 7d0057fd06b73e141a25b9ee2b34e3fb
+    layerID: 288905831
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: wht5_sanFrancisco-saltLakeCity
+    spriteName: 
+    isGroup: 0
+    parentIndex: 17
+    spriteID: 80902531803ecc040a4125746d40b51e
+    layerID: 1317415562
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: wht6_calgary-winnipeg
+    spriteName: 
+    isGroup: 0
+    parentIndex: 17
+    spriteID: f972f62f3d4029346a0833f4a1d410ac
+    layerID: -1402914035
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: orange
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 5c02864523a693b438cab2d6199c13a2
+    layerID: 1264237208
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: orng4_newOrleans-atlanta
+    spriteName: 
+    isGroup: 0
+    parentIndex: 25
+    spriteID: 9148457d167a35d469156822a6e6cfe1
+    layerID: -88101831
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: orng2_newYork-washington
+    spriteName: 
+    isGroup: 0
+    parentIndex: 25
+    spriteID: e748b082d5619ce4e8fe8dba35da1f5f
+    layerID: 2121750051
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: orng3_chicago-pittsburgh
+    spriteName: 
+    isGroup: 0
+    parentIndex: 25
+    spriteID: 1e358e9dd90bfed439a8ef9352f4a745
+    layerID: -1619945043
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: orng4_denver-kansasCity
+    spriteName: 
+    isGroup: 0
+    parentIndex: 25
+    spriteID: 24a4a3702f3161f4ca909c6d33c4ad8e
+    layerID: 379646868
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: orng6_helena-duluth
+    spriteName: 
+    isGroup: 0
+    parentIndex: 25
+    spriteID: efdd25eb65192dc499da55fde117cec0
+    layerID: -193610441
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: orng3_lasVegas-saltLakeCity
+    spriteName: 
+    isGroup: 0
+    parentIndex: 25
+    spriteID: 3f76e2948d6f578419134796cdf442d6
+    layerID: 1696911407
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: orng5_saltLakeCity-sanFrancisco
+    spriteName: 
+    isGroup: 0
+    parentIndex: 25
+    spriteID: 9f159202ffef78f449863fecb11d6464
+    layerID: 405381379
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: pink
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: cec6bb1af520fe241823e182db248f8c
+    layerID: 512916158
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: pnk4_charleston-miami
+    spriteName: 
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 415b319a73234664698fa858de81247c
+    layerID: -923321195
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: pnk6_duluth-toronto
+    spriteName: 
+    isGroup: 0
+    parentIndex: 33
+    spriteID: c814eb8932359684396f8487cb502d9a
+    layerID: -1166823418
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: pnk2_kansasCity-saintLouis
+    spriteName: 
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 1f82480c6e1e0ef43a9e190b3f14c107
+    layerID: 854868098
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: pnk4_denver-omaha
+    spriteName: 
+    isGroup: 0
+    parentIndex: 33
+    spriteID: f14624fb31506b5448943e92eaaa830c
+    layerID: -1276042585
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: pnk3_saltLakeCity-helena
+    spriteName: 
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 30d0fef9900335f42984bf3d2ff28236
+    layerID: -1179442287
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: pnk3_sanFrancisco-losAngeles
+    spriteName: 
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 14ab287f6aaa9ab4ca18f0b37fee0efb
+    layerID: -1522117327
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: pnk5_portland-sanFrancisco
+    spriteName: 
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 11b0019e27e058d46a9e191c5ab29cf9
+    layerID: 19863558
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: yellow
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: dd25c180478252f45a1beee4150a922d
+    layerID: -1622810874
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: ylw2_boston-newYork
+    spriteName: 
+    isGroup: 0
+    parentIndex: 41
+    spriteID: 2735608128ac0184ab598987b11f5c6d
+    layerID: -683375526
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: ylw4_newOrleans-atlanta
+    spriteName: 
+    isGroup: 0
+    parentIndex: 41
+    spriteID: b0d64b5341173a147811b272422cb93a
+    layerID: 795443159
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: ylw4_nashville-pittsburgh
+    spriteName: 
+    isGroup: 0
+    parentIndex: 41
+    spriteID: e31109ca073b95b469c8f034bb516e89
+    layerID: 555275346
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: ylw3_denver-saltLakeCity
+    spriteName: 
+    isGroup: 0
+    parentIndex: 41
+    spriteID: f13aa099414e69f4fbc4484aada3abf2
+    layerID: -1526164489
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: ylw5_elPaso-oklahomaCity
+    spriteName: 
+    isGroup: 0
+    parentIndex: 41
+    spriteID: 498cd1a9e4a0ea349b6131e0f1d72ec4
+    layerID: 2054364118
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: ylw3_sanFrancisco-losAngeles
+    spriteName: 
+    isGroup: 0
+    parentIndex: 41
+    spriteID: 27d50a64e552ff745a34b6123557513f
+    layerID: 776146190
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: ylw6_seattle-helena
+    spriteName: 
+    isGroup: 0
+    parentIndex: 41
+    spriteID: b986d449779b1324d93be7998510711b
+    layerID: -1362341005
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: green
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: da940a1af5253c34d8a27fbe5b36e05c
+    layerID: 868568035
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: grn2_chicago-saintLouis
+    spriteName: 
+    isGroup: 0
+    parentIndex: 49
+    spriteID: b3092cdaf6329304ca88e93c8b62da36
+    layerID: -105901308
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: grn2_pittsburgh-newYork
+    spriteName: 
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 01946e2c3dc49eb4aa87213279fa7752
+    layerID: 270100090
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: grn5_saintLouis-pittsburgh
+    spriteName: 
+    isGroup: 0
+    parentIndex: 49
+    spriteID: e483ace0791ca2b45a4c1e3e449cc928
+    layerID: 2084890493
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: grn3_littleRock_newOrleans
+    spriteName: 
+    isGroup: 0
+    parentIndex: 49
+    spriteID: fb4edd8afb50d6546ae472c5edac8357
+    layerID: -2056832991
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: grn6_elPaso-houston
+    spriteName: 
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 65926042abc8f0d489c8a0be41d9af1d
+    layerID: -512806445
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: grn3_helena-denver
+    spriteName: 
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 55484a43d5b1b3545a6ec46cf2e616fc
+    layerID: 373483271
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: grn5_portland-sanFrancisco
+    spriteName: 
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 79457253f0a27a1499129b87da29e126
+    layerID: -1921437100
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blue
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: ced1d457b79b12a46843ce17b1ac02cb
+    layerID: -1711936914
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: blu5_atlanta-miami
+    spriteName: 
+    isGroup: 0
+    parentIndex: 57
+    spriteID: c449bd56a43141e439347f90c84a7b07
+    layerID: -342473748
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blu2_kansasCity-saintLouis
+    spriteName: 
+    isGroup: 0
+    parentIndex: 57
+    spriteID: ff5c88053ac38364db0a29be53ef1683
+    layerID: 703714036
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blu3_montreal-newYork
+    spriteName: 
+    isGroup: 0
+    parentIndex: 57
+    spriteID: 53463088fb7f48e4cbe18fbe55f340c8
+    layerID: 675541871
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blu3_santaFe-oklahomaCity
+    spriteName: 
+    isGroup: 0
+    parentIndex: 57
+    spriteID: ab62304383345644694ed9287b834809
+    layerID: 114445505
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blu4_omaha-chicago
+    spriteName: 
+    isGroup: 0
+    parentIndex: 57
+    spriteID: 406a5100835c65a4f8afc3759bbea1e6
+    layerID: 1612358967
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blu4_winniepeg-helena
+    spriteName: 
+    isGroup: 0
+    parentIndex: 57
+    spriteID: c844850c39f602e499b6c14b0acea540
+    layerID: 741802198
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: blu6_portland-saltLakeCity
+    spriteName: 
+    isGroup: 0
+    parentIndex: 57
+    spriteID: 5b4adec5e16651f4c87e9e22980c6080
+    layerID: -128341157
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: cities
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 0861a7d3dfa15cc44a974f1fb507991c
+    layerID: 1742262501
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: miami
+    spriteName: miami
+    isGroup: 0
+    parentIndex: 65
+    spriteID: d9c2d77425755dc40b6eee91a8148b92
+    layerID: -125250587
+    mosaicPosition: {x: 1659, y: 1168}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: charleston
+    spriteName: charleston
+    isGroup: 0
+    parentIndex: 65
+    spriteID: c5a98fee3ae2f4d49b743977056767b4
+    layerID: 716298711
+    mosaicPosition: {x: 774, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: atlanta
+    spriteName: atlanta
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 57f0e5023e60c1a45b32265c2cd50e68
+    layerID: 2019162427
+    mosaicPosition: {x: 731, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: new orleans
+    spriteName: new orleans
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 984e7a8960f40ae4cbf1ca1ada2f42d0
+    layerID: -1521497078
+    mosaicPosition: {x: 2010, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: houston
+    spriteName: houston
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 0e16d2e71dd249248ac5227e7b6b2493
+    layerID: -773235280
+    mosaicPosition: {x: 944, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: dallas
+    spriteName: dallas
+    isGroup: 0
+    parentIndex: 65
+    spriteID: b21faea2f917aee42b5b1e1d11d05e76
+    layerID: 669824211
+    mosaicPosition: {x: 1311, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: little rock
+    spriteName: little rock
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 23229f746d493764abf7c1b9442e017f
+    layerID: 1199867281
+    mosaicPosition: {x: 1389, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: oklahoma city
+    spriteName: oklahoma city
+    isGroup: 0
+    parentIndex: 65
+    spriteID: fe6aeeedcaef1f945b5f71fc49e1c0e2
+    layerID: 182159361
+    mosaicPosition: {x: 857, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: kansas city
+    spriteName: kansas city
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 6eca9256dad1da7418af118b7f716741
+    layerID: -1205331344
+    mosaicPosition: {x: 1828, y: 1166}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: saint louis
+    spriteName: saint louis
+    isGroup: 0
+    parentIndex: 65
+    spriteID: da4f7a684dcbcee43a86b8e01c1bf7fa
+    layerID: 1526345213
+    mosaicPosition: {x: 1190, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: nashville
+    spriteName: nashville
+    isGroup: 0
+    parentIndex: 65
+    spriteID: d0ec063089757e84daecc1852c54847b
+    layerID: -466405580
+    mosaicPosition: {x: 1270, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: raleigh
+    spriteName: raleigh
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 091fe4892507c0045a043a3f95b71cb1
+    layerID: -986286824
+    mosaicPosition: {x: 551, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: washington
+    spriteName: washington
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 09d282713d6e1f744854d191bcfeb21c
+    layerID: -167584552
+    mosaicPosition: {x: 642, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: new york
+    spriteName: new york
+    isGroup: 0
+    parentIndex: 65
+    spriteID: b62fb5817e697a34a917b7cf0eb6ce47
+    layerID: -1269585205
+    mosaicPosition: {x: 1963, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: pittsburgh
+    spriteName: pittsburgh
+    isGroup: 0
+    parentIndex: 65
+    spriteID: d4f4f781d743215409654a63d5a92623
+    layerID: -1425894400
+    mosaicPosition: {x: 508, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: chicago
+    spriteName: chicago
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 0315d69c058d46642b68e3586e8500b8
+    layerID: -728000018
+    mosaicPosition: {x: 2010, y: 1164}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: boston
+    spriteName: boston
+    isGroup: 0
+    parentIndex: 65
+    spriteID: b69a67e18384de44b800ebc21c25d97b
+    layerID: 1561951051
+    mosaicPosition: {x: 986, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: toronto
+    spriteName: toronto
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 249246e27df49e2428deedc1f31acdac
+    layerID: -183499753
+    mosaicPosition: {x: 1465, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sault st. marie
+    spriteName: sault st. marie
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 47e4d445876c99b4a8c2793679a97e68
+    layerID: 433300116
+    mosaicPosition: {x: 1108, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: montreal
+    spriteName: montreal
+    isGroup: 0
+    parentIndex: 65
+    spriteID: ddbc41a4005c7d148ae35d1abacc9985
+    layerID: -1838438264
+    mosaicPosition: {x: 1428, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: duluth
+    spriteName: duluth
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 686f371870052894bad52d7b765f278b
+    layerID: 1420951322
+    mosaicPosition: {x: 1350, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: winnepeg
+    spriteName: winnepeg
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 5c5d2a0b411d2aa40926b49c62db23ff
+    layerID: 1826493285
+    mosaicPosition: {x: 1965, y: 1164}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: calgary
+    spriteName: calgary
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 3ee5d6d9836518d4dae7e5fe5fc8aa6b
+    layerID: -950486745
+    mosaicPosition: {x: 1230, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: omaha
+    spriteName: omaha
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 4580d30fda87dea4391ee57c3f49fdff
+    layerID: 1694505258
+    mosaicPosition: {x: 1151, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: helena
+    spriteName: helena
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 3891861934a97dd49abec92fbd1bde7a
+    layerID: 950746435
+    mosaicPosition: {x: 1919, y: 1164}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: denver
+    spriteName: denver
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 3461d9238657cb746bfa2f76cbeb227e
+    layerID: 1051353598
+    mosaicPosition: {x: 1910, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: santa fe
+    spriteName: santa fe
+    isGroup: 0
+    parentIndex: 65
+    spriteID: caedaa529382c9d40bbd2f3cd02bc5ac
+    layerID: -298032696
+    mosaicPosition: {x: 1026, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: el paso
+    spriteName: el paso
+    isGroup: 0
+    parentIndex: 65
+    spriteID: bb8cd225b3cf6634698c6f48369f71c5
+    layerID: -1263026336
+    mosaicPosition: {x: 1068, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: phoenix
+    spriteName: phoenix
+    isGroup: 0
+    parentIndex: 65
+    spriteID: eff0848644fdcb24e9c2ad12d80ac976
+    layerID: 1993527377
+    mosaicPosition: {x: 815, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: los angeles
+    spriteName: los angeles
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 0404546178fe0d34da6ddb1e65a89b55
+    layerID: -1872927433
+    mosaicPosition: {x: 687, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: las vegas
+    spriteName: las vegas
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 6046a4456797cf840a81310828daf472
+    layerID: 583172920
+    mosaicPosition: {x: 900, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: salt lake city
+    spriteName: salt lake city
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 5771e85b7f2d769449cb45d27a9f1867
+    layerID: 580203404
+    mosaicPosition: {x: 596, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: san francisco
+    spriteName: san francisco
+    isGroup: 0
+    parentIndex: 65
+    spriteID: edb00414c5202614a8031436fe77a5b9
+    layerID: -238469382
+    mosaicPosition: {x: 1710, y: 1152}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: portland
+    spriteName: portland
+    isGroup: 0
+    parentIndex: 65
+    spriteID: babee1d8073af5e49ab48dd84ce6c75d
+    layerID: -1261120020
+    mosaicPosition: {x: 1869, y: 1164}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: seattle
+    spriteName: seattle
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 15baa78cb7e718c418bdf85830a34c40
+    layerID: -193206594
+    mosaicPosition: {x: 1581, y: 1155}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: vancouver
+    spriteName: vancouver
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 4b67b12aa095664499158fa3925eea78
+    layerID: 475965161
+    mosaicPosition: {x: 1774, y: 1161}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 0cd0dfdac8092364ba5b49fdb7c1428e
+    layerID: -575326572
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: any2_duluth-omaha 2
+    spriteName: any2_duluth-omaha 2
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 1e3700dd1ce0e7a47a27bb5cc27c7002
+    layerID: -888202664
+    mosaicPosition: {x: 1984, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_duluth-omaha 1
+    spriteName: any2_duluth-omaha 1
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 729d1087032708540bb428d6c3cd88bc
+    layerID: -888202667
+    mosaicPosition: {x: 1955, y: 473}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any1_omaha-kansasCity 2
+    spriteName: any1_omaha-kansasCity 2
+    isGroup: 0
+    parentIndex: 102
+    spriteID: d74e0b8887e1543458158aa5c94f80d5
+    layerID: -902705433
+    mosaicPosition: {x: 1659, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any1_omaha-kansasCity 1
+    spriteName: any1_omaha-kansasCity 1
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 38b354a650225184d83015857388197f
+    layerID: -902705432
+    mosaicPosition: {x: 1998, y: 724}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_kansasCity-oklahomaCity 2
+    spriteName: any2_kansasCity-oklahomaCity 2
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 3afab4a48eda5f948b474af885c2771d
+    layerID: -389145
+    mosaicPosition: {x: 256, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_kansasCity-oklahomaCity 1
+    spriteName: any2_kansasCity-oklahomaCity 1
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 9c75b940996bef442a0e4aaeb4eb0e9c
+    layerID: 1565694796
+    mosaicPosition: {x: 136, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_oklahomaCity-dallas 2
+    spriteName: any2_oklahomaCity-dallas 2
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 2d28a2dc9b5cac5409a1f570ba5f8700
+    layerID: 540356972
+    mosaicPosition: {x: 199, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_oklahomaCity-dallas 1
+    spriteName: any2_oklahomaCity-dallas 1
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 9bc34cdfeebb1a64bb3fea2c1de16cd6
+    layerID: 2106440913
+    mosaicPosition: {x: 315, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any1_dallas-houston 2
+    spriteName: any1_dallas-houston 2
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 640023398f5de284fa0ce3962f843845
+    layerID: 2066308010
+    mosaicPosition: {x: 1984, y: 136}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any1_dallas-houston 1
+    spriteName: any1_dallas-houston 1
+    isGroup: 0
+    parentIndex: 102
+    spriteID: fa4fd3df531270e4ca255a5a491daced
+    layerID: 2066308011
+    mosaicPosition: {x: 1710, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_oklaomaCity-littleRock
+    spriteName: any2_oklaomaCity-littleRock
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 4a6272da05243f549ae8abcb7c5e3293
+    layerID: 609915528
+    mosaicPosition: {x: 664, y: 1167}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_littleRock-dallas
+    spriteName: any2_littleRock-dallas
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 8cb02ffc01b7fb647976f5656257f884
+    layerID: -1181425054
+    mosaicPosition: {x: 1804, y: 806}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_houston-newOrleans
+    spriteName: any2_houston-newOrleans
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 291226ff1d5cde746a1cdfae3af0b854
+    layerID: -1207622882
+    mosaicPosition: {x: 1353, y: 1156}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_saintLouis-littleRock
+    spriteName: any2_saintLouis-littleRock
+    isGroup: 0
+    parentIndex: 102
+    spriteID: cc5f3d649d0c0344483f84885778da04
+    layerID: -382012830
+    mosaicPosition: {x: 74, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_saintLouis-nashville
+    spriteName: any2_saintLouis-nashville
+    isGroup: 0
+    parentIndex: 102
+    spriteID: bae05a825951cea4591d426c4439378f
+    layerID: 181657589
+    mosaicPosition: {x: 664, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any1_nashville-atlanta
+    spriteName: any1_nashville-atlanta
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 77b46b70e6cf69b4a8d33e761f7886cc
+    layerID: -287719100
+    mosaicPosition: {x: 1581, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_atlanta-charleston
+    spriteName: any2_atlanta-charleston
+    isGroup: 0
+    parentIndex: 102
+    spriteID: e7c8dff33de5704469815abc2ed87f0e
+    layerID: 358628696
+    mosaicPosition: {x: 1912, y: 1016}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_atlanta-raleigh 2
+    spriteName: any2_atlanta-raleigh 2
+    isGroup: 0
+    parentIndex: 102
+    spriteID: f30eb261e5b0b624383d178a078945e8
+    layerID: -87106277
+    mosaicPosition: {x: 1019, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_atlanta-raleigh 1
+    spriteName: any2_atlanta-raleigh 1
+    isGroup: 0
+    parentIndex: 102
+    spriteID: d5b5499b505c653449b19678912296fc
+    layerID: -1653190218
+    mosaicPosition: {x: 548, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_raleigh-charleston
+    spriteName: any2_raleigh-charleston
+    isGroup: 0
+    parentIndex: 102
+    spriteID: d6f38eb4f1ee250409885f41dc3de0c4
+    layerID: -1972383891
+    mosaicPosition: {x: 1511, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_washington-raleigh 2
+    spriteName: any2_washington-raleigh 2
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 25c103b05f248b346a588243f80a14ad
+    layerID: 1189265868
+    mosaicPosition: {x: 1804, y: 948}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_washington-raleigh 1
+    spriteName: any2_washington-raleigh 1
+    isGroup: 0
+    parentIndex: 102
+    spriteID: d36e9dde66729074989512b1f5284f05
+    layerID: 1189265867
+    mosaicPosition: {x: 1131, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_pittsburgh-raleigh
+    spriteName: any2_pittsburgh-raleigh
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 54a95030d097f884c87567d872093c5a
+    layerID: 2046408626
+    mosaicPosition: {x: 4, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_pittsburgh-washington
+    spriteName: any2_pittsburgh-washington
+    isGroup: 0
+    parentIndex: 102
+    spriteID: f2ffd3f8016f91547b12b747f3ec07ca
+    layerID: 1547262
+    mosaicPosition: {x: 410, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_toronto-pittsburgh
+    spriteName: any2_toronto-pittsburgh
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 2e94904c86c0695499b0525f369cd2e8
+    layerID: 2129237221
+    mosaicPosition: {x: 370, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_montreal-boston 2
+    spriteName: any2_montreal-boston 2
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 4101826223b51384aa933d0e9bd3463a
+    layerID: -1698536771
+    mosaicPosition: {x: 1912, y: 911}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_montreal-boston 1
+    spriteName: any2_montreal-boston 1
+    isGroup: 0
+    parentIndex: 102
+    spriteID: a155d8248950b184289101328058b21f
+    layerID: -2101821298
+    mosaicPosition: {x: 1912, y: 806}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any3_toronto-montreal
+    spriteName: any3_toronto-montreal
+    isGroup: 0
+    parentIndex: 102
+    spriteID: ae410e99eba49bb42a60bb6cafd7eb4a
+    layerID: 2116000820
+    mosaicPosition: {x: 1804, y: 473}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any3_duluth-saultStMarie
+    spriteName: any3_duluth-saultStMarie
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 96cbf9b4a86107942b66bf318f95f30d
+    layerID: -70873979
+    mosaicPosition: {x: 1804, y: 363}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_saultStMarie-toronto
+    spriteName: any2_saultStMarie-toronto
+    isGroup: 0
+    parentIndex: 102
+    spriteID: a31990e1e3045424c8d4781f028b49bb
+    layerID: 1918873959
+    mosaicPosition: {x: 1353, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any6_winnipeg-saultStMarie
+    spriteName: any6_winnipeg-saultStMarie
+    isGroup: 0
+    parentIndex: 102
+    spriteID: cb5cee985c0df744998f30a23d5e317c
+    layerID: 598939617
+    mosaicPosition: {x: 4, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_santaFe-denver
+    spriteName: any2_santaFe-denver
+    isGroup: 0
+    parentIndex: 102
+    spriteID: aacb5d9eb3cdf8f4caf04e7d6e2cf84f
+    layerID: 692435848
+    mosaicPosition: {x: 422, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_santaFe-elPaso
+    spriteName: any2_santaFe-elPaso
+    isGroup: 0
+    parentIndex: 102
+    spriteID: f8e76c28175345143bef2049559e955f
+    layerID: -360406436
+    mosaicPosition: {x: 465, y: 1208}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any3_phoenix-santaFe
+    spriteName: any3_phoenix-santaFe
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 921499275bef0a24094ac2326438178f
+    layerID: 1734086752
+    mosaicPosition: {x: 1804, y: 621}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any3_phoenix-elPaso
+    spriteName: any3_phoenix-elPaso
+    isGroup: 0
+    parentIndex: 102
+    spriteID: f1f1b8932dd5bd249ab7e3377c2d35c5
+    layerID: -284127876
+    mosaicPosition: {x: 1804, y: 724}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any3_losAngeles-Phoenix
+    spriteName: any3_losAngeles-Phoenix
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 124d90426caac1e4980c6ad92faa1bb5
+    layerID: -374098595
+    mosaicPosition: {x: 814, y: 1148}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any2_losAngeles-lasVegas
+    spriteName: any2_losAngeles-lasVegas
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 48bf3a6ddc90e1e48897ca839c3d965f
+    layerID: 272945709
+    mosaicPosition: {x: 1234, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any4_calgary-helena
+    spriteName: any4_calgary-helena
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 091dfa4559d408141a7bf22a360a7139
+    layerID: 1548535204
+    mosaicPosition: {x: 1804, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any4_seattle calgary
+    spriteName: any4_seattle calgary
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 96d2f97b456e1fc428b60eded471ef56
+    layerID: 1338485186
+    mosaicPosition: {x: 1804, y: 224}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any3_vancouver-calgary
+    spriteName: any3_vancouver-calgary
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 970013e755a214540b9ec2d5da1e35c3
+    layerID: -1907383627
+    mosaicPosition: {x: 814, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any1_seattle-portland 2
+    spriteName: any1_seattle-portland 2
+    isGroup: 0
+    parentIndex: 102
+    spriteID: df08d5f4e143ad44b9d34bc33bc917b6
+    layerID: 1158561371
+    mosaicPosition: {x: 1997, y: 621}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any1_seattle-portland 1
+    spriteName: any1_seattle-portland 1
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 27e1a30c1250e2641b2bed117a3b29d7
+    layerID: 1158561370
+    mosaicPosition: {x: 1774, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any1_vancouver-seattle 2
+    spriteName: any1_vancouver-seattle 2
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 371c892930f133741a52af29ec5a4046
+    layerID: 437909944
+    mosaicPosition: {x: 1828, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: any1_vancouver-seattle 1
+    spriteName: any1_vancouver-seattle 1
+    isGroup: 0
+    parentIndex: 102
+    spriteID: 6330af89633ecae449a60052ec2ac42d
+    layerID: 841194471
+    mosaicPosition: {x: 1869, y: 1092}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Background
+    spriteName: Background
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 786645b036391e44da4ae0d86e84a34b
+    layerID: -1498723586
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []
