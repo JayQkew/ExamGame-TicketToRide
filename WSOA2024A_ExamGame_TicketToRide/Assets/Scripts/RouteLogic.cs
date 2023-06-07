@@ -18,16 +18,21 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         cs_playerManager2 = GameObject.Find("Player_2").GetComponent<PlayerManager>();
         cs_trainDeckManager = GameObject.Find("TrainDeck").GetComponent<TrainDeckManager>();
     }
+
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (cs_playerManager1.playerTurn)
         {
+            Debug.Log("here");
             ClaimRoute(cs_playerManager1);
         }
-        else if (cs_playerManager2.playerTurn)
+        if (cs_playerManager2.playerTurn)
         {
+            Debug.Log("here");
             ClaimRoute(cs_playerManager2);
         }
+
     }
 
     public void ClaimRoute(PlayerManager cs_playerManagerCode)
@@ -44,13 +49,22 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         {
             if (cs_playerManagerCode.cs_colourPileLogic[i].colour == so_routes.colour)
             {
-                if (cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards >= so_routes.trainPieces)
-                {
-                    cs_playerManagerCode.trainPieces -= so_routes.trainPieces;
-                    cs_playerManagerCode.points += so_routes.points;
-                    cs_trainDeckManager.DiscardCard(cs_playerManagerCode.colourPiles[i].transform.GetChild(0).gameObject);
-                }
+                CardCheck2(cs_playerManagerCode, i);
             }
         }
+    }
+
+    private void CardCheck2(PlayerManager cs_playerManagerCode, int i)
+    {
+        if (cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards >= so_routes.trainPieces)
+        {
+            cs_playerManagerCode.trainPieces -= so_routes.trainPieces;
+            cs_playerManagerCode.points += so_routes.points;
+            for (int j = 0; j < so_routes.trainPieces; j++)
+            {
+                cs_trainDeckManager.DiscardCard(cs_playerManagerCode.colourPiles[i].transform.GetChild(0).gameObject);
+            }
+        }
+
     }
 }
