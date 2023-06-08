@@ -49,6 +49,7 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
     [SerializeField] public GameObject destinationDiscardedPile;
     [SerializeField] public int cardsChosen;
     [SerializeField] public bool destinationCardAction = false;
+    [SerializeField] public bool canDrawDestinationCard = true;
     #endregion
 
     #region OTHER GAME OBJECTS:
@@ -63,6 +64,11 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
         this.cardsChosen = cardsChosen;
     }
     #endregion
+    private void Awake()
+    {
+        canDrawDestinationCard = true;
+    }
+
     void Start()
     {
         //This foreach loop looks for all the objects in the DestinationCards folder and adds them to the list
@@ -147,10 +153,13 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData) // when the action is chosen
     {
-        p_destinationChoices.gameObject.SetActive(true); // set the panel active
-        for(int i = 0; i < 3; i++)
+        if(canDrawDestinationCard ==true)
         {
-            DrawDestinationCards(choices[i].transform.position, choices[i].transform); // draw 3 random destination cards and parent them to the choices
+            p_destinationChoices.gameObject.SetActive(true); // set the panel active
+            for (int i = 0; i < 3; i++)
+            {
+                DrawDestinationCards(choices[i].transform.position, choices[i].transform); // draw 3 random destination cards and parent them to the choices
+            }
         }
     }
 

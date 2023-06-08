@@ -31,10 +31,12 @@ public class ActionManager : MonoBehaviour
         if(isTurnOver == true)
         {
             nextTurnButton.SetActive(true);
+            cs_destinationDeck.canDrawDestinationCard = false;
         }
         if(isTurnOver ==false)
         {
             nextTurnButton.SetActive(false);
+            cs_destinationDeck.canDrawDestinationCard = true;
         }
     }
 
