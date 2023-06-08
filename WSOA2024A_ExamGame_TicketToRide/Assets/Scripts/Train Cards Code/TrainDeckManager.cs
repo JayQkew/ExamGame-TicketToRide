@@ -40,7 +40,6 @@ public class TrainDeckManager : MonoBehaviour, IPointerClickHandler
     [SerializeField] ActionManager cs_actionManager;
     #endregion
 
-
     void Awake()
     {
         #region GETTING OTHER SCRIPTS:
