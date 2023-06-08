@@ -48,12 +48,20 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
     [SerializeField] GameObject destinationDeck;
     [SerializeField] public GameObject destinationDiscardedPile;
     [SerializeField] public int cardsChosen;
+    [SerializeField] public bool destinationCardAction = false;
     #endregion
 
     #region OTHER GAME OBJECTS:
     [SerializeField] public GameObject[] choices = new GameObject[3];
     [SerializeField] GameObject p_destinationChoices;
     [SerializeField] public GameObject doneButton;
+
+    public DestinationDeck(GameObject destinationDeck, GameObject destinationDiscardedPile, int cardsChosen)
+    {
+        this.destinationDeck = destinationDeck;
+        this.destinationDiscardedPile = destinationDiscardedPile;
+        this.cardsChosen = cardsChosen;
+    }
     #endregion
     void Start()
     {
@@ -157,5 +165,7 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
         }
         p_destinationChoices.SetActive(false); // set the panel to false
         doneButton.gameObject.SetActive(false); // set the button itself to false
+
+        destinationCardAction = true;
     }
 }

@@ -37,7 +37,10 @@ public class TrainDeckManager : MonoBehaviour, IPointerClickHandler
     [SerializeField] GameObject go_playerManager;
     [SerializeField] MarketManager cs_marketManager;
     [SerializeField] GameObject go_marketManager;
+    [SerializeField] ActionManager cs_actionManager;
     #endregion
+
+
     void Awake()
     {
         #region GETTING OTHER SCRIPTS:
