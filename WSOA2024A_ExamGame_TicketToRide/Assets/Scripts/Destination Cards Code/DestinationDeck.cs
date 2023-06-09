@@ -48,45 +48,17 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
     [SerializeField] GameObject destinationDeck;
     [SerializeField] public GameObject destinationDiscardedPile;
     [SerializeField] public int cardsChosen;
-    [SerializeField] public bool destinationCardAction = false;
-    [SerializeField] public bool canDrawDestinationCard = true;
     #endregion
 
     #region OTHER GAME OBJECTS:
     [SerializeField] public GameObject[] choices = new GameObject[3];
     [SerializeField] GameObject p_destinationChoices;
     [SerializeField] public GameObject doneButton;
-
-    public DestinationDeck(GameObject destinationDeck, GameObject destinationDiscardedPile, int cardsChosen)
-    {
-        this.destinationDeck = destinationDeck;
-        this.destinationDiscardedPile = destinationDiscardedPile;
-        this.cardsChosen = cardsChosen;
-    }
+    [SerializeField] GameObject go_playerManager1;
+    [SerializeField] GameObject go_playerManager2;
     #endregion
-    private void Awake()
-    {
-        canDrawDestinationCard = true;
-    }
-
     void Start()
     {
-        //This foreach loop looks for all the objects in the DestinationCards folder and adds them to the list
-        object[] loadedObjects = Resources.LoadAll("SO_DestinationCards", typeof(DestinationCard));
-        foreach (object obj in loadedObjects)
-        {
-            DestinationCard destinationCard = (DestinationCard)obj;
-            sO_destinationCards.Add(destinationCard);
-        }
-
-        // foreach that adds all the destinationCard prefabs into the list
-        object[] loadedObjects1 = Resources.LoadAll("p_DestinationCards", typeof(GameObject));
-        foreach (object obj in loadedObjects1)
-        {
-            GameObject go = (GameObject)obj;
-            destinationCards.Add(go);
-        }
-
         #region ADDING DESTINATIONS:
         destinationCards.Add(BostonMiami);
         destinationCards.Add(CalgaryPhoenix);
@@ -123,9 +95,37 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
 
     public void DrawDestinationCards(Vector3 position, Transform parent) // method to use when drawing a random destination card
     {
+        bool p1_wasDeactive = false;
+        bool p2_wasDeactive = false;
+
+        if (!go_playerManager1.activeSelf)
+        {
+            p1_wasDeactive = true;
+            go_playerManager1.SetActive(true);
+        }
+        if (!go_playerManager2.activeSelf)
+        {
+            p2_wasDeactive = true;
+            go_playerManager2.SetActive(true);
+        }
+
         int randomNumber = Random.Range(0, destinationCards.Count - 1);
         Instantiate(destinationCards[randomNumber], position, Quaternion.identity, parent);
         destinationCards.RemoveAt(randomNumber);
+
+        if (p1_wasDeactive)
+        {
+            go_playerManager1.SetActive(false);
+            p1_wasDeactive = false;
+            p2_wasDeactive = false;
+        }
+        else if (p2_wasDeactive)
+        {
+            go_playerManager2.SetActive(false);
+            p1_wasDeactive = false;
+            p2_wasDeactive = false;
+        }
+
     }
 
     public void DiscardDestinationCard(GameObject card) // method to use when discarding a destination card
@@ -153,13 +153,10 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData) // when the action is chosen
     {
-        if(canDrawDestinationCard ==true)
+        p_destinationChoices.gameObject.SetActive(true); // set the panel active
+        for(int i = 0; i < 3; i++)
         {
-            p_destinationChoices.gameObject.SetActive(true); // set the panel active
-            for (int i = 0; i < 3; i++)
-            {
-                DrawDestinationCards(choices[i].transform.position, choices[i].transform); // draw 3 random destination cards and parent them to the choices
-            }
+            DrawDestinationCards(choices[i].transform.position, choices[i].transform); // draw 3 random destination cards and parent them to the choices
         }
     }
 
@@ -174,7 +171,5 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
         }
         p_destinationChoices.SetActive(false); // set the panel to false
         doneButton.gameObject.SetActive(false); // set the button itself to false
-
-        destinationCardAction = true;
     }
 }

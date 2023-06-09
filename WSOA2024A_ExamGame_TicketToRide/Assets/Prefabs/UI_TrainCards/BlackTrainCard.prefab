@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   so_trainCards: {fileID: 11400000, guid: a51d77abbb4a5c74b9dc71e8712526d9, type: 2}
-  cs_playerManager: {fileID: 0}
+  cs_playerManager1: {fileID: 0}
+  cs_playerManager2: {fileID: 0}
   cs_marketManager: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}

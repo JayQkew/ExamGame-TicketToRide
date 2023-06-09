@@ -33,8 +33,10 @@ public class TrainDeckManager : MonoBehaviour, IPointerClickHandler
     #region OTHER SCRIPTS:
     [SerializeField] TrainCard cs_trainCard;
     [SerializeField] GameObject go_trainCard;
-    [SerializeField] PlayerManager cs_playerManager;
-    [SerializeField] GameObject go_playerManager;
+    [SerializeField] PlayerManager cs_playerManager1;
+    [SerializeField] GameObject go_playerManager1;
+    [SerializeField] PlayerManager cs_playerManager2;
+    [SerializeField] GameObject go_playerManager2;
     [SerializeField] MarketManager cs_marketManager;
     [SerializeField] GameObject go_marketManager;
     [SerializeField] ActionManager cs_actionManager;
@@ -43,7 +45,8 @@ public class TrainDeckManager : MonoBehaviour, IPointerClickHandler
     void Awake()
     {
         #region GETTING OTHER SCRIPTS:
-        cs_playerManager = go_playerManager.GetComponent<PlayerManager>();
+        cs_playerManager1 = go_playerManager1.GetComponent<PlayerManager>();
+        cs_playerManager2 = go_playerManager2.GetComponent<PlayerManager>();
         cs_trainCard = go_trainCard.GetComponent<TrainCard>();
         cs_marketManager = go_marketManager.GetComponent<MarketManager>();
         #endregion
@@ -76,12 +79,38 @@ public class TrainDeckManager : MonoBehaviour, IPointerClickHandler
 
     public GameObject DrawCard(Vector3 position, Transform parent, string tag) // whenever a card is drawn into, players hand or market ...
     {
+        bool p1_wasDeactive = false;
+        bool p2_wasDeactive = false;
+
+        if (!go_playerManager1.activeSelf)
+        {
+            p1_wasDeactive = true;
+            go_playerManager1.SetActive(true);
+        }
+        if (!go_playerManager2.activeSelf)
+        {
+            p2_wasDeactive = true;
+            go_playerManager2.SetActive(true);
+        }
         int randomNumber = Random.Range(0, trainCards.Count - 1); // find a random number within the trainCards.Count (-1 to match the size)
         Instantiate(trainCards[randomNumber], position, Quaternion.identity, parent); // spawn a trainCard from the list with the randomNumber as the index, spawn it at the given postion and parent
         trainCards.RemoveAt(randomNumber); // remove that trainCard so that it cannot be repeated again.
         trainCards[randomNumber].tag = tag; // tag the traimCard with the given tag
         trainCards[randomNumber].transform.SetAsFirstSibling();
+        if (p1_wasDeactive)
+        {
+            go_playerManager1.SetActive(false);
+            p1_wasDeactive = false;
+            p2_wasDeactive = false;
+        }
+        else if (p2_wasDeactive)
+        {
+            go_playerManager2.SetActive(false);
+            p1_wasDeactive = false;
+            p2_wasDeactive = false;
+        }
         return trainCards[randomNumber];
+
     }
 
     public void DiscardCard(GameObject card) //to keep the cards that are discarded and to be used again.
@@ -94,7 +123,14 @@ public class TrainDeckManager : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        DrawCard(Vector3.zero, go_playerManager.transform, "trainCard");
+        if (cs_playerManager1.playerTurn)
+        {
+            DrawCard(Vector3.zero, go_playerManager1.transform, "trainCard");
+        }
+        else if (cs_playerManager2.playerTurn)
+        {
+            DrawCard(Vector3.zero, go_playerManager2.transform, "trainCard");
+        }
     }
 
     public void ShuffleDeck()

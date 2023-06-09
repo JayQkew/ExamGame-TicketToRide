@@ -91,7 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   so_trainCards: {fileID: 11400000, guid: 5aaa8aefa0f9c694ab47bc665646930d, type: 2}
-  cs_playerManager: {fileID: 0}
+  cs_playerManager1: {fileID: 0}
+  cs_playerManager2: {fileID: 0}
   cs_marketManager: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
 --- !u!1 &5743326095026205800
