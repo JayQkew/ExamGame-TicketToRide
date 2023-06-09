@@ -42,6 +42,11 @@ public class TrainDeckManager : MonoBehaviour, IPointerClickHandler
     [SerializeField] ActionManager cs_actionManager;
     #endregion
 
+    #region OTHER VARIABLES:
+    [SerializeField] public bool canDrawTrainCard;
+    [SerializeField] public int cardPickUpCounter;
+    #endregion
+
     void Awake()
     {
         #region GETTING OTHER SCRIPTS:
@@ -62,6 +67,8 @@ public class TrainDeckManager : MonoBehaviour, IPointerClickHandler
         AddingCards(colourTrains, yellowCard);
         AddingCards(locomotive, locomotiveCard);
         #endregion
+
+        canDrawTrainCard = true;
 
     }
     private void Update()
@@ -123,13 +130,18 @@ public class TrainDeckManager : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (cs_playerManager1.playerTurn)
+        if(canDrawTrainCard == true)
         {
-            DrawCard(Vector3.zero, go_playerManager1.transform, "trainCard");
-        }
-        else if (cs_playerManager2.playerTurn)
-        {
-            DrawCard(Vector3.zero, go_playerManager2.transform, "trainCard");
+            if (cs_playerManager1.playerTurn)
+            {
+                DrawCard(Vector3.zero, go_playerManager1.transform, "trainCard");
+            }
+            else if (cs_playerManager2.playerTurn)
+            {
+                DrawCard(Vector3.zero, go_playerManager2.transform, "trainCard");
+            }
+
+            cardPickUpCounter++;
         }
     }
 

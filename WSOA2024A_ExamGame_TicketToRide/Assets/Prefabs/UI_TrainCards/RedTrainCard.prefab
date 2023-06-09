@@ -171,3 +171,4 @@ MonoBehaviour:
   cs_playerManager2: {fileID: 0}
   cs_marketManager: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}

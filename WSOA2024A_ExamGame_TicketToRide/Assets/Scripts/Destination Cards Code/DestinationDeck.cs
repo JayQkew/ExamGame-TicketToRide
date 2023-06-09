@@ -48,6 +48,8 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
     [SerializeField] GameObject destinationDeck;
     [SerializeField] public GameObject destinationDiscardedPile;
     [SerializeField] public int cardsChosen;
+    [SerializeField] public bool canDrawDestinationCard;
+    [SerializeField] public bool destinationCardAction;
     #endregion
 
     #region OTHER GAME OBJECTS:
@@ -91,6 +93,9 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
         destinationCards.Add(WinnipegHouston);
         destinationCards.Add(WinnipegLittleRock);
         #endregion
+
+        canDrawDestinationCard = true;
+        destinationCardAction = false;
     }
 
     public void DrawDestinationCards(Vector3 position, Transform parent) // method to use when drawing a random destination card
@@ -153,10 +158,13 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData) // when the action is chosen
     {
-        p_destinationChoices.gameObject.SetActive(true); // set the panel active
-        for(int i = 0; i < 3; i++)
+        if(canDrawDestinationCard == true)
         {
-            DrawDestinationCards(choices[i].transform.position, choices[i].transform); // draw 3 random destination cards and parent them to the choices
+            p_destinationChoices.gameObject.SetActive(true); // set the panel active
+            for (int i = 0; i < 3; i++)
+            {
+                DrawDestinationCards(choices[i].transform.position, choices[i].transform); // draw 3 random destination cards and parent them to the choices
+            }
         }
     }
 
@@ -171,5 +179,7 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
         }
         p_destinationChoices.SetActive(false); // set the panel to false
         doneButton.gameObject.SetActive(false); // set the button itself to false
+
+        destinationCardAction = true;
     }
 }
