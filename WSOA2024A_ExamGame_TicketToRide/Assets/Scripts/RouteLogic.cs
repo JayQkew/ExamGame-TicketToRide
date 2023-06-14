@@ -10,29 +10,36 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     [SerializeField] PlayerManager cs_playerManager1;
     [SerializeField] PlayerManager cs_playerManager2;
     [SerializeField] TrainDeckManager cs_trainDeckManager;
+    [SerializeField] ActionManager cs_actionManager;
     #endregion
+
+    
 
     private void Awake()
     {
         cs_playerManager1 = GameObject.Find("Player_1").GetComponent<PlayerManager>();
         cs_playerManager2 = GameObject.Find("Player_2").GetComponent<PlayerManager>();
         cs_trainDeckManager = GameObject.Find("TrainDeck").GetComponent<TrainDeckManager>();
+        cs_actionManager = GameObject.Find("Players").GetComponent<ActionManager>();
     }
 
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (cs_playerManager1.playerTurn)
+        if(cs_actionManager.canClaimRoute == true)
         {
-            Debug.Log("here");
-            ClaimRoute(cs_playerManager1);
+            if (cs_playerManager1.playerTurn)
+            {
+                Debug.Log("here");
+                ClaimRoute(cs_playerManager1);
+            }
+            if (cs_playerManager2.playerTurn)
+            {
+                Debug.Log("here");
+                ClaimRoute(cs_playerManager2);
+            }
+            cs_actionManager.amountRoutesClaimed++;
         }
-        if (cs_playerManager2.playerTurn)
-        {
-            Debug.Log("here");
-            ClaimRoute(cs_playerManager2);
-        }
-
     }
 
     public void ClaimRoute(PlayerManager cs_playerManagerCode)

@@ -14,6 +14,9 @@ public class ActionManager : MonoBehaviour
 
     [SerializeField] public bool canDrawLoco;
     [SerializeField] public bool canDrawNorm;
+
+    [SerializeField] public bool canClaimRoute;
+    [SerializeField] public int amountRoutesClaimed;
     #endregion
 
     #region OTHER SCRIPTS:
@@ -25,6 +28,7 @@ public class ActionManager : MonoBehaviour
     {
         canDrawLoco = true;
         canDrawNorm = true;
+        canClaimRoute = true;
     }
 
     private void Update()
@@ -42,6 +46,7 @@ public class ActionManager : MonoBehaviour
             cs_traindeckmanager.canDrawTrainCard = false;
             canDrawLoco = false;
             canDrawNorm = false;
+            canClaimRoute = false;
         }
         if(isTurnOver ==false)
         {
@@ -81,8 +86,14 @@ public class ActionManager : MonoBehaviour
             canDrawLoco = false;
             cs_destinationDeck.canDrawDestinationCard = false;
         }
-
-
+        if(amountRoutesClaimed == 1)
+        {
+            canClaimRoute = false;
+        }
+        if(canClaimRoute == false)
+        {
+            isTurnOver = true;
+        }
     }
 
     //turns next turn button off
@@ -93,9 +104,11 @@ public class ActionManager : MonoBehaviour
         isTurnOver = false;
         canDrawNorm = true;
         canDrawLoco = true;
+        canClaimRoute = true;
 
         cs_traindeckmanager.cardPickUpCounter = 0;
         pickUpLocoCount = 0;
         pickUpNormCount = 0;
+        amountRoutesClaimed = 0;
     }
 }
