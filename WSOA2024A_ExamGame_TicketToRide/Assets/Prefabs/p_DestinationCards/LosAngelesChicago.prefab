@@ -752,6 +752,7 @@ GameObject:
   - component: {fileID: 7352292684062749008}
   - component: {fileID: 4623772021878777695}
   - component: {fileID: 8478707461533670829}
+  - component: {fileID: -7030465153348000228}
   m_Layer: 5
   m_Name: LosAngelesChicago
   m_TagString: Untagged
@@ -836,12 +837,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sO_DestinationTicket: {fileID: 11400000, guid: d5af0cc356865f545a0ad9530c517b87, type: 2}
-  cs_playerManager: {fileID: 0}
+  cs_playerManager1: {fileID: 0}
+  cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
+  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 6593184188345586531}
   tmp_to: {fileID: 8898150941898108053}
   tmp_points: {fileID: 9129711898909749083}
+--- !u!114 &-7030465153348000228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8354688253259152197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinaitonCardActive: 0
 --- !u!1 &9005196641184248525
 GameObject:
   m_ObjectHideFlags: 0

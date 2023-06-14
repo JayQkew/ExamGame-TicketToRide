@@ -752,6 +752,7 @@ GameObject:
   - component: {fileID: 7440091323630216585}
   - component: {fileID: 4711579646511805318}
   - component: {fileID: 8422434019158362484}
+  - component: {fileID: 1615513492812483709}
   m_Layer: 5
   m_Name: BostonMiami
   m_TagString: Untagged
@@ -836,12 +837,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sO_DestinationTicket: {fileID: 11400000, guid: fcfdf293f7574984e80e43994bd03f9e, type: 2}
-  cs_playerManager: {fileID: 0}
+  cs_playerManager1: {fileID: 0}
+  cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
+  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 6500847690215917498}
   tmp_to: {fileID: 8805805822020319308}
   tmp_points: {fileID: 9222057053212556162}
+--- !u!114 &1615513492812483709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8266854291916025756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinaitonCardActive: 0
 --- !u!1 &9057009590304073236
 GameObject:
   m_ObjectHideFlags: 0

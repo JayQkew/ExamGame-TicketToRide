@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 2654593114126446708}
   - component: {fileID: 213187906117723771}
   - component: {fileID: 3996380486948363401}
+  - component: {fileID: 683502254556492886}
   m_Layer: 5
   m_Name: DallasNewYork
   m_TagString: Untagged
@@ -392,12 +393,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sO_DestinationTicket: {fileID: 11400000, guid: 64723e8467784c448a2136f027f587ad, type: 2}
-  cs_playerManager: {fileID: 0}
+  cs_playerManager1: {fileID: 0}
+  cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
+  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 1846519230115648071}
   tmp_to: {fileID: 4153163563513671089}
   tmp_points: {fileID: 4354090215331802751}
+--- !u!114 &683502254556492886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3543846721145862753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinaitonCardActive: 0
 --- !u!1 &4478680023689393129
 GameObject:
   m_ObjectHideFlags: 0

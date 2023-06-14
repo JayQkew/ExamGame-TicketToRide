@@ -14,6 +14,7 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
     [SerializeField] PlayerManager cs_playerManager1;
     [SerializeField] PlayerManager cs_playerManager2;
     [SerializeField] DestinationDeck cs_destinationDeck;
+    [SerializeField] DestinationCardLogic cs_destinationLogic;
     #endregion
 
     #region GAMEOBJECTS:
@@ -34,6 +35,8 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
         cs_playerManager2 = GameObject.Find("Player_2").GetComponent<PlayerManager>();
 
         cs_destinationDeck = GameObject.Find("DestinationsDeck").GetComponent<DestinationDeck>();
+
+        cs_destinationLogic = GetComponent<DestinationCardLogic>();
         #endregion
     }
     void Start()
@@ -66,6 +69,7 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
                 eventData.pointerClick.transform.SetParent(cs_playerManagerCode.destinationHand); // sets it parent to the destinationHand of the player (to be sorted)
                 eventData.pointerClick.transform.position = cs_playerManagerCode.destinationHand.transform.position; // transforms its position to the destinationHand
                 cs_destinationDeck.cardsChosen += 1;
+                cs_destinationLogic.destinaitonCardActive = true;
                 break;
         }
 

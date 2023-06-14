@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,6 +14,11 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     [SerializeField] TrainDeckManager cs_trainDeckManager;
     #endregion
 
+    #region VARIABLES:
+    [SerializeField] bool routeClaimed = false;
+    [SerializeField] public List<GameObject> _connectedDestinations = new List<GameObject>();
+    #endregion
+
     private void Awake()
     {
         cs_playerManager1 = GameObject.Find("Player_1").GetComponent<PlayerManager>();
@@ -19,18 +26,20 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         cs_trainDeckManager = GameObject.Find("TrainDeck").GetComponent<TrainDeckManager>();
     }
 
-
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (cs_playerManager1.playerTurn)
+        if (!routeClaimed)
         {
-            Debug.Log("here");
-            ClaimRoute(cs_playerManager1);
-        }
-        if (cs_playerManager2.playerTurn)
-        {
-            Debug.Log("here");
-            ClaimRoute(cs_playerManager2);
+            if (cs_playerManager1.playerTurn)
+            {
+                Debug.Log("here");
+                ClaimRoute(cs_playerManager1);
+            }
+            if (cs_playerManager2.playerTurn)
+            {
+                Debug.Log("here");
+                ClaimRoute(cs_playerManager2);
+            }
         }
 
     }
@@ -64,7 +73,21 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
             {
                 cs_trainDeckManager.DiscardCard(cs_playerManagerCode.colourPiles[i].transform.GetChild(0).gameObject);
             }
+            GetComponent<SpriteRenderer>().color = Color.grey; // colour change for indication. *testing*
+            gameObject.tag = "claimedRoute";
+            foreach (GameObject destination in _connectedDestinations)
+            {
+                GameObject.Find(destination.name).GetComponent<DestinationLogic>().connectedDestintaions.AddRange(_connectedDestinations);
+            }
+            routeClaimed = true;
         }
 
     }
+
+    private void OnTriggerStay2D(Collider2D collision) // works!
+    {
+        _connectedDestinations.Add(collision.gameObject);
+    }
+
+
 }

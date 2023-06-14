@@ -604,6 +604,7 @@ GameObject:
   - component: {fileID: 6399424439273134116}
   - component: {fileID: 9146025264511061547}
   - component: {fileID: 5435191783619065049}
+  - component: {fileID: -8553390337931147141}
   m_Layer: 5
   m_Name: MontrealAtlanta
   m_TagString: Untagged
@@ -688,12 +689,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sO_DestinationTicket: {fileID: 11400000, guid: 1e14f37f43caad4489fa8bb1ebf4ebf9, type: 2}
-  cs_playerManager: {fileID: 0}
+  cs_playerManager1: {fileID: 0}
+  cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
+  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 7329740010915691031}
   tmp_to: {fileID: 5024698328037950945}
   tmp_points: {fileID: 4644483604439320111}
+--- !u!114 &-8553390337931147141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5563657553683190321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinaitonCardActive: 0
 --- !u!1 &6614914962426231980
 GameObject:
   m_ObjectHideFlags: 0

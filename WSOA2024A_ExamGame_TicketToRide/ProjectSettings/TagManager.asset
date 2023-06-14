@@ -6,6 +6,9 @@ TagManager:
   tags:
   - trainCard
   - marketTrainCard
+  - route
+  - claimedRoute
+  - _claimedRoute
   layers:
   - Default
   - TransparentFX
