@@ -15,8 +15,9 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     #endregion
 
     #region VARIABLES:
-    [SerializeField] bool routeClaimed = false;
+    [SerializeField] public bool routeClaimed = false;
     [SerializeField] public List<GameObject> _connectedDestinations = new List<GameObject>();
+    [SerializeField] public List<GameObject> sub_connectedDestinations = new List<GameObject>();
     #endregion
 
     private void Awake()
@@ -74,20 +75,66 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 cs_trainDeckManager.DiscardCard(cs_playerManagerCode.colourPiles[i].transform.GetChild(0).gameObject);
             }
             GetComponent<SpriteRenderer>().color = Color.grey; // colour change for indication. *testing*
-            gameObject.tag = "claimedRoute";
-            foreach (GameObject destination in _connectedDestinations)
-            {
-                GameObject.Find(destination.name).GetComponent<DestinationLogic>().connectedDestintaions.AddRange(_connectedDestinations);
-            }
-            routeClaimed = true;
+            InfoGathering();
+            InfoSharing();
         }
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision) // works!
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         _connectedDestinations.Add(collision.gameObject);
     }
 
+    private void InfoGathering()
+    {
+        if (cs_playerManager1.playerTurn)
+        {
+            foreach (GameObject destinaiton in _connectedDestinations)
+            {
+                sub_connectedDestinations.AddRange(destinaiton.GetComponent<DestinationLogic>().p1_connectedDestintaions);
+            }
+            _connectedDestinations.AddRange(sub_connectedDestinations);
+            sub_connectedDestinations.Clear();
+        }
+        else if (cs_playerManager2.playerTurn)
+        {
+            foreach (GameObject destinaiton in _connectedDestinations)
+            {
+                sub_connectedDestinations.AddRange(destinaiton.GetComponent<DestinationLogic>().p2_connectedDestintaions);
+            }
+            _connectedDestinations.AddRange(sub_connectedDestinations);
+            sub_connectedDestinations.Clear();
+        }
+    }
 
+    private void InfoSharing()
+    {
+        if (cs_playerManager1.playerTurn)
+        {
+            foreach (GameObject destination in _connectedDestinations)
+            {
+                var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Union(_connectedDestinations);
+                destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Clear();
+
+                foreach (GameObject _destination in union_connectedDestinations)
+                {
+                    destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Add(_destination);
+                }
+            }
+        }
+        else if (cs_playerManager2.playerTurn)
+        {
+            foreach (GameObject destination in _connectedDestinations)
+            {
+                var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Union(_connectedDestinations);
+                destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Clear();
+
+                foreach (GameObject _destination in union_connectedDestinations)
+                {
+                    destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Add(_destination);
+                }
+            }
+        }
+    }
 }
