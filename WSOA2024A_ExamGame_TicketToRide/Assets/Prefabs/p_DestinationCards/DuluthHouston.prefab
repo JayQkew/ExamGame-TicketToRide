@@ -604,7 +604,6 @@ GameObject:
   - component: {fileID: 8483983383864933425}
   - component: {fileID: 6025621593436187198}
   - component: {fileID: 7358834848925847756}
-  - component: {fileID: -8872890746072793149}
   m_Layer: 5
   m_Name: DuluthHouston
   m_TagString: Untagged
@@ -692,24 +691,10 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
-  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 5245018853864971778}
   tmp_to: {fileID: 7550614555029823988}
   tmp_points: {fileID: 7856246237697843770}
---- !u!114 &-8872890746072793149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6936790815607191076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinaitonCardActive: 0
 --- !u!1 &8020168146575261612
 GameObject:
   m_ObjectHideFlags: 0

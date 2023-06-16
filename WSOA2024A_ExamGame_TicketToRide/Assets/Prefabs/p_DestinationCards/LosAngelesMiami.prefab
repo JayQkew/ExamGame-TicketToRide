@@ -160,7 +160,6 @@ GameObject:
   - component: {fileID: 458313430151729115}
   - component: {fileID: 2341351432017811924}
   - component: {fileID: 1584912049095598886}
-  - component: {fileID: -2495424317334265696}
   m_Layer: 5
   m_Name: LosAngelesMiami
   m_TagString: Untagged
@@ -248,24 +247,10 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
-  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 4263612013230484968}
   tmp_to: {fileID: 1956888513766724126}
   tmp_points: {fileID: 2226913496855171536}
---- !u!114 &-2495424317334265696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415544446360782286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinaitonCardActive: 0
 --- !u!1 &2066083766390787142
 GameObject:
   m_ObjectHideFlags: 0

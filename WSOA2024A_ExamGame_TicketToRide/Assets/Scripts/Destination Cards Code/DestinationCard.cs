@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.UI;
 
 public class DestinationCard : MonoBehaviour, IPointerClickHandler
 {
     #region VARIABLES:
+    [SerializeField] public bool cardComplete = false;
     #endregion
 
     #region OTHER SCRIPTS:
-    [SerializeField] SO_DestinationTicket sO_DestinationTicket;
+    [SerializeField] public SO_DestinationTicket sO_DestinationTicket;
     [SerializeField] PlayerManager cs_playerManager1;
     [SerializeField] PlayerManager cs_playerManager2;
     [SerializeField] DestinationDeck cs_destinationDeck;
-    [SerializeField] DestinationCardLogic cs_destinationLogic;
     #endregion
 
     #region GAMEOBJECTS:
@@ -36,7 +37,6 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
 
         cs_destinationDeck = GameObject.Find("DestinationsDeck").GetComponent<DestinationDeck>();
 
-        cs_destinationLogic = GetComponent<DestinationCardLogic>();
         #endregion
     }
     void Start()
@@ -44,6 +44,32 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
         tmp_from.text = sO_DestinationTicket.from;
         tmp_to.text = sO_DestinationTicket.to;
         tmp_points.text = sO_DestinationTicket.points.ToString();
+
+    }
+
+    private void Update()
+    {
+        if (cardComplete)
+        {
+            GetComponent<Image>().color = Color.green;
+
+            if (transform.parent.parent.name == "Player_1")
+            {
+                if (transform.parent.name == "destinationHand")
+                {
+                    cs_playerManager1.privatePoints += sO_DestinationTicket.points;
+                    transform.SetParent(GameObject.Find("p1_completedDestinations").transform);
+                }
+            }
+            else if (transform.parent.parent.name == "Player_2")
+            {
+                if (transform.parent.name == "destinationHand")
+                {
+                    cs_playerManager2.privatePoints += sO_DestinationTicket.points;
+                    transform.SetParent(GameObject.Find("p2_completedDestinations").transform);
+                }
+            }
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -69,7 +95,6 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
                 eventData.pointerClick.transform.SetParent(cs_playerManagerCode.destinationHand); // sets it parent to the destinationHand of the player (to be sorted)
                 eventData.pointerClick.transform.position = cs_playerManagerCode.destinationHand.transform.position; // transforms its position to the destinationHand
                 cs_destinationDeck.cardsChosen += 1;
-                cs_destinationLogic.destinaitonCardActive = true;
                 break;
         }
 

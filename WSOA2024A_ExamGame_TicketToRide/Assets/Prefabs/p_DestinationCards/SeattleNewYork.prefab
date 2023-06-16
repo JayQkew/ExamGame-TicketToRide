@@ -752,7 +752,6 @@ GameObject:
   - component: {fileID: 8897940976297826649}
   - component: {fileID: 6726602366971662166}
   - component: {fileID: 7555116660168308132}
-  - component: {fileID: 2568471361567920892}
   m_Layer: 5
   m_Name: SeattleNewYork
   m_TagString: Untagged
@@ -840,24 +839,10 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
-  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 5047676494031305578}
   tmp_to: {fileID: 7354330029401588892}
   tmp_points: {fileID: 7187746691308619602}
---- !u!114 &2568471361567920892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7963087219512529740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinaitonCardActive: 0
 --- !u!1 &8680796789468511697
 GameObject:
   m_ObjectHideFlags: 0

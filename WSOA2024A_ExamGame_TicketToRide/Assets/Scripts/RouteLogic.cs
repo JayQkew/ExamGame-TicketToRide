@@ -33,12 +33,10 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         {
             if (cs_playerManager1.playerTurn)
             {
-                Debug.Log("here");
                 ClaimRoute(cs_playerManager1);
             }
             if (cs_playerManager2.playerTurn)
             {
-                Debug.Log("here");
                 ClaimRoute(cs_playerManager2);
             }
         }
@@ -77,6 +75,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
             GetComponent<SpriteRenderer>().color = Color.grey; // colour change for indication. *testing*
             InfoGathering();
             InfoSharing();
+            DestinationCompletion();
         }
 
     }
@@ -136,5 +135,61 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
+    }
+
+    private void DestinationCompletion()
+    {
+        if (cs_playerManager1.playerTurn)
+        {
+            foreach (GameObject destination in _connectedDestinations)
+            {
+                DestinationCompletionPlayerCheck(cs_playerManager1, destination.GetComponent<DestinationLogic>().p1_connectedDestintaions, cs_playerManager1);
+            }
+        }
+        else if (cs_playerManager2.playerTurn)
+        {
+            foreach (GameObject destination in _connectedDestinations)
+            {
+                DestinationCompletionPlayerCheck(cs_playerManager2, destination.GetComponent<DestinationLogic>().p2_connectedDestintaions, cs_playerManager2);
+            }
+        }
+    }
+
+    private void DestinationCompletionPlayerCheck(PlayerManager playerManager, List<GameObject> playerLinkedDestinations, PlayerManager player)
+    {
+        foreach (GameObject destinationCard in playerManager.destinationHandCards) // loops through players destinationCards.
+        {
+            DestinationCheck(playerManager, playerLinkedDestinations, destinationCard, player);
+        }
+    }
+
+    private void DestinationCheck(PlayerManager playerManager, List<GameObject> playerLinkedDestinations, GameObject destinationCard, PlayerManager player)
+    {
+        foreach (GameObject destination in playerLinkedDestinations) // loops through list in the Destination list for the specific player.
+        {
+            Debug.Log(destination);
+            if (destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.to) // if the "to" of the destination card in the players hand matches the name of the linked Destination.
+            {
+                foreach (GameObject _destination in playerLinkedDestinations) // if yes, loop through the list again
+                {
+                    if (_destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.from) // if the "from" matches another destination name
+                    {
+                        destinationCard.gameObject.GetComponent<DestinationCard>().cardComplete = true;
+                    }
+                }
+            }
+
+            if (destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.from)
+            {
+                foreach(GameObject _destination in playerLinkedDestinations)
+                {
+                    if (_destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.to)
+                    {
+                        destinationCard.gameObject.GetComponent<DestinationCard>().cardComplete = true;
+                    }
+                }
+            }
+        }
+
     }
 }

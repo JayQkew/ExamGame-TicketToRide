@@ -160,7 +160,6 @@ GameObject:
   - component: {fileID: 3852762522698099021}
   - component: {fileID: 1393199979671174978}
   - component: {fileID: 2798212718836041136}
-  - component: {fileID: -2234127691518171932}
   m_Layer: 5
   m_Name: WinnipegLittleRock
   m_TagString: Untagged
@@ -248,24 +247,10 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
-  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 576713853553298302}
   tmp_to: {fileID: 2883360412973937800}
   tmp_points: {fileID: 3300035434225399622}
---- !u!114 &-2234127691518171932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2345958229239604056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinaitonCardActive: 0
 --- !u!1 &3424906727295494864
 GameObject:
   m_ObjectHideFlags: 0

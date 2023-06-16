@@ -308,7 +308,6 @@ GameObject:
   - component: {fileID: 2815448206891281943}
   - component: {fileID: 85599317481093144}
   - component: {fileID: 3796683488056017642}
-  - component: {fileID: 3451673283823124040}
   m_Layer: 5
   m_Name: TorontoMiami
   m_TagString: Untagged
@@ -396,24 +395,10 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
-  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 1902029847225371684}
   tmp_to: {fileID: 4208184101521617874}
   tmp_points: {fileID: 4587387490413621276}
---- !u!114 &3451673283823124040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3669093066584843266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinaitonCardActive: 0
 --- !u!1 &4459142686830718346
 GameObject:
   m_ObjectHideFlags: 0

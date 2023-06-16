@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b8a017b50d60a479b405d91e2c904f, type: 3}
   m_Name: LosAngelesNewYork
   m_EditorClassIdentifier: 
-  from: Los Angeles
-  to: New York
-  destinatnImage: {fileID: 0}
+  from: los angeles
+  to: new york
+  destinationImage: {fileID: 0}
   points: 21

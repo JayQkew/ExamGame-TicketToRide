@@ -308,7 +308,6 @@ GameObject:
   - component: {fileID: 4452792033748192415}
   - component: {fileID: 2011167129578642064}
   - component: {fileID: 3344347672473002082}
-  - component: {fileID: -4240575947762184946}
   m_Layer: 5
   m_Name: CalgarySaltLakeCity
   m_TagString: Untagged
@@ -396,24 +395,10 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
-  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 53018351857626796}
   tmp_to: {fileID: 2359742020838723930}
   tmp_points: {fileID: 2697842438725128852}
---- !u!114 &-4240575947762184946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2896440514177959562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinaitonCardActive: 0
 --- !u!1 &4524088202344065047
 GameObject:
   m_ObjectHideFlags: 0

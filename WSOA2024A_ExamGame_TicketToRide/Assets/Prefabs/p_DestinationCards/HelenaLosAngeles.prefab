@@ -160,7 +160,6 @@ GameObject:
   - component: {fileID: 548957915202150351}
   - component: {fileID: 2430867697886120384}
   - component: {fileID: 1458241516256047922}
-  - component: {fileID: 8058863534399273983}
   m_Layer: 5
   m_Name: HelenaLosAngeles
   m_TagString: Untagged
@@ -248,24 +247,10 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
-  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 4245046697963535868}
   tmp_to: {fileID: 1939442091187028490}
   tmp_points: {fileID: 2244373662862672324}
---- !u!114 &8058863534399273983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326043865683318234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinaitonCardActive: 0
 --- !u!1 &2120702634847624274
 GameObject:
   m_ObjectHideFlags: 0

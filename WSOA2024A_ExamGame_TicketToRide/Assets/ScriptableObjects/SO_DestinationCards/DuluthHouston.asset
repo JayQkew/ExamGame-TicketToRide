@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b8a017b50d60a479b405d91e2c904f, type: 3}
   m_Name: DuluthHouston
   m_EditorClassIdentifier: 
-  from: Duluth
-  to: Houston
-  destinatnImage: {fileID: 0}
+  from: duluth
+  to: houston
+  destinationImage: {fileID: 0}
   points: 8

@@ -160,7 +160,6 @@ GameObject:
   - component: {fileID: 1910258659477228207}
   - component: {fileID: 4368770069392202912}
   - component: {fileID: 657638380060370514}
-  - component: {fileID: -7774907299442488332}
   m_Layer: 5
   m_Name: DuluthElPaso
   m_TagString: Untagged
@@ -248,24 +247,10 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_destinationDeck: {fileID: 0}
-  cs_destinationLogic: {fileID: 0}
   doneButton: {fileID: 0}
   tmp_from: {fileID: 2879417588592273564}
   tmp_to: {fileID: 573813402857019242}
   tmp_points: {fileID: 160244495394165924}
---- !u!114 &-7774907299442488332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115729077561557178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fab03d04da3da144b1f37413150970a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinaitonCardActive: 0
 --- !u!1 &1837801397945495079
 GameObject:
   m_ObjectHideFlags: 0
