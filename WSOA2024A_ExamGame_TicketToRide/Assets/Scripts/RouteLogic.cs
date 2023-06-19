@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,9 +16,13 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     #endregion
 
     #region VARIABLES:
+    [SerializeField] public bool isGreyRoute = false;
     [SerializeField] public bool routeClaimed = false;
     [SerializeField] public List<GameObject> _connectedDestinations = new List<GameObject>();
     [SerializeField] public List<GameObject> sub_connectedDestinations = new List<GameObject>();
+
+    [SerializeField] public List<GameObject> _connectedRoutes = new List<GameObject>();
+    [SerializeField] public List<GameObject> sub_connectedRoutes = new List<GameObject>();
     #endregion
 
     private void Awake()
@@ -43,7 +48,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
 
     }
 
-    public void ClaimRoute(PlayerManager cs_playerManagerCode)
+    public void ClaimRoute(PlayerManager cs_playerManagerCode) // checks if there are enough train pieces.
     {
         if (cs_playerManagerCode.trainPieces >= so_routes.trainPieces && cs_playerManagerCode.trainPieces > 2)
         {
@@ -51,20 +56,44 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void CardCheck(PlayerManager cs_playerManagerCode) // works!
+    private async void CardCheck(PlayerManager cs_playerManagerCode) // checks if the player has cards of that colour.
     {
-        for (int i = 0; i < cs_playerManagerCode.cs_colourPileLogic.Length; i++)
+        if (!isGreyRoute)
         {
-            if (cs_playerManagerCode.cs_colourPileLogic[i].colour == so_routes.colour)
+            for (int i = 0; i < cs_playerManagerCode.cs_colourPileLogic.Length; i++) // loops through the array of colorpile scripts
             {
-                CardCheck2(cs_playerManagerCode, i);
+                if (cs_playerManagerCode.cs_colourPileLogic[i].colour == so_routes.colour) // checks if the colours match
+                {
+                    CardCheck2(cs_playerManagerCode, i);
+                }
+            }
+        }
+        else if (isGreyRoute)
+        {
+            Debug.Log("Chose grey");
+            cs_playerManagerCode.playerChoosingColour = true;
+            foreach (GameObject colourPile in cs_playerManagerCode.colourPiles)
+            {
+                colourPile.GetComponent<ColourPileLogic>().colourSelect = true;
+            }
+
+            await Task.Delay(2500); // wait 3 seconds before exicuting next line.
+
+            foreach (GameObject colourPile in cs_playerManagerCode.colourPiles) // loop though the colourPiles to see if they have been selected.
+            {
+                if (colourPile.GetComponent<ColourPileLogic>()._colourSelected == true) // if a card is selected
+                {
+                    CardCheck2(cs_playerManagerCode, cs_playerManagerCode.colourPiles.IndexOf(colourPile));
+                    cs_playerManagerCode.playerChoosingColour = false;
+                }
             }
         }
     }
 
-    private void CardCheck2(PlayerManager cs_playerManagerCode, int i)
+    private void CardCheck2(PlayerManager cs_playerManagerCode, int i) // checks if there are enough cards of that colour
     {
-        if (cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards >= so_routes.trainPieces)
+        int cardsLeft = so_routes.trainPieces - cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards;
+        if (cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards >= so_routes.trainPieces) // checks if that colourpile has enough cards
         {
             cs_playerManagerCode.trainPieces -= so_routes.trainPieces;
             cs_playerManagerCode.points += so_routes.points;
@@ -72,10 +101,38 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
             {
                 cs_trainDeckManager.DiscardCard(cs_playerManagerCode.colourPiles[i].transform.GetChild(0).gameObject);
             }
+            routeClaimed = true;
             GetComponent<SpriteRenderer>().color = Color.grey; // colour change for indication. *testing*
             InfoGathering();
             InfoSharing();
             DestinationCompletion();
+        }
+        else if (cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards < so_routes.trainPieces && cs_playerManagerCode.colourPiles[8].transform.childCount >= cardsLeft - 1)
+        {
+            cs_playerManagerCode.trainPieces -= so_routes.trainPieces;
+            cs_playerManagerCode.points += so_routes.points;
+            Debug.Log("cards left: " + cardsLeft);
+            for (int j = 0; j < cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards; j++)
+            {
+                cs_trainDeckManager.DiscardCard(cs_playerManagerCode.colourPiles[i].transform.GetChild(0).gameObject);
+            }
+            for (int j = 0; j < cardsLeft; j++)
+            {
+                if (cs_playerManagerCode.colourPiles[8].transform.childCount > 1)
+                {
+                    cs_trainDeckManager.DiscardCard(cs_playerManagerCode.colourPiles[8].transform.GetChild(0).gameObject);
+
+                }
+            }
+            routeClaimed = true;
+            GetComponent<SpriteRenderer>().color = Color.grey; // colour change for indication. *testing*
+            InfoGathering();
+            InfoSharing();
+            DestinationCompletion();
+        }
+        else
+        {
+            Debug.Log("Cant Do That BRUH");
         }
 
     }
@@ -89,20 +146,31 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     {
         if (cs_playerManager1.playerTurn)
         {
-            foreach (GameObject destinaiton in _connectedDestinations)
+            foreach (GameObject destination in _connectedDestinations)
             {
-                sub_connectedDestinations.AddRange(destinaiton.GetComponent<DestinationLogic>().p1_connectedDestintaions);
+                sub_connectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedDestintaions);
+                sub_connectedRoutes.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedRoutes);
+                sub_connectedRoutes.Add(gameObject);
             }
+            _connectedRoutes.AddRange(sub_connectedRoutes);
             _connectedDestinations.AddRange(sub_connectedDestinations);
+
+            sub_connectedRoutes.Clear();
             sub_connectedDestinations.Clear();
+
         }
         else if (cs_playerManager2.playerTurn)
         {
-            foreach (GameObject destinaiton in _connectedDestinations)
+            foreach (GameObject destination in _connectedDestinations)
             {
-                sub_connectedDestinations.AddRange(destinaiton.GetComponent<DestinationLogic>().p2_connectedDestintaions);
+                sub_connectedRoutes.AddRange(destination.GetComponent<DestinationLogic>().p2_connectedRoutes);
+                sub_connectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p2_connectedDestintaions);
+                sub_connectedRoutes.Add(gameObject);
             }
+            _connectedRoutes.AddRange(sub_connectedRoutes);
             _connectedDestinations.AddRange(sub_connectedDestinations);
+
+            sub_connectedRoutes.Clear();
             sub_connectedDestinations.Clear();
         }
     }
@@ -113,9 +181,15 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         {
             foreach (GameObject destination in _connectedDestinations)
             {
+                var union_connectedRoutes = destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Union(_connectedRoutes);
                 var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Union(_connectedDestinations);
+                destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Clear();
                 destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Clear();
 
+                foreach (GameObject _route in union_connectedRoutes)
+                {
+                    destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Add(_route);
+                }
                 foreach (GameObject _destination in union_connectedDestinations)
                 {
                     destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Add(_destination);
@@ -126,9 +200,15 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         {
             foreach (GameObject destination in _connectedDestinations)
             {
+                var union_connectedRoutes = destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Union(_connectedRoutes);
                 var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Union(_connectedDestinations);
+                destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Clear();
                 destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Clear();
 
+                foreach (GameObject _route in union_connectedRoutes)
+                {
+                    destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Add(_route);
+                }
                 foreach (GameObject _destination in union_connectedDestinations)
                 {
                     destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Add(_destination);
@@ -181,7 +261,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
 
             if (destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.from)
             {
-                foreach(GameObject _destination in playerLinkedDestinations)
+                foreach (GameObject _destination in playerLinkedDestinations)
                 {
                     if (_destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.to)
                     {
