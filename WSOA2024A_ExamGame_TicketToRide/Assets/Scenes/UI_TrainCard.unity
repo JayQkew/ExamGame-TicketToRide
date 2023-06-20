@@ -1649,6 +1649,9 @@ MonoBehaviour:
   go_playerManager2: {fileID: 90501546}
   cs_marketManager: {fileID: 1744347675}
   go_marketManager: {fileID: 1744347673}
+  cs_actionManager: {fileID: 0}
+  canDrawTrainCard: 0
+  cardPickUpCounter: 0
 --- !u!1 &258203459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5409612235253730061, guid: a445b2363a7b11a448b2a92a5d9e1cc4, type: 3}
@@ -7063,6 +7066,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 863248733}
+  - component: {fileID: 863248734}
   m_Layer: 5
   m_Name: Players
   m_TagString: Untagged
@@ -7098,6 +7102,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &863248734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863248732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b248a1752fc2a084b9e6caee8242b732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTurnOver: 0
+  pickUpLocoCount: 0
+  pickUpNormCount: 0
+  canDrawLoco: 0
+  canDrawNorm: 0
+  canClaimRoute: 0
+  amountRoutesClaimed: 0
+  cs_destinationDeck: {fileID: 0}
+  cs_traindeckmanager: {fileID: 0}
 --- !u!1 &884733402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 384793316692162501, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -9341,6 +9366,8 @@ MonoBehaviour:
   destinationDeck: {fileID: 1110269368}
   destinationDiscardedPile: {fileID: 1283772280}
   cardsChosen: 0
+  canDrawDestinationCard: 0
+  destinationCardAction: 0
   choices:
   - {fileID: 1918957203}
   - {fileID: 684889297}
