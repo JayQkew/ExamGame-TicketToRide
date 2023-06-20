@@ -70,7 +70,7 @@ public class TrainCard : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
-        if(cs_actionManager.canDrawNorm == true) //checks if a normal card can be picked up
+        else if(cs_actionManager.canDrawNorm == true) //checks if a normal card can be picked up
         {
             if(cs_actionManager.pickUpLocoCount < 1) //checks if a locomotive card has not been
             {
