@@ -31,6 +31,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         cs_playerManager1 = GameObject.Find("Player_1").GetComponent<PlayerManager>();
         cs_playerManager2 = GameObject.Find("Player_2").GetComponent<PlayerManager>();
         cs_trainDeckManager = GameObject.Find("TrainDeck").GetComponent<TrainDeckManager>();
+        cs_actionManager = GameObject.Find("Players").GetComponent<ActionManager>();
     }
 
     public void OnPointerClick(PointerEventData eventData)

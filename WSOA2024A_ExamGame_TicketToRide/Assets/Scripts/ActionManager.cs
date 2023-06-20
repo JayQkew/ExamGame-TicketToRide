@@ -73,6 +73,7 @@ public class ActionManager : MonoBehaviour
         if(cs_traindeckmanager.cardPickUpCounter >= 1)
         {
             cs_destinationDeck.canDrawDestinationCard = false;
+            canClaimRoute = false;
         }
         //checks if a locomotive card has been taken from the train market
         if(pickUpLocoCount >= 1)
@@ -80,17 +81,18 @@ public class ActionManager : MonoBehaviour
             isTurnOver = true;
             canDrawNorm = false;
         }
+        if(pickUpNormCount >= 1)
+        {
+            canDrawLoco = false;
+        }
         //Check if 1 normal card has been taken from the train market
         if(maxCardsCollected >= 1)
         {
             canDrawLoco = false;
             cs_destinationDeck.canDrawDestinationCard = false;
-        }
-        if(amountRoutesClaimed == 1)
-        {
             canClaimRoute = false;
         }
-        if(canClaimRoute == false)
+        if(amountRoutesClaimed == 1)
         {
             isTurnOver = true;
         }
