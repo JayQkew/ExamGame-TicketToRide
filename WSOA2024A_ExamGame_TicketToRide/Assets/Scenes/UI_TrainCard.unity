@@ -293,7 +293,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &87983087
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -363,6 +368,7 @@ RectTransform:
   m_Children:
   - {fileID: 780582442}
   - {fileID: 1062822387}
+  - {fileID: 1064822846}
   m_Father: {fileID: 863248733}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -399,6 +405,8 @@ MonoBehaviour:
   playerTurn: 0
   trainPieces: 40
   points: 0
+  privatePoints: 0
+  playerChoosingColour: 0
   tmp_trainPieces: {fileID: 1125804276}
   pointSlider: {fileID: 1096380131}
   go_destinationCards: {fileID: 780582441}
@@ -437,7 +445,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &92320601
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -503,7 +516,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &114376347
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -561,9 +579,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.071422406, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.33855602
+--- !u!50 &119612653
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119612647}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &119612654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119612647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &129892128 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3286544379087060008, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -582,9 +637,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.036601923}
   serializedVersion: 2
-  m_Radius: 0.215
+  m_Radius: 0.4992158
+--- !u!50 &129892134
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129892128}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &129892135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129892128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!4 &156076840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -611,7 +703,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &157462242
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -809,7 +906,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &176081480
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -880,7 +982,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &181389789
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1124,7 +1231,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &185964195
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1189,9 +1301,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000023841858}
+  m_Offset: {x: 0.07570306, y: 0.0000002386418}
   serializedVersion: 2
-  m_Radius: 0.175
+  m_Radius: 0.36425757
+--- !u!50 &194793526
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194793520}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &194793527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194793520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &196284225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1269025460527032695, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
@@ -1213,7 +1362,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &196284229
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1281,7 +1435,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &204824212
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1366,7 +1525,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &239672498
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1423,7 +1587,6 @@ GameObject:
   m_Component:
   - component: {fileID: 255868977}
   - component: {fileID: 255868978}
-  - component: {fileID: 255868979}
   m_Layer: 5
   m_Name: TrainDeck
   m_TagString: Untagged
@@ -1486,105 +1649,6 @@ MonoBehaviour:
   go_playerManager2: {fileID: 90501546}
   cs_marketManager: {fileID: 1744347675}
   go_marketManager: {fileID: 1744347673}
-  cs_actionManager: {fileID: 0}
-  canDrawTrainCard: 0
-  cardPickUpCounter: 0
---- !u!82 &255868979
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255868976}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &258203459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5409612235253730061, guid: a445b2363a7b11a448b2a92a5d9e1cc4, type: 3}
@@ -1616,7 +1680,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &261422263
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1650,6 +1719,7 @@ PolygonCollider2D:
       - {x: 0.71999997, y: 0.22}
       - {x: 0.81, y: 0.25}
       - {x: 0.96999997, y: 0.26999998}
+      - {x: 1.1800001, y: 0.3099999}
       - {x: 1.18, y: 0.31}
       - {x: 1.23, y: 0.38}
       - {x: 1.23, y: 0.5}
@@ -1700,9 +1770,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000059604645, y: 0}
+  m_Offset: {x: -0.018530773, y: 0}
   serializedVersion: 2
-  m_Radius: 0.17
+  m_Radius: 0.31206903
+--- !u!50 &265647672
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265647666}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &265647673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265647666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &269629610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,9 +1963,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0000009536743, y: 0.00000023841858}
+  m_Offset: {x: 0.033366103, y: 0.0000002386418}
   serializedVersion: 2
-  m_Radius: 0.195
+  m_Radius: 0.36183667
+--- !u!50 &279419149
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279419143}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &279419150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279419143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &284531112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3919243899213683775, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
@@ -1880,7 +2024,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &284531116
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2057,7 +2206,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &304000105
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2146,7 +2300,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &306268139
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2203,7 +2362,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &306843312
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2265,7 +2429,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &337236390
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2479,6 +2648,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a445b2363a7b11a448b2a92a5d9e1cc4, type: 3}
+--- !u!1 &368574650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368574651}
+  m_Layer: 5
+  m_Name: p1_completedDestinations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &368574651
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368574650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1082189808}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &396510727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2637,7 +2842,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &403488635
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2698,7 +2908,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &404561303
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2776,9 +2991,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000047683716}
+  m_Offset: {x: 0, y: 0.0000004772836}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.39523193
+--- !u!50 &416750966
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416750960}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &416750967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416750960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1001 &432921455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2909,7 +3161,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &440156720
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3135,9 +3392,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.000000074505806}
+  m_Offset: {x: 0.1442765, y: 0.00000007954726}
   serializedVersion: 2
-  m_Radius: 0.215
+  m_Radius: 0.49595916
+--- !u!50 &450324905
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450324899}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &450324906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450324899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &460411122 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1207478881114427021, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
@@ -3159,7 +3453,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &460411126
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3333,7 +3632,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &464740809
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3377,9 +3681,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 303185317}
     m_Modifications:
+    - target: {fileID: -9104568983010701525, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -8891725870905940529, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: las vegas
+      objectReference: {fileID: 0}
+    - target: {fileID: -8760589317396152134, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: new orleans
+      objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
       propertyPath: m_Name
       value: 'TicketToRideMap 0.1 '
+      objectReference: {fileID: 0}
+    - target: {fileID: -8588935650575724019, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: montreal
+      objectReference: {fileID: 0}
+    - target: {fileID: -8496251583337121359, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: salt lake city
+      objectReference: {fileID: 0}
+    - target: {fileID: -8399180504116563221, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: vancouver
+      objectReference: {fileID: 0}
+    - target: {fileID: -8127289724495973610, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -8028887269583205610, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: toronto
+      objectReference: {fileID: 0}
+    - target: {fileID: -7801319623796185899, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: kansas city
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
       propertyPath: m_RootOrder
@@ -3432,6 +3772,290 @@ PrefabInstance:
     - target: {fileID: -7552582706839291426, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7183745738950967624, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -6844332818025964163, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -6486372701890948653, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -6171936629278566056, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: washington
+      objectReference: {fileID: 0}
+    - target: {fileID: -6103632496627552932, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: los angeles
+      objectReference: {fileID: 0}
+    - target: {fileID: -5682884604627013924, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -5542469085671431074, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: seattle
+      objectReference: {fileID: 0}
+    - target: {fileID: -4714009406120635139, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -4622764428558935609, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -4600462978924216546, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -4236225289891607624, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -4116252924378001886, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: helena
+      objectReference: {fileID: 0}
+    - target: {fileID: -3981056358531603845, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -3654806307485607278, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: saint louis
+      objectReference: {fileID: 0}
+    - target: {fileID: -3619521123029482163, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -3608016377491330332, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -3402727106807597465, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -3286544379087060008, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: pittsburgh
+      objectReference: {fileID: 0}
+    - target: {fileID: -3024381779851357205, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: winnepeg
+      objectReference: {fileID: 0}
+    - target: {fileID: -2887598123077382182, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: raleigh
+      objectReference: {fileID: 0}
+    - target: {fileID: -2732211719903835275, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -2401733639480937668, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: omaha
+      objectReference: {fileID: 0}
+    - target: {fileID: -2208166680867517407, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -2029757443787186805, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -1734302713901775039, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: calgary
+      objectReference: {fileID: 0}
+    - target: {fileID: -1372122607421484151, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -1223499273320212822, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: santa fe
+      objectReference: {fileID: 0}
+    - target: {fileID: -1158647108488780303, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: little rock
+      objectReference: {fileID: 0}
+    - target: {fileID: -559234640551802262, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -529262013332064540, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 200132100980771311, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 271434405977302726, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 384793316692162501, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: chicago
+      objectReference: {fileID: 0}
+    - target: {fileID: 540944074928864051, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013651712909400527, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: houston
+      objectReference: {fileID: 0}
+    - target: {fileID: 1377807236864055249, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574548123329561953, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777048383924498719, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798535979949120923, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: boston
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985817348505373092, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229394410991003276, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488984007660319101, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559490529420256461, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: dallas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797733677337859400, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039513588927106719, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: portland
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714254076779315409, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863702245013499747, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: phoenix
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063158027643032804, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477413019507103001, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218116675395702308, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: denver
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316921689668656277, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: sault st. marie
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537420124613797818, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: atlanta
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559486353559735560, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: new york
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595184594876189742, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848637068769438541, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: miami
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908614378057143731, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: el paso
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935545200297130327, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 6044440713425233345, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: nashville
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242879481817336015, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341217227369945823, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512506159052631167, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: san francisco
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795922984252204103, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490129494467213716, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: charleston
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169176468813554013, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589652704923423118, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662068725245562386, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 8804484881244480751, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868040074687105576, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027817189254007171, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: oklahoma city
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133294120281775733, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_Name
+      value: duluth
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139392848542178926, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
+      propertyPath: m_TagString
+      value: route
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -3692,7 +4316,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &522780217
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3762,7 +4391,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &531355113
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3822,7 +4456,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &535794479
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3882,7 +4521,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &544036954
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4161,7 +4805,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &567664581
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4216,7 +4865,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &569538105
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4276,9 +4930,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000052154064, y: 0.00000047683716}
+  m_Offset: {x: 0.018925657, y: 0.0000004772836}
   serializedVersion: 2
-  m_Radius: 0.155
+  m_Radius: 0.43888634
+--- !u!50 &597119075
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597119069}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &597119076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597119069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &604078303 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -529262013332064540, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -4300,7 +4991,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &604078307
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4400,9 +5096,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000047683716}
+  m_Offset: {x: 0, y: -0.036054637}
   serializedVersion: 2
-  m_Radius: 0.21
+  m_Radius: 0.44330803
+--- !u!50 &622430246
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622430240}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &622430247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622430240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &628421429
 GameObject:
   m_ObjectHideFlags: 0
@@ -4500,7 +5233,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &643854532
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4736,7 +5474,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &675862775
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4872,7 +5615,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &689924548
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4954,7 +5702,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &703853075
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5118,7 +5871,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &721236385
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5215,7 +5973,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &745348521
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5281,7 +6044,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &747311227
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5334,7 +6102,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &768306818
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5396,7 +6169,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &772846198
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5585,7 +6363,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &800426669
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5653,9 +6436,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.022780508, y: 0}
   serializedVersion: 2
-  m_Radius: 0.185
+  m_Radius: 0.4507724
+--- !u!50 &803466277
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803466271}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &803466278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803466271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &822211203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5908614378057143731, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -5674,9 +6494,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000023841858, y: 0.00000023841858}
+  m_Offset: {x: 0.00759345, y: 0.0000002386418}
   serializedVersion: 2
-  m_Radius: 0.17
+  m_Radius: 0.5572684
+--- !u!50 &822211209
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822211203}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &822211210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822211203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &822960869 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5512873443663788107, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
@@ -5698,7 +6555,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &822960873
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5785,7 +6647,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &833133393
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5989,9 +6856,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000023841858}
+  m_Offset: {x: 0.03796725, y: 0.0000002386418}
   serializedVersion: 2
-  m_Radius: 0.18
+  m_Radius: 0.38502455
+--- !u!50 &854138049
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854138043}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &854138050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854138043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &859657321
 GameObject:
   m_ObjectHideFlags: 0
@@ -6004,7 +6908,6 @@ GameObject:
   - component: {fileID: 859657325}
   - component: {fileID: 859657324}
   - component: {fileID: 859657323}
-  - component: {fileID: 859657326}
   m_Layer: 5
   m_Name: endTurnButton2
   m_TagString: Untagged
@@ -6077,18 +6980,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1465024257}
-        m_TargetAssemblyTypeName: CountdownScript, Assembly-CSharp
-        m_MethodName: StartCountdown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 90501548}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
         m_MethodName: EndTurnButton
@@ -6117,18 +7008,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 863248734}
-        m_TargetAssemblyTypeName: ActionManager, Assembly-CSharp
-        m_MethodName: PlayNextTurn
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6175,102 +7054,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859657321}
   m_CullTransparentMesh: 1
---- !u!82 &859657326
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859657321}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &863248732
 GameObject:
   m_ObjectHideFlags: 0
@@ -6280,7 +7063,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 863248733}
-  - component: {fileID: 863248734}
   m_Layer: 5
   m_Name: Players
   m_TagString: Untagged
@@ -6316,27 +7098,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &863248734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863248732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b248a1752fc2a084b9e6caee8242b732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTurnOver: 0
-  pickUpLocoCount: 0
-  pickUpNormCount: 0
-  canDrawLoco: 0
-  canDrawNorm: 0
-  canClaimRoute: 0
-  amountRoutesClaimed: 0
-  cs_destinationDeck: {fileID: 1110269370}
-  cs_traindeckmanager: {fileID: 255868978}
 --- !u!1 &884733402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 384793316692162501, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -6355,9 +7116,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000023841858, y: 0.00000047683716}
+  m_Offset: {x: -0.06301927, y: 0.04220221}
   serializedVersion: 2
-  m_Radius: 0.175
+  m_Radius: 0.37806097
+--- !u!50 &884733408
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884733402}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &884733409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884733402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &895471302 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8496251583337121359, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -6376,9 +7174,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000047683716, y: 0.00000011920929}
+  m_Offset: {x: 0.022780824, y: 0.0000001193209}
   serializedVersion: 2
-  m_Radius: 0.19
+  m_Radius: 0.4405853
+--- !u!50 &895471308
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895471302}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &895471309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895471302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &901196271 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4116252924378001886, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -6397,9 +7232,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000023841858}
+  m_Offset: {x: 0.00759345, y: 0.0000002386418}
   serializedVersion: 2
-  m_Radius: 0.19
+  m_Radius: 0.53170717
+--- !u!50 &901196277
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901196271}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &901196278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901196271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &902547117 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8760589317396152134, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -6418,9 +7290,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000023841858, y: -0.00000023841858}
+  m_Offset: {x: 0.07412269, y: -0.0000002386418}
   serializedVersion: 2
-  m_Radius: 0.18
+  m_Radius: 0.43943045
+--- !u!50 &902547123
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902547117}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &902547124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902547117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &911764016
 GameObject:
   m_ObjectHideFlags: 0
@@ -6518,7 +7427,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &923200944
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6579,7 +7493,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &923243131
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6656,7 +7575,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &924681693
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6726,7 +7650,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &931138400
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7085,7 +8014,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &978367544
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7148,7 +8082,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &984896375
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7359,7 +8298,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1032465450
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7437,7 +8381,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1038208447
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7522,7 +8471,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1040064873
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7601,6 +8555,42 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -346}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1064822845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1064822846}
+  m_Layer: 5
+  m_Name: p2_completedDestinations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1064822846
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064822845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 90501547}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1068282528 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5409612235253730061, guid: a445b2363a7b11a448b2a92a5d9e1cc4, type: 3}
@@ -7632,7 +8622,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1079873762
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7729,6 +8724,7 @@ RectTransform:
   m_Children:
   - {fileID: 181533323}
   - {fileID: 941123152}
+  - {fileID: 368574651}
   m_Father: {fileID: 863248733}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7765,6 +8761,8 @@ MonoBehaviour:
   playerTurn: 1
   trainPieces: 40
   points: 0
+  privatePoints: 0
+  playerChoosingColour: 0
   tmp_trainPieces: {fileID: 1132739164}
   pointSlider: {fileID: 1800990282}
   go_destinationCards: {fileID: 181533322}
@@ -7803,7 +8801,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1083247373
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7879,7 +8882,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1093735223
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7947,7 +8955,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1096033430
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8099,7 +9112,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1097227911
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8169,7 +9187,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1107653804
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8241,7 +9264,6 @@ GameObject:
   - component: {fileID: 1110269372}
   - component: {fileID: 1110269371}
   - component: {fileID: 1110269370}
-  - component: {fileID: 1110269373}
   m_Layer: 5
   m_Name: DestinationsDeck
   m_TagString: Untagged
@@ -8319,8 +9341,6 @@ MonoBehaviour:
   destinationDeck: {fileID: 1110269368}
   destinationDiscardedPile: {fileID: 1283772280}
   cardsChosen: 0
-  canDrawDestinationCard: 0
-  destinationCardAction: 0
   choices:
   - {fileID: 1918957203}
   - {fileID: 684889297}
@@ -8367,102 +9387,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110269368}
   m_CullTransparentMesh: 1
---- !u!82 &1110269373
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110269368}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1113358237 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2229394410991003276, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -8484,7 +9408,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1113358241
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8634,9 +9563,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000023841858}
+  m_Offset: {x: 0.01308664, y: 0.0000002386418}
   serializedVersion: 2
-  m_Radius: 0.175
+  m_Radius: 0.3974733
+--- !u!50 &1116669286
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116669280}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1116669287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116669280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1121608155
 GameObject:
   m_ObjectHideFlags: 0
@@ -8989,7 +9955,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1132978452
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9051,7 +10022,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1181256686
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9129,9 +10105,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000047683716, y: 0.00000023841858}
+  m_Offset: {x: -0.0061778347, y: 0.0000002386418}
   serializedVersion: 2
-  m_Radius: 0.18
+  m_Radius: 0.33442318
+--- !u!50 &1184390526
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184390520}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1184390527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184390520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1191279034 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3946367770692362776, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
@@ -9153,7 +10166,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1191279038
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9230,7 +10248,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1208071799
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9296,9 +10319,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000023841858, y: 0.00000029802322}
+  m_Offset: {x: 0.006987482, y: -0.03509653}
   serializedVersion: 2
-  m_Radius: 0.175
+  m_Radius: 0.42656517
+--- !u!50 &1217420951
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217420945}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1217420952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217420945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1224423094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5409612235253730061, guid: a445b2363a7b11a448b2a92a5d9e1cc4, type: 3}
@@ -9330,7 +10390,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1237500751
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9399,7 +10464,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1246466954
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9457,9 +10527,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000047683716, y: 0.00000047683716}
+  m_Offset: {x: -0.14198756, y: 0.0000004772836}
   serializedVersion: 2
-  m_Radius: 0.155
+  m_Radius: 0.5099677
+--- !u!50 &1256430037
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256430031}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1256430038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256430031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1256753575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2521191447789265253, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
@@ -9481,7 +10588,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1256753579
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9552,7 +10664,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1264590090
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9610,9 +10727,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000047683716}
+  m_Offset: {x: 0.00000015838165, y: 0.0000004772836}
   serializedVersion: 2
-  m_Radius: 0.175
+  m_Radius: 0.3570548
+--- !u!50 &1266616650
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266616644}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1266616651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266616644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1274490076 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1223499273320212822, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -9631,9 +10785,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000023841858, y: 0.00000017881393}
+  m_Offset: {x: -0.015186742, y: 0.00000015909453}
   serializedVersion: 2
-  m_Radius: 0.17
+  m_Radius: 0.3370566
+--- !u!50 &1274490082
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274490076}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1274490083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274490076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1278963722
 GameObject:
   m_ObjectHideFlags: 0
@@ -9953,7 +11144,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1308655512
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -10000,6 +11196,10 @@ PrefabInstance:
     - target: {fileID: -8653719598885068355, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
       propertyPath: m_Name
       value: 'TicketToRideMap 0.2 '
+      objectReference: {fileID: 0}
+    - target: {fileID: -7669477713855650617, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
       propertyPath: m_RootOrder
@@ -10052,6 +11252,134 @@ PrefabInstance:
     - target: {fileID: -7552582706839291426, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6116467854916261342, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -5875429052523686392, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -5713342589325816797, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -5148749361923138391, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -4215236809717439617, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -3946367770692362776, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -3919243899213683775, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -3104540020080577429, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -1220275218859833275, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -618338277364740451, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -559957470983244431, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -302573157864514708, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 300147082849621769, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054396122707468823, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185170574108261874, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269025460527032695, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709590821146165632, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 3250068070794783257, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358887445531320488, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049465214699078102, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327281862582500028, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359629581022369452, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698255463118369047, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875828868544731779, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 6097067546264777560, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638096458180023467, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091774332653004834, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551414407243260809, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857981381135093909, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9888
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857981381135093909, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9753
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857981381135093909, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.8348
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857981381135093909, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2026
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
@@ -10112,7 +11440,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1352357923
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -10460,7 +11793,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1408177239
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -10600,7 +11938,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1446227603
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -10672,7 +12015,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1447409858
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -10739,102 +12087,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.000000059604645}
+  m_Offset: {x: 0, y: 0.00000007954726}
   serializedVersion: 2
-  m_Radius: 0.225
---- !u!1 &1465024255
-GameObject:
+  m_Radius: 0.52874005
+--- !u!50 &1457521996
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1465024256}
-  - component: {fileID: 1465024259}
-  - component: {fileID: 1465024258}
-  - component: {fileID: 1465024257}
-  m_Layer: 5
-  m_Name: SwitchPlayerOverlay
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1465024256
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465024255}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1944807558}
-  - {fileID: 1906507085}
-  m_Father: {fileID: 1856739348}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1465024257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465024255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70de83596747e14bad6b36e9fb2fc27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switchPlayerOverlay: {fileID: 1465024255}
-  countDownTxt: {fileID: 1944807559}
---- !u!114 &1465024258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465024255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_GameObject: {fileID: 1457521990}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1465024259
-CanvasRenderer:
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1457521997
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465024255}
-  m_CullTransparentMesh: 1
+  m_GameObject: {fileID: 1457521990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1482775491
 GameObject:
   m_ObjectHideFlags: 0
@@ -10889,9 +12181,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000011920929, y: 0.00000029802322}
+  m_Offset: {x: -0.049014725, y: 0.028134754}
   serializedVersion: 2
-  m_Radius: 0.165
+  m_Radius: 0.3960693
+--- !u!50 &1486327350
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486327344}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1486327351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486327344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1489043625 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8662068725245562386, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -10913,7 +12242,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1489043629
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11253,7 +12587,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1520378992
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11462,9 +12801,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000011920929}
+  m_Offset: {x: -0.037967566, y: 0.0000001193209}
   serializedVersion: 2
-  m_Radius: 0.19
+  m_Radius: 0.47095957
+--- !u!50 &1532549716
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532549710}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1532549717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532549710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1568214627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1372122607421484151, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -11486,7 +12862,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1568214631
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11530,9 +12911,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 303185317}
     m_Modifications:
+    - target: {fileID: -8767518573023062605, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
       propertyPath: m_Name
       value: 'TicketToRideMap 0.3 '
+      objectReference: {fileID: 0}
+    - target: {fileID: -8577282595090233841, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -8297723508116808489, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
       propertyPath: m_RootOrder
@@ -11586,6 +12979,122 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7132966603357140577, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -6847409519393835850, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -5811434268727335158, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -5597905824869518017, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -5512873443663788107, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -4672507874055903694, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -4574170022671158974, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -4364700004943815092, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -3145917182065480044, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -1987332642632717416, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -1327182508374595530, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -1207478881114427021, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: -1127904353598120215, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 955079612449469340, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.982
+      objectReference: {fileID: 0}
+    - target: {fileID: 955079612449469340, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7677
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067091856052082345, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 1460119695761857717, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521191447789265253, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900476228006576861, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951779157800309619, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093997913129916064, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093997913129916064, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350037411056426870, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666917302311097994, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118430412774868982, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035516808761660805, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519777145615271112, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577272962510295589, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203317012142058427, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
+      propertyPath: m_TagString
+      value: route
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
 --- !u!1 &1585158966 stripped
@@ -11609,7 +13118,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1585158970
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11665,7 +13179,6 @@ GameObject:
   - component: {fileID: 1588938676}
   - component: {fileID: 1588938675}
   - component: {fileID: 1588938674}
-  - component: {fileID: 1588938678}
   m_Layer: 5
   m_Name: endTurnButton1
   m_TagString: Untagged
@@ -11717,18 +13230,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1465024257}
-        m_TargetAssemblyTypeName: CountdownScript, Assembly-CSharp
-        m_MethodName: StartCountdown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1082189809}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
         m_MethodName: EndTurnButton
@@ -11757,18 +13258,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 863248734}
-        m_TargetAssemblyTypeName: ActionManager, Assembly-CSharp
-        m_MethodName: PlayNextTurn
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11836,102 +13325,6 @@ RectTransform:
   m_AnchoredPosition: {x: 610, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!82 &1588938678
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588938673}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1600401380
 GameObject:
   m_ObjectHideFlags: 0
@@ -12088,7 +13481,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1608152590
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12151,7 +13549,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1615377726
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12209,7 +13612,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1635644609
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12261,9 +13669,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000047683716, y: 0.00000047683716}
+  m_Offset: {x: -0.026623322, y: 0.0000004772836}
   serializedVersion: 2
-  m_Radius: 0.17
+  m_Radius: 0.37410635
+--- !u!50 &1656759730
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656759724}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1656759731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656759724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1658374015 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5848637068769438541, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -12282,9 +13727,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000047683716, y: 0.00000023841858}
+  m_Offset: {x: -0.00000047514496, y: 0.093070775}
   serializedVersion: 2
-  m_Radius: 0.18
+  m_Radius: 0.27265355
+--- !u!50 &1658374021
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658374015}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1658374022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658374015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1663291581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1158647108488780303, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -12303,9 +13785,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000011920929, y: 0.00000011920929}
+  m_Offset: {x: -0.042012792, y: 0.0000001193209}
   serializedVersion: 2
-  m_Radius: 0.155
+  m_Radius: 0.33705446
+--- !u!50 &1663291587
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663291581}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1663291588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663291581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1670146740 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 540944074928864051, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -12327,7 +13846,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1670146744
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12409,9 +13933,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000009536743, y: 0.00000047683716}
+  m_Offset: {x: 0.08422471, y: -0.009399822}
   serializedVersion: 2
-  m_Radius: 0.205
+  m_Radius: 0.49510434
+--- !u!50 &1692167593
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692167587}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1692167594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692167587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1702325007 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3250068070794783257, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
@@ -12433,7 +13994,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1702325011
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12496,7 +14062,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1703689108
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12583,7 +14154,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1711003242
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12789,7 +14365,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1734034376
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13033,7 +14614,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1811404716
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13101,7 +14687,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1816733565
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13204,7 +14795,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1820417223
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13266,7 +14862,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1834660802
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13329,7 +14930,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1836195468
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13424,7 +15030,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1850947261
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13567,7 +15178,6 @@ RectTransform:
   - {fileID: 1744347674}
   - {fileID: 863248733}
   - {fileID: 396510728}
-  - {fileID: 1465024256}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13594,9 +15204,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000059604645, y: 0.00000011920929}
+  m_Offset: {x: -0.000000039595413, y: -0.027545786}
   serializedVersion: 2
-  m_Radius: 0.165
+  m_Radius: 0.34382853
+--- !u!50 &1858917925
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858917919}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1858917926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858917919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &1873771554
 GameObject:
   m_ObjectHideFlags: 0
@@ -13633,141 +15280,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1906507084
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1906507085}
-  - component: {fileID: 1906507087}
-  - component: {fileID: 1906507086}
-  m_Layer: 5
-  m_Name: Txt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1906507085
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906507084}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1465024256}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -14}
-  m_SizeDelta: {x: 991.832, y: 115.511}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1906507086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906507084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: Switch the laptop between players
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 90
-  m_fontSizeBase: 90
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1906507087
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906507084}
-  m_CullTransparentMesh: 1
 --- !u!1 &1918957203
 GameObject:
   m_ObjectHideFlags: 0
@@ -13850,7 +15362,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1924852876
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13963,141 +15480,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1944807557
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1944807558}
-  - component: {fileID: 1944807560}
-  - component: {fileID: 1944807559}
-  m_Layer: 5
-  m_Name: CountDownTxt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1944807558
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944807557}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1465024256}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 190}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1944807559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944807557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 10
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1944807560
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944807557}
-  m_CullTransparentMesh: 1
 --- !u!1 &1987359969 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 300147082849621769, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
@@ -14119,7 +15501,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1987359973
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14215,7 +15602,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &1991897578
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14296,7 +15688,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &2017833159
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14349,9 +15746,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000023841858, y: 0.00000011920929}
+  m_Offset: {x: 0.0066735693, y: 0.0000001193209}
   serializedVersion: 2
-  m_Radius: 0.165
+  m_Radius: 0.30514285
+--- !u!50 &2022383826
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022383820}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &2022383827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022383820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &2046762067 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1734302713901775039, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -14370,9 +15804,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000047683716}
+  m_Offset: {x: 0, y: -0.03290043}
   serializedVersion: 2
-  m_Radius: 0.165
+  m_Radius: 0.36620152
+--- !u!50 &2046762073
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046762067}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &2046762074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046762067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &2048259531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2951779157800309619, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
@@ -14394,7 +15865,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &2048259535
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14490,7 +15966,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &2049118837
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14555,7 +16036,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &2049181012
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14627,9 +16113,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000047683716, y: 0.00000023841858}
+  m_Offset: {x: 0.0531551, y: 0.0000002386418}
   serializedVersion: 2
-  m_Radius: 0.17
+  m_Radius: 0.3902109
+--- !u!50 &2053323517
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053323511}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &2053323518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053323511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &2057238958 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1985817348505373092, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -14651,7 +16174,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &2057238962
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14711,7 +16239,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &2057561144
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14772,9 +16305,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000047683716, y: 0}
+  m_Offset: {x: -0.008874441, y: 0}
   serializedVersion: 2
-  m_Radius: 0.145
+  m_Radius: 0.34910643
+--- !u!50 &2068612902
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068612896}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &2068612903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068612896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &2072827407
 GameObject:
   m_ObjectHideFlags: 0
@@ -14928,9 +16498,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000047683716, y: 0.00000047683716}
+  m_Offset: {x: -0.02186332, y: 0.0000004772836}
   serializedVersion: 2
-  m_Radius: 0.185
+  m_Radius: 0.4254901
+--- !u!50 &2077861513
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077861507}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &2077861514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077861507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &2084201404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8399180504116563221, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -14949,9 +16556,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.07486582, y: -0.07520255}
   serializedVersion: 2
-  m_Radius: 0.215
+  m_Radius: 0.36473134
+--- !u!50 &2084201410
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084201404}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &2084201411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084201404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2791ec0b76bc87d4eb1ce38fd8cded78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1_connectedDestintaions: []
+  p2_connectedDestintaions: []
+  p1_connectedRoutes: []
+  p2_connectedRoutes: []
 --- !u!1 &2085765212
 GameObject:
   m_ObjectHideFlags: 0
@@ -15074,7 +16718,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &2099491022
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15142,7 +16791,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 1
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &2107510577
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15271,7 +16925,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &2121327033
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15339,7 +16998,12 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
-  cs_actionManager: {fileID: 0}
+  isGreyRoute: 0
+  routeClaimed: 0
+  _connectedDestinations: []
+  sub_connectedDestinations: []
+  _connectedRoutes: []
+  sub_connectedRoutes: []
 --- !u!60 &2135447874
 PolygonCollider2D:
   m_ObjectHideFlags: 0
