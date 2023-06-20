@@ -95,6 +95,7 @@ MonoBehaviour:
   cs_playerManager2: {fileID: 0}
   cs_marketManager: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
 --- !u!1 &5743326095026205800
 GameObject:
   m_ObjectHideFlags: 0
