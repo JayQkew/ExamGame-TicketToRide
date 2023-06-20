@@ -13,6 +13,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     [SerializeField] PlayerManager cs_playerManager1;
     [SerializeField] PlayerManager cs_playerManager2;
     [SerializeField] TrainDeckManager cs_trainDeckManager;
+    [SerializeField] ActionManager cs_actionManager;
     #endregion
 
     #region VARIABLES:
@@ -34,18 +35,22 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!routeClaimed)
+        if(cs_actionManager.canClaimRoute == true)
         {
-            if (cs_playerManager1.playerTurn)
+            if (!routeClaimed)
             {
-                ClaimRoute(cs_playerManager1);
-            }
-            if (cs_playerManager2.playerTurn)
-            {
-                ClaimRoute(cs_playerManager2);
+                if (cs_playerManager1.playerTurn)
+                {
+                    ClaimRoute(cs_playerManager1);
+                    cs_actionManager.amountRoutesClaimed++;
+                }
+                if (cs_playerManager2.playerTurn)
+                {
+                    ClaimRoute(cs_playerManager2);
+                    cs_actionManager.amountRoutesClaimed++;
+                }
             }
         }
-
     }
 
     public void ClaimRoute(PlayerManager cs_playerManagerCode) // checks if there are enough train pieces.

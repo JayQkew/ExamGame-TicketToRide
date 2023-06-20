@@ -65,7 +65,7 @@ public class ActionManager : MonoBehaviour
             isTurnOver = true;
         }
         //checks if 3 cards have been taken from the train deck
-        if (maxCardsCollected == 3)
+        if (maxCardsCollected == 2)
         {
             isTurnOver = true;
         }
