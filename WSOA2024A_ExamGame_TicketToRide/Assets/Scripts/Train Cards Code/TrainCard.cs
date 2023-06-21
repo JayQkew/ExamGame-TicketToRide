@@ -28,7 +28,7 @@ public class TrainCard : MonoBehaviour, IPointerClickHandler
 
         cs_playerManager2 = GameObject.Find("Player_2").GetComponent<PlayerManager>();
 
-        cs_actionManager = GameObject.Find("Players").GetComponent<ActionManager>();
+        //cs_actionManager = GameObject.Find("Players").GetComponent<ActionManager>();
         #endregion
     }
 
@@ -56,10 +56,10 @@ public class TrainCard : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(cs_actionManager.canDrawLoco == true) //checks if a locomotive card can be picked up
-        {
-            if(cs_actionManager.pickUpNormCount < 1) //checks if a normal card has not been picked up
-            {
+        //if(cs_actionManager.canDrawLoco == true) //checks if a locomotive card can be picked up
+        //{
+            //if(cs_actionManager.pickUpNormCount < 1) //checks if a normal card has not been picked up
+            //{
                 if (cs_playerManager1.playerTurn)
                 {
                     PlayerCheck(cs_playerManager1, eventData);
@@ -68,22 +68,22 @@ public class TrainCard : MonoBehaviour, IPointerClickHandler
                 {
                     PlayerCheck(cs_playerManager2, eventData);
                 }
-            }
-        }
-        if(cs_actionManager.canDrawNorm == true) //checks if a normal card can be picked up
-        {
-            if(cs_actionManager.pickUpLocoCount < 1) //checks if a locomotive card has not been
-            {
-                if (cs_playerManager1.playerTurn)
-                {
-                    PlayerCheck(cs_playerManager1, eventData);
-                }
-                else if (cs_playerManager2.playerTurn)
-                {
-                    PlayerCheck(cs_playerManager2, eventData);
-                }
-            }
-        }
+            //}
+        //}
+        //if(cs_actionManager.canDrawNorm == true) //checks if a normal card can be picked up
+        //{
+            //if(cs_actionManager.pickUpLocoCount < 1) //checks if a locomotive card has not been
+            //{
+                //if (cs_playerManager1.playerTurn)
+                //{
+                //    PlayerCheck(cs_playerManager1, eventData);
+                //}
+                //else if (cs_playerManager2.playerTurn)
+                //{
+                //    PlayerCheck(cs_playerManager2, eventData);
+                //}
+            //}
+        //}
     }
 
     private void PlayerCheck(PlayerManager cs_playerManagerScript, PointerEventData eventData)
@@ -126,7 +126,7 @@ public class TrainCard : MonoBehaviour, IPointerClickHandler
                     Debug.Log("you fucked up");
                     break;
             }
-            cs_actionManager.pickUpLocoCount += 1;
+            //cs_actionManager.pickUpLocoCount += 1;
         }
 
         if (!so_trainCards.isLocomotive)
@@ -172,7 +172,7 @@ public class TrainCard : MonoBehaviour, IPointerClickHandler
                     break;
 
             }
-            cs_actionManager.pickUpNormCount += 1;
+            //cs_actionManager.pickUpNormCount += 1;
         }
 
         gameObject.tag = "trainCard"; // assign tag "trainCard" to the gameObject

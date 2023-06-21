@@ -18,6 +18,9 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     #region VARIABLES:
     [SerializeField] public bool isGreyRoute = false;
     [SerializeField] public bool routeClaimed = false;
+    [SerializeField] public bool brokenOff_1 = false;
+    [SerializeField] public bool brokenOff_2 = false;
+    [SerializeField] public List<GameObject> initial_Destinations = new List<GameObject>();
     [SerializeField] public List<GameObject> _connectedDestinations = new List<GameObject>();
     [SerializeField] public List<GameObject> sub_connectedDestinations = new List<GameObject>();
 
@@ -46,6 +49,22 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
             }
         }
 
+    }
+
+    public void BreakOff2Check()
+    {
+        int numBrokenOff_destination = 0;
+        foreach (GameObject destination in initial_Destinations)
+        {
+            if(destination.GetComponent<DestinationLogic>().brokenOff_destination)
+            {
+                numBrokenOff_destination++;
+            }
+        }
+        if (numBrokenOff_destination == 2)
+        {
+            brokenOff_2 = true;
+        }
     }
 
     public void ClaimRoute(PlayerManager cs_playerManagerCode) // checks if there are enough train pieces.
@@ -140,6 +159,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _connectedDestinations.Add(collision.gameObject);
+        initial_Destinations.Add(collision.gameObject);
     }
 
     private void InfoGathering()
@@ -151,7 +171,9 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 sub_connectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedDestintaions);
                 sub_connectedRoutes.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedRoutes);
                 sub_connectedRoutes.Add(gameObject);
+
             }
+
             _connectedRoutes.AddRange(sub_connectedRoutes);
             _connectedDestinations.AddRange(sub_connectedDestinations);
 
@@ -167,6 +189,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 sub_connectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p2_connectedDestintaions);
                 sub_connectedRoutes.Add(gameObject);
             }
+
             _connectedRoutes.AddRange(sub_connectedRoutes);
             _connectedDestinations.AddRange(sub_connectedDestinations);
 
@@ -190,10 +213,13 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 {
                     destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Add(_route);
                 }
+
                 foreach (GameObject _destination in union_connectedDestinations)
                 {
                     destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Add(_destination);
                 }
+
+                LongestRouteCheck(destination, destination.GetComponent<DestinationLogic>().p1_connectedDestintaions, destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes);
             }
         }
         else if (cs_playerManager2.playerTurn)
@@ -209,12 +235,24 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 {
                     destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Add(_route);
                 }
+
                 foreach (GameObject _destination in union_connectedDestinations)
                 {
                     destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Add(_destination);
                 }
+
+                LongestRouteCheck(destination, destination.GetComponent<DestinationLogic>().p2_connectedDestintaions, destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes);
             }
         }
+    }
+
+    private void LongestRouteCheck(GameObject destination, List<GameObject> destinationList, List<GameObject> playerClaimedLocalRoutes) // second player gets all already collected routes bug.
+    {
+        foreach (GameObject _destination in destinationList) // foreach destination
+        {
+            _destination.GetComponent<DestinationLogic>().LocalRouteCheck();
+        }
+
     }
 
     private void DestinationCompletion()

@@ -619,6 +619,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &129892128 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3286544379087060008, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -677,6 +679,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!4 &156076840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -1341,6 +1345,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &196284225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1269025460527032695, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
@@ -1813,6 +1819,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &269629610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,6 +2014,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &284531112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3919243899213683775, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
@@ -3034,6 +3044,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1001 &432921455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3435,6 +3447,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &460411122 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1207478881114427021, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
@@ -4530,8 +4544,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -5108,6 +5122,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &604078303 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -529262013332064540, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -5274,6 +5290,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &628421429
 GameObject:
   m_ObjectHideFlags: 0
@@ -6614,6 +6632,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &822211203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5908614378057143731, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -6672,6 +6692,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &822960869 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5512873443663788107, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
@@ -7034,6 +7056,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &859657321
 GameObject:
   m_ObjectHideFlags: 0
@@ -7268,7 +7292,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863248732}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b248a1752fc2a084b9e6caee8242b732, type: 3}
   m_Name: 
@@ -7340,6 +7364,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &895471302 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8496251583337121359, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -7398,6 +7424,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &901196271 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4116252924378001886, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -7456,6 +7484,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &902547117 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8760589317396152134, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -7514,6 +7544,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &911764016
 GameObject:
   m_ObjectHideFlags: 0
@@ -9789,6 +9821,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1121608155
 GameObject:
   m_ObjectHideFlags: 0
@@ -10331,6 +10365,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1191279034 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3946367770692362776, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
@@ -10545,6 +10581,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1224423094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5409612235253730061, guid: a445b2363a7b11a448b2a92a5d9e1cc4, type: 3}
@@ -10753,6 +10791,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1256753575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2521191447789265253, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
@@ -10953,6 +10993,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1274490076 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1223499273320212822, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -11011,6 +11053,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1278963722
 GameObject:
   m_ObjectHideFlags: 0
@@ -12313,6 +12357,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1482775491
 GameObject:
   m_ObjectHideFlags: 0
@@ -12407,6 +12453,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1489043625 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8662068725245562386, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -13027,6 +13075,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1568214627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1372122607421484151, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -13919,6 +13969,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1658374015 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5848637068769438541, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -13977,6 +14029,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1663291581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1158647108488780303, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -14035,6 +14089,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1670146740 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 540944074928864051, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -14183,6 +14239,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1702325007 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3250068070794783257, guid: b7d2c9ab74118064aa955c19aff96e0a, type: 3}
@@ -15455,6 +15513,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &1873771554
 GameObject:
   m_ObjectHideFlags: 0
@@ -15509,7 +15569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1876101732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16090,6 +16150,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &2032096315
 GameObject:
   m_ObjectHideFlags: 0
@@ -16283,6 +16345,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &2048259531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2951779157800309619, guid: 8a33d5a181a1d934889e242a710aa146, type: 3}
@@ -16592,6 +16656,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &2057238958 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1985817348505373092, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -16784,6 +16850,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &2072827407
 GameObject:
   m_ObjectHideFlags: 0
@@ -16977,6 +17045,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &2084201404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8399180504116563221, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -17035,6 +17105,8 @@ MonoBehaviour:
   p2_connectedDestintaions: []
   p1_connectedRoutes: []
   p2_connectedRoutes: []
+  local_connectedRoutes: []
+  claimedLocalRoutes: []
 --- !u!1 &2085765212
 GameObject:
   m_ObjectHideFlags: 0
