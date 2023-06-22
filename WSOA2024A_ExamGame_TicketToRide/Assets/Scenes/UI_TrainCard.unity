@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &52908947 stripped
@@ -293,6 +293,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -445,6 +446,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -516,6 +518,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -561,6 +564,141 @@ PolygonCollider2D:
       - {x: 0.08, y: -0.19}
       - {x: 0.48, y: 0.14999999}
       - {x: 0.53999996, y: 0.22999999}
+--- !u!1 &118712995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 118712996}
+  - component: {fileID: 118712998}
+  - component: {fileID: 118712997}
+  m_Layer: 5
+  m_Name: Player1TurnTxt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &118712996
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118712995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1588938677}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 67}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &118712997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118712995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Player 1 Turn
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &118712998
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118712995}
+  m_CullTransparentMesh: 1
 --- !u!1 &119612647 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2559490529420256461, guid: f08198c8a86903b4cab35da49fa40d22, type: 3}
@@ -703,6 +841,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -906,6 +1045,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -982,6 +1122,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -1186,7 +1327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064479034684052733, guid: a445b2363a7b11a448b2a92a5d9e1cc4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -403
+      value: -340
       objectReference: {fileID: 0}
     - target: {fileID: 4064479034684052733, guid: a445b2363a7b11a448b2a92a5d9e1cc4, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1231,6 +1372,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -1362,6 +1504,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -1435,6 +1578,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -1525,6 +1669,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -1683,6 +1828,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -2027,6 +2173,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -2209,6 +2356,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -2303,6 +2451,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -2365,6 +2514,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -2432,6 +2582,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -2845,6 +2996,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -2911,6 +3063,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -3164,6 +3317,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -3456,6 +3610,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -3635,6 +3790,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -4319,6 +4475,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -4394,6 +4551,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -4450,7 +4608,7 @@ GameObject:
   - component: {fileID: 532318342}
   - component: {fileID: 532318341}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TimerTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4496,7 +4654,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: '00
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4523,15 +4683,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4594,6 +4754,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -4659,6 +4820,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -4943,6 +5105,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -5003,6 +5166,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -5129,6 +5293,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -5371,6 +5536,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -5612,6 +5778,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -5753,6 +5920,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -5840,6 +6008,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -5964,7 +6133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064479034684052733, guid: a445b2363a7b11a448b2a92a5d9e1cc4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -403
+      value: -340
       objectReference: {fileID: 0}
     - target: {fileID: 4064479034684052733, guid: a445b2363a7b11a448b2a92a5d9e1cc4, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6009,6 +6178,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -6111,6 +6281,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -6182,6 +6353,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -6240,6 +6412,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -6307,6 +6480,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -6501,6 +6675,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -6693,6 +6868,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -6785,6 +6961,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -6863,6 +7040,141 @@ PolygonCollider2D:
       - {x: 1.665, y: -0.66499996}
       - {x: 1.665, y: -0.53499997}
       - {x: 1.635, y: -0.49499997}
+--- !u!1 &833351866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833351867}
+  - component: {fileID: 833351869}
+  - component: {fileID: 833351868}
+  m_Layer: 5
+  m_Name: Player2TurnTxt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &833351867
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833351866}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 859657322}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 67}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &833351868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833351866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Player 2 Turn
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &833351869
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833351866}
+  m_CullTransparentMesh: 1
 --- !u!1001 &846442745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7066,12 +7378,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 941979342}
+  - {fileID: 833351867}
   m_Father: {fileID: 863248733}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 610, y: 0}
+  m_AnchoredPosition: {x: 811, y: -298}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &859657323
@@ -7611,6 +7924,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -7677,6 +7991,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -7759,6 +8074,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -7834,6 +8150,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -7919,7 +8236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -346}
+  m_AnchoredPosition: {x: -65, y: -370}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &941979341
@@ -7934,7 +8251,7 @@ GameObject:
   - component: {fileID: 941979344}
   - component: {fileID: 941979343}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ButtonTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8198,6 +8515,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -8266,6 +8584,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -8482,6 +8801,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -8565,6 +8885,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -8655,6 +8976,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -8736,7 +9058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -346}
+  m_AnchoredPosition: {x: -65, y: -370}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1064822845
@@ -8806,6 +9128,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -8985,6 +9308,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -9066,6 +9390,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -9139,6 +9464,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -9221,7 +9547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -616.00006, y: -397}
+  m_AnchoredPosition: {x: -616.00006, y: -415}
   m_SizeDelta: {x: 80, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1096380131
@@ -9296,6 +9622,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -9371,6 +9698,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -9594,6 +9922,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -10141,6 +10470,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -10208,6 +10538,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -10352,6 +10683,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -10434,6 +10766,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -10576,6 +10909,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -10650,6 +10984,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -10774,6 +11109,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -10850,6 +11186,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -11330,6 +11667,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -11626,6 +11964,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -11979,6 +12318,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -12080,7 +12420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 235, y: 0}
+  m_AnchoredPosition: {x: 235, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1429389969 stripped
@@ -12124,6 +12464,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -12201,6 +12542,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -12428,6 +12770,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -12773,6 +13116,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -13048,6 +13392,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -13304,6 +13649,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -13527,12 +13873,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1732792030}
+  - {fileID: 118712996}
   m_Father: {fileID: 863248733}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 610, y: 0}
+  m_AnchoredPosition: {x: 811, y: -298}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1600401380
@@ -13691,6 +14038,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -13759,6 +14107,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -13822,6 +14171,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -14056,6 +14406,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -14204,6 +14555,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -14272,6 +14624,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -14364,6 +14717,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -14431,7 +14785,7 @@ GameObject:
   - component: {fileID: 1732792032}
   - component: {fileID: 1732792031}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ButtonTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14575,6 +14929,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -14749,7 +15104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -851, y: -397}
+  m_AnchoredPosition: {x: -851, y: -415}
   m_SizeDelta: {x: 80, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1800990282
@@ -14824,6 +15179,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -14897,6 +15253,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -15005,6 +15362,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -15072,6 +15430,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -15140,6 +15499,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -15240,6 +15600,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -15504,7 +15865,7 @@ GameObject:
   - component: {fileID: 1876101734}
   - component: {fileID: 1876101733}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: SwitchPlayersPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15559,7 +15920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15666,6 +16027,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -15805,6 +16167,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -15906,6 +16269,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -15992,6 +16356,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -16102,7 +16467,7 @@ GameObject:
   - component: {fileID: 2032096318}
   - component: {fileID: 2032096317}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SwitchPlayersTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16125,8 +16490,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 109}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 679.7, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2032096317
 MonoBehaviour:
@@ -16148,7 +16513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: switch players
+  m_text: Switch the laptop between players
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16175,8 +16540,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16304,6 +16669,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -16405,6 +16771,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -16475,6 +16842,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -16613,6 +16981,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -16678,6 +17047,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -17157,6 +17527,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -17230,6 +17601,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 1
   routeClaimed: 0
   _connectedDestinations: []
@@ -17364,6 +17736,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
@@ -17437,6 +17810,7 @@ MonoBehaviour:
   cs_playerManager1: {fileID: 0}
   cs_playerManager2: {fileID: 0}
   cs_trainDeckManager: {fileID: 0}
+  cs_actionManager: {fileID: 0}
   isGreyRoute: 0
   routeClaimed: 0
   _connectedDestinations: []
