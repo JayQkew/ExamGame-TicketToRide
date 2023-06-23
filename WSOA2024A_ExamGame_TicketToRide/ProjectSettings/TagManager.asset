@@ -9,6 +9,7 @@ TagManager:
   - route
   - claimedRoute
   - _claimedRoute
+  - destination
   layers:
   - Default
   - TransparentFX
