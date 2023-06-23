@@ -57,6 +57,7 @@ public class PlayerManager : MonoBehaviour
         ColourPileManager();
         tmp_trainPieces.text = trainPieces.ToString();
         pointSlider.value = points;
+        CheckLastRound();
     }
 
     private void PlayerTurnCheck()
@@ -140,6 +141,15 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void CheckLastRound()
+    {
+        if(trainPieces <= 2)
+        {
+            Debug.Log("Play last round");
+            GameManager.Instance.UpdateGameState(GameState.LastRound);
+        }
     }
 
 }

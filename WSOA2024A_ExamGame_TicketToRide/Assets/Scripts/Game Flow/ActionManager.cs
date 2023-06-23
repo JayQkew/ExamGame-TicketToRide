@@ -1,22 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ActionManager : MonoBehaviour
 {
     #region VARIABLES:
+    [Header("Is The Turn Over")]
     [SerializeField] private bool isTurnOver;
 
+    [Header("Amount of cards picked up")]
     [SerializeField] public int pickUpLocoCount;
     [SerializeField] public int pickUpNormCount;
 
-
+    [Header("Can draw loco and norm cards")]
     [SerializeField] public bool canDrawLoco;
     [SerializeField] public bool canDrawNorm;
 
+    [Header("Route action stuff")]
     [SerializeField] public bool canClaimRoute;
     [SerializeField] public int amountRoutesClaimed;
+
+    [Header("Buttons to look after")]
+    [SerializeField] public Button endPlayer1TurnButton;
+    [SerializeField] public Button endPlayer2TurnButton;
     #endregion
 
     #region OTHER SCRIPTS:
@@ -96,6 +102,18 @@ public class ActionManager : MonoBehaviour
         {
             isTurnOver = true;
         }
+
+        //Button manager stuff
+        if(isTurnOver == true)
+        {
+            endPlayer1TurnButton.interactable = true;
+            endPlayer2TurnButton.interactable = true;
+        }
+        else if (isTurnOver == false)
+        {
+            endPlayer1TurnButton.interactable = false;
+            endPlayer2TurnButton.interactable = false;
+        }
     }
 
     //turns next turn button off
@@ -112,5 +130,15 @@ public class ActionManager : MonoBehaviour
         pickUpLocoCount = 0;
         pickUpNormCount = 0;
         amountRoutesClaimed = 0;
+    }
+
+    public void ChangeStateP1()
+    {
+        GameManager.Instance.UpdateGameState(GameState.Player1Turn);
+    }
+
+    public void ChangeStateP2()
+    {
+        GameManager.Instance.UpdateGameState(GameState.Player2Turn);
     }
 }
