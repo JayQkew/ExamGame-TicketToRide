@@ -28,6 +28,7 @@ public class ActionManager : MonoBehaviour
     #region OTHER SCRIPTS:
     [SerializeField] DestinationDeck cs_destinationDeck;
     [SerializeField] TrainDeckManager cs_traindeckmanager;
+    [SerializeField] GameManager cs_gameManager;
     #endregion
 
     private void Start()
@@ -130,6 +131,8 @@ public class ActionManager : MonoBehaviour
         pickUpLocoCount = 0;
         pickUpNormCount = 0;
         amountRoutesClaimed = 0;
+
+        cs_gameManager.currentTurn++;
     }
 
     public void ChangeStateP1()

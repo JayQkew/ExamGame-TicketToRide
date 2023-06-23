@@ -14,6 +14,7 @@ public class MenuButtons : MonoBehaviour
         Main.SetActive(true);
         Options.SetActive(false);
         Credits.SetActive(false);
+        GameManager.Instance.UpdateGameState(GameState.MainMenu);
     }
 
     public void OptionsBTN()
@@ -46,8 +47,12 @@ public class MenuButtons : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        GameManager.Instance.UpdateGameState(GameState.Player1Turn);
+        
     }
    
+    public void ChangeGameState()
+    {
+        GameManager.Instance.UpdateGameState(GameState.Player1Turn);
+    }
 
 }
