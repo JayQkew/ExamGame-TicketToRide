@@ -23,6 +23,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     [SerializeField] public int trainPieces;
     [SerializeField] public int netTrainPieces = 0;
     [SerializeField] public bool _checked = false;
+    [SerializeField] public bool _marked = false;
     [SerializeField] public List<GameObject> initial_Destinations = new List<GameObject>();
     [SerializeField] public List<GameObject> _connectedDestinations = new List<GameObject>();
     [SerializeField] public List<GameObject> sub_connectedDestinations = new List<GameObject>();
@@ -190,6 +191,12 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 destination.GetComponent<DestinationLogic>()._checked = false;
             }
 
+            if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Split)
+            {
+                destination.GetComponent<DestinationLogic>()._start = false;
+                destination.GetComponent<DestinationLogic>()._checked = false;
+            }
+
             if (cs_playerManager1.playerTurn)
             {
                 foreach (GameObject _route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes)
@@ -224,11 +231,6 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         {
             if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Linked && destination.GetComponent<DestinationLogic>()._checked == false)
             {
-                //if (!destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked &&
-                //    !destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked)
-                //{
-                //    Debug.Log("OOPSIE");
-                //}
                 if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true &&
                     destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == false)
                 {
@@ -250,6 +252,51 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                     destination.GetComponent<DestinationLogic>()._checked = true;
                 }
 
+            }
+            else if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Split && destination.GetComponent<DestinationLogic>()._checked == false)
+            {
+                List<bool> markedCheck = new List<bool>();
+                List<bool> routes_checkedCheck = new List<bool>();
+                foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes) // goes through each claimedLocalRoute
+                {
+                    markedCheck.Add(route.GetComponent<RouteLogic>()._marked);//adds its marked bool to the markedCheck list;
+                    routes_checkedCheck.Add(route.GetComponent<RouteLogic>()._checked); // adds its checked state to checkedCheck list;
+                }
+
+                foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes) // goes through each claimedLocalRoute
+                {
+                    if (route.GetComponent<RouteLogic>()._checked) // if the claimedLocalRoute is already checked
+                    {
+                        if (!markedCheck.Contains(true)) // AND the markedCheck list doesnt contain a true;
+                        {
+                            route.GetComponent<RouteLogic>()._marked = true; // make the claimedLocalRoute marked.
+                            destination.GetComponent<DestinationLogic>().p1_firstMarkedRoute.Add(route);
+                            break; // stop the forloop.
+                        }
+                    }
+                }
+
+                foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes)
+                {
+                    foreach (GameObject marked_route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes) // looking for marked route.
+                    {
+                        if (marked_route.GetComponent<RouteLogic>()._marked &&
+                            !route.GetComponent<RouteLogic>()._checked)
+                        {
+                            route.GetComponent<RouteLogic>().netTrainPieces = marked_route.GetComponent<RouteLogic>().netTrainPieces;
+                            route.GetComponent<RouteLogic>().netTrainPieces += route.GetComponent<RouteLogic>().trainPieces;
+                            route.GetComponent<RouteLogic>()._checked = true;
+                        }
+                    }
+                }
+
+                if (!routes_checkedCheck.Contains(false))
+                {
+                    destination.GetComponent<DestinationLogic>()._checked = true;
+                }
+
+                markedCheck.Clear();
+                routes_checkedCheck.Clear();
             }
         }
 
@@ -274,6 +321,25 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
 
                 destination.GetComponent<DestinationLogic>()._checked = true;
 
+            }
+
+            else if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Split && !destination.GetComponent<DestinationLogic>()._checked)
+            {
+                List<bool> markedCheck = new List<bool>();
+                List<bool> routes_checkedCheck = new List<bool>();
+
+                foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes)
+                {
+                    if (!route.GetComponent<RouteLogic>()._checked)
+                    {
+                        route.GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p1_firstMarkedRoute[0].GetComponent<RouteLogic>().netTrainPieces;
+                        route.GetComponent<RouteLogic>().netTrainPieces += route.GetComponent<RouteLogic>().trainPieces;
+                        route.GetComponent<RouteLogic>()._checked = true;
+
+                    }
+                }
+
+                destination.GetComponent <DestinationLogic>()._checked = true;
             }
         }
 
@@ -311,7 +377,15 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 }
 
             }
+
+            else if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Split && !destination.GetComponent<DestinationLogic>()._checked)
+            {
+                destination.GetComponent<DestinationLogic>()._checked = true;
+            }
+
+            destination.GetComponent<DestinationLogic>().p1_firstMarkedRoute.Clear();
         }
+
 
     }
 

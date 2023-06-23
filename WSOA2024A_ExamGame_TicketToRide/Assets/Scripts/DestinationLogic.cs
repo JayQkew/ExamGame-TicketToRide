@@ -20,6 +20,9 @@ public class DestinationLogic : MonoBehaviour
     [SerializeField] public List<GameObject> p1_claimedLocalRoutes = new List<GameObject>();
     [SerializeField] public List<GameObject> p2_claimedLocalRoutes = new List<GameObject>();
 
+    [SerializeField] public List<GameObject> p1_firstMarkedRoute = new List<GameObject>();
+    [SerializeField] public List<GameObject> p2_firstMarkedRoute = new List<GameObject>();
+
     [SerializeField] public List<GameObject> local_connectedRoutes = new List<GameObject>();
 
     private PlayerManager cs_playerManager1;
