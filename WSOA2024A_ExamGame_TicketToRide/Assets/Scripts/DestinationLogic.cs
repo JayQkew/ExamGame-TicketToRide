@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Collections; 
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,6 +10,8 @@ public class DestinationLogic : MonoBehaviour
     [SerializeField] public bool _checked;
     [SerializeField] public int p1_final_netTrainPieces;
     [SerializeField] public int p2_final_netTrainPieces;
+    [SerializeField] public int p1_longestRoute = 0;
+    [SerializeField] public int p2_longestRoute = 0;
 
     [SerializeField] public List<GameObject> p1_connectedDestintaions = new List<GameObject>();
     [SerializeField] public List<GameObject> p2_connectedDestintaions = new List<GameObject>();
@@ -40,7 +42,11 @@ public class DestinationLogic : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        local_connectedRoutes.Add(collision.gameObject);
+
+        if (collision.tag == "route")
+        {
+            local_connectedRoutes.Add(collision.gameObject);
+        }
     }
 
     public void LocalRouteCheck()
@@ -116,7 +122,7 @@ public class DestinationLogic : MonoBehaviour
             }
         }
 
-        foreach ( GameObject claimedRoute in p1_claimedLocalRoutes)
+        foreach (GameObject claimedRoute in p1_claimedLocalRoutes)
         {
             //claimedRoute.GetComponent<RouteLogic>()._checked = false;
         }
