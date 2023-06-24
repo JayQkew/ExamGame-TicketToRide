@@ -18,9 +18,13 @@ public class GameManager : MonoBehaviour
     [Header("Other Variables")]
     [SerializeField] public GameObject endP1TurnButton;
     [SerializeField] public GameObject endP2TurnButton;
+    [Header("Pause Game Stuff")]
+    [SerializeField] GameObject PauseGamePanel;
+    [SerializeField]private bool isPaused = false;
     [Header("Last Round BULLSHIIIIIIIIT")]
     [SerializeField] public bool hasLastRoundStarted;
     [SerializeField] public GameObject winScreen;
+    [SerializeField] public bool hasGameEnded;
     #endregion
 
     #region OTHER SCRIPTS
@@ -35,7 +39,7 @@ public class GameManager : MonoBehaviour
     [Header("Round Code")]
     [SerializeField] public TextMeshProUGUI roundNumberTxt;
     [SerializeField] public int currentTurn;
-    [SerializeField] public int currentRound;
+    [HideInInspector][SerializeField] public int currentRound;
     #endregion
 
     private void Awake()
@@ -47,6 +51,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateGameState(GameState.Player1Turn);
+        hasGameEnded = false;
     }
 
     private void Update()
@@ -164,10 +169,12 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Final round has started");
                 if (currentRound == previousRound + 2)
                 {
+                    hasGameEnded = true;
                     cs_winScreenCode.WinScreen.SetActive(true);
                 }
             }
         }
+
     }
 
     public void UpdateRoundNumber()
@@ -176,7 +183,23 @@ public class GameManager : MonoBehaviour
         roundNumberTxt.text = currentRound.ToString();
     }
 
-    
+    public void PauseGame()
+    {
+        Time.timeScale = 0f; // Pause the game by setting the time scale to 0
+        PauseGamePanel.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f; // Resume the game by setting the time scale back to 1
+        isPaused = false;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
 
 public enum GameState
