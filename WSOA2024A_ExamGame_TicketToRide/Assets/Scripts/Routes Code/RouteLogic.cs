@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class RouteLogic : MonoBehaviour, IPointerClickHandler
 {
@@ -25,12 +26,18 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     [SerializeField] public int netTrainPieces = 0;
     [SerializeField] public bool _checked = false;
     [SerializeField] public bool _marked = false;
-    [SerializeField] public List<GameObject> initial_Destinations = new List<GameObject>();
-    [SerializeField] public List<GameObject> _connectedDestinations = new List<GameObject>();
-    [SerializeField] public List<GameObject> sub_connectedDestinations = new List<GameObject>();
 
-    [SerializeField] public List<GameObject> _connectedRoutes = new List<GameObject>();
-    [SerializeField] public List<GameObject> sub_connectedRoutes = new List<GameObject>();
+    [SerializeField] public List<GameObject> initial_Destinations = new List<GameObject>();
+
+    [SerializeField] public List<GameObject> p1_connectedDestinations = new List<GameObject>();
+    [SerializeField] public List<GameObject> p2_connectedDestinations = new List<GameObject>();
+    [SerializeField] public List<GameObject> p1_subConnectedDestinations = new List<GameObject>();
+    [SerializeField] public List<GameObject> p2_subConnectedDestinations = new List<GameObject>();
+
+    [SerializeField] public List<GameObject> p1_connectedRoutes = new List<GameObject>();
+    [SerializeField] public List<GameObject> p2_connectedRoutes = new List<GameObject>();
+    [SerializeField] public List<GameObject> p1_subConnectedRoutes = new List<GameObject>();
+    [SerializeField] public List<GameObject> p2_subConnectedRoutes = new List<GameObject>();
     #endregion
 
     private void Awake()
@@ -63,22 +70,6 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                     cs_actionManager.amountRoutesClaimed++;
                 }
             }
-        }
-    }
-
-    public void BreakOff2Check()
-    {
-        int numBrokenOff_destination = 0;
-        foreach (GameObject destination in initial_Destinations)
-        {
-            if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Split)
-            {
-                numBrokenOff_destination++;
-            }
-        }
-        if (numBrokenOff_destination == 2)
-        {
-            brokenOff_2 = true;
         }
     }
 
@@ -124,7 +115,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private async void CardCheck2(PlayerManager cs_playerManagerCode, int i) // checks if there are enough cards of that colour
+    private void CardCheck2(PlayerManager cs_playerManagerCode, int i) // checks if there are enough cards of that colour
     {
         int cardsLeft = so_routes.trainPieces - cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards;
         if (cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards >= so_routes.trainPieces) // checks if that colourpile has enough cards
@@ -191,7 +182,8 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     {
         if (collision.tag == "destination")
         {
-            _connectedDestinations.Add(collision.gameObject);
+            p1_connectedDestinations.Add(collision.gameObject);
+            p2_connectedDestinations.Add(collision.gameObject);
             initial_Destinations.Add(collision.gameObject);
         }
     }
@@ -200,180 +192,365 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     {
         List<GameObject> endDestinations = new List<GameObject>();
 
-        foreach (GameObject destination in _connectedDestinations)
+        if (cs_playerManager1.playerTurn)
         {
-            if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.End)
+            foreach (GameObject destination in p1_connectedDestinations)
             {
-                endDestinations.Add(destination);
+                if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.End)
+                {
+                    endDestinations.Add(destination);
+                }
             }
-        }
 
+        }
+        else if (cs_playerManager2.playerTurn)
+        {
+            foreach (GameObject destination in p2_connectedDestinations)
+            {
+                if (destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.End)
+                {
+                    endDestinations.Add(destination);
+                }
+            }
+
+        }
         foreach (GameObject endDestination in endDestinations)
         {
-            foreach (GameObject destination in _connectedDestinations) // looping through alllll destinations and resetting them to !_start.
+            if (cs_playerManager1.playerTurn)
             {
-                if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.End) // finds end destinations
+                foreach (GameObject destination in p1_connectedDestinations) // looping through alllll destinations and resetting them to !_start.
                 {
-                    destination.GetComponent<DestinationLogic>()._start = false;
-                    destination.GetComponent<DestinationLogic>()._checked = false;
-                }
+                    if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.End) // finds end destinations
+                    {
+                        destination.GetComponent<DestinationLogic>()._start = false;
+                        destination.GetComponent<DestinationLogic>()._checked = false;
+                    }
 
-                if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Linked)
-                {
-                    destination.GetComponent<DestinationLogic>()._start = false;
-                    destination.GetComponent<DestinationLogic>()._checked = false;
-                }
+                    if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.Linked)
+                    {
+                        destination.GetComponent<DestinationLogic>()._start = false;
+                        destination.GetComponent<DestinationLogic>()._checked = false;
+                    }
 
-                if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Split)
-                {
-                    destination.GetComponent<DestinationLogic>()._start = false;
-                    destination.GetComponent<DestinationLogic>()._checked = false;
-                }
+                    if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.Split)
+                    {
+                        destination.GetComponent<DestinationLogic>()._start = false;
+                        destination.GetComponent<DestinationLogic>()._checked = false;
+                    }
 
-                if (cs_playerManager1.playerTurn)
-                {
                     foreach (GameObject _route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes)
                     {
                         _route.GetComponent<RouteLogic>()._checked = false;
                         _route.GetComponent<RouteLogic>()._marked = false;
                     }
                 }
-                else if (cs_playerManager2.playerTurn)
+
+            }
+            else if (cs_playerManager2.playerTurn)
+            {
+                foreach (GameObject destination in p2_connectedDestinations) // looping through alllll destinations and resetting them to !_start.
                 {
+                    if (destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.End) // finds end destinations
+                    {
+                        destination.GetComponent<DestinationLogic>()._start = false;
+                        destination.GetComponent<DestinationLogic>()._checked = false;
+                    }
+
+                    if (destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.Linked)
+                    {
+                        destination.GetComponent<DestinationLogic>()._start = false;
+                        destination.GetComponent<DestinationLogic>()._checked = false;
+                    }
+
+                    if (destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.Split)
+                    {
+                        destination.GetComponent<DestinationLogic>()._start = false;
+                        destination.GetComponent<DestinationLogic>()._checked = false;
+                    }
+
                     foreach (GameObject _route in destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes)
                     {
                         _route.GetComponent<RouteLogic>()._checked = false;
+                        _route.GetComponent<RouteLogic>()._marked = false;
                     }
                 }
+
             }
 
-            endDestination.GetComponent<DestinationLogic>()._start = true;
-            endDestination.GetComponent<DestinationLogic>()._checked = true; 
-            endDestination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces = endDestination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().trainPieces;
-            endDestination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked = true;
-
-            foreach (GameObject destination in _connectedDestinations)
+            if (cs_playerManager1.playerTurn)
             {
-                if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Linked && destination.GetComponent<DestinationLogic>()._checked == false)
+                endDestination.GetComponent<DestinationLogic>()._start = true;
+                endDestination.GetComponent<DestinationLogic>()._checked = true;
+                endDestination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces = endDestination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().trainPieces;
+                endDestination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked = true;
+
+            }
+            else if (cs_playerManager2.playerTurn)
+            {
+                endDestination.GetComponent<DestinationLogic>()._start = true;
+                endDestination.GetComponent<DestinationLogic>()._checked = true;
+                endDestination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces = endDestination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>().trainPieces;
+                endDestination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked = true;
+
+            }
+
+            if (cs_playerManager1.playerTurn)
+            {
+                foreach (GameObject destination in p1_connectedDestinations)
                 {
-                    if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true &&
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == false)
+                    if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.Linked && destination.GetComponent<DestinationLogic>()._checked == false)
                     {
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces;
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().trainPieces;
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked = true;
-                    }
-                    else if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == false)
-                    {
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces;
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().trainPieces;
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked = true;
-                    }
-
-                    if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true)
-                    {
-                        destination.GetComponent<DestinationLogic>()._checked = true;
-                    }
-
-                }
-                else if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Split && destination.GetComponent<DestinationLogic>()._checked == false)
-                {
-                    List<bool> markedCheck = new List<bool>();
-                    List<bool> routes_checkedCheck = new List<bool>();
-                    foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes) // goes through each claimedLocalRoute
-                    {
-                        markedCheck.Add(route.GetComponent<RouteLogic>()._marked);//adds its marked bool to the markedCheck list;
-                        routes_checkedCheck.Add(route.GetComponent<RouteLogic>()._checked); // adds its checked state to checkedCheck list;
-                    }
-
-                    foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes) // goes through each claimedLocalRoute
-                    {
-                        if (route.GetComponent<RouteLogic>()._checked) // if the claimedLocalRoute is already checked
+                        if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true &&
+                    destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == false)
                         {
-                            if (!markedCheck.Contains(true)) // AND the markedCheck list doesnt contain a true;
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces;
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().trainPieces;
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked = true;
+                        }
+                        else if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == false)
+                        {
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces;
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().trainPieces;
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked = true;
+                        }
+
+                        if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true)
+                        {
+                            destination.GetComponent<DestinationLogic>()._checked = true;
+                        }
+
+
+                    }
+                    else if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.Split && !destination.GetComponent<DestinationLogic>()._checked)
+                    {
+                        List<bool> markedCheck = new List<bool>();
+                        List<bool> routes_checkedCheck = new List<bool>();
+                        foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes) // goes through each claimedLocalRoute
+                        {
+                            markedCheck.Add(route.GetComponent<RouteLogic>()._marked);//adds its marked bool to the markedCheck list;
+                            routes_checkedCheck.Add(route.GetComponent<RouteLogic>()._checked); // adds its checked state to checkedCheck list;
+                        }
+
+
+                        foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes) // goes through each claimedLocalRoute
+                        {
+                            if (route.GetComponent<RouteLogic>()._checked) // if the claimedLocalRoute is already checked
                             {
-                                route.GetComponent<RouteLogic>()._marked = true; // make the claimedLocalRoute marked.
-                                destination.GetComponent<DestinationLogic>().p1_firstMarkedRoute.Insert(0, route);
-                                break; // stop the forloop.
+                                if (!markedCheck.Contains(true)) // AND the markedCheck list doesnt contain a true;
+                                {
+                                    route.GetComponent<RouteLogic>()._marked = true; // make the claimedLocalRoute marked.
+                                    destination.GetComponent<DestinationLogic>().p1_firstMarkedRoute.Insert(0, route);
+                                    break; // stop the forloop.
+                                }
                             }
                         }
+
+
+                        foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes)
+                        {
+                            foreach (GameObject marked_route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes) // looking for marked route.
+                            {
+                                if (marked_route.GetComponent<RouteLogic>()._marked &&
+                                    !route.GetComponent<RouteLogic>()._checked)
+                                {
+                                    route.GetComponent<RouteLogic>().netTrainPieces = marked_route.GetComponent<RouteLogic>().netTrainPieces;
+                                    route.GetComponent<RouteLogic>().netTrainPieces += route.GetComponent<RouteLogic>().trainPieces;
+                                    route.GetComponent<RouteLogic>()._checked = true;
+                                }
+                            }
+                        }
+
+
+                        if (!routes_checkedCheck.Contains(false))
+                        {
+                            destination.GetComponent<DestinationLogic>()._checked = true;
+                        }
+
+                        markedCheck.Clear();
+                        routes_checkedCheck.Clear();
+                    }
+                }
+
+            }
+            else if (cs_playerManager2.playerTurn)
+            {
+                foreach (GameObject destination in p2_connectedDestinations)
+                {
+                    if (destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.Linked && destination.GetComponent<DestinationLogic>()._checked == false)
+                    {
+                        if (destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true &&
+                    destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == false)
+                        {
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces;
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>().trainPieces;
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked = true;
+                        }
+                        else if (destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == false)
+                        {
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces;
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>().trainPieces;
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked = true;
+                        }
+
+                        if (destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true)
+                        {
+                            destination.GetComponent<DestinationLogic>()._checked = true;
+                        }
+
+
+                    }
+                    else if (destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.Split && !destination.GetComponent<DestinationLogic>()._checked)
+                    {
+                        List<bool> markedCheck = new List<bool>();
+                        List<bool> routes_checkedCheck = new List<bool>();
+                        foreach (GameObject route in destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes) // goes through each claimedLocalRoute
+                        {
+                            markedCheck.Add(route.GetComponent<RouteLogic>()._marked);//adds its marked bool to the markedCheck list;
+                            routes_checkedCheck.Add(route.GetComponent<RouteLogic>()._checked); // adds its checked state to checkedCheck list;
+                        }
+
+
+                        foreach (GameObject route in destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes) // goes through each claimedLocalRoute
+                        {
+                            if (route.GetComponent<RouteLogic>()._checked) // if the claimedLocalRoute is already checked
+                            {
+                                if (!markedCheck.Contains(true)) // AND the markedCheck list doesnt contain a true;
+                                {
+                                    route.GetComponent<RouteLogic>()._marked = true; // make the claimedLocalRoute marked.
+                                    destination.GetComponent<DestinationLogic>().p2_firstMarkedRoute.Insert(0, route);
+                                    break; // stop the forloop.
+                                }
+                            }
+                        }
+
+
+                        foreach (GameObject route in destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes)
+                        {
+                            foreach (GameObject marked_route in destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes) // looking for marked route.
+                            {
+                                if (marked_route.GetComponent<RouteLogic>()._marked &&
+                                    !route.GetComponent<RouteLogic>()._checked)
+                                {
+                                    route.GetComponent<RouteLogic>().netTrainPieces = marked_route.GetComponent<RouteLogic>().netTrainPieces;
+                                    route.GetComponent<RouteLogic>().netTrainPieces += route.GetComponent<RouteLogic>().trainPieces;
+                                    route.GetComponent<RouteLogic>()._checked = true;
+                                }
+                            }
+                        }
+
+
+                        if (!routes_checkedCheck.Contains(false))
+                        {
+                            destination.GetComponent<DestinationLogic>()._checked = true;
+                        }
+
+                        markedCheck.Clear();
+                        routes_checkedCheck.Clear();
+                    }
+                }
+
+            }
+
+            if (cs_playerManager1.playerTurn)
+            {
+                foreach (GameObject destination in p1_connectedDestinations)
+                {
+                    if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.Linked && !destination.GetComponent<DestinationLogic>()._checked)
+                    {
+                        if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true &&
+                    destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == false)
+                        {
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces;
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().trainPieces;
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked = true;
+                        }
+                        else if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
+                                destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == false)
+                        {
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces;
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().trainPieces;
+                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked = true;
+                        }
+
+
+
+                        destination.GetComponent<DestinationLogic>()._checked = true;
+
                     }
 
-                    foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes)
+                    else if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.Split && !destination.GetComponent<DestinationLogic>()._checked)
                     {
-                        foreach (GameObject marked_route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes) // looking for marked route.
+                        foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes)
                         {
-                            if (marked_route.GetComponent<RouteLogic>()._marked &&
-                                !route.GetComponent<RouteLogic>()._checked)
+                            if (!route.GetComponent<RouteLogic>()._checked)
                             {
-                                route.GetComponent<RouteLogic>().netTrainPieces = marked_route.GetComponent<RouteLogic>().netTrainPieces;
+                                route.GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p1_firstMarkedRoute[0].GetComponent<RouteLogic>().netTrainPieces;
                                 route.GetComponent<RouteLogic>().netTrainPieces += route.GetComponent<RouteLogic>().trainPieces;
                                 route.GetComponent<RouteLogic>()._checked = true;
+
                             }
                         }
-                    }
 
-                    if (!routes_checkedCheck.Contains(false))
-                    {
+
                         destination.GetComponent<DestinationLogic>()._checked = true;
                     }
-
-                    markedCheck.Clear();
-                    routes_checkedCheck.Clear();
                 }
             }
-
-            foreach (GameObject destination in _connectedDestinations)
+            else if (cs_playerManager2.playerTurn)
             {
-                if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Linked && !destination.GetComponent<DestinationLogic>()._checked)
+                foreach (GameObject destination in p2_connectedDestinations)
                 {
-                    if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true &&
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == false)
+                    if (destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.Linked && !destination.GetComponent<DestinationLogic>()._checked)
                     {
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces;
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().trainPieces;
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked = true;
-                    }
-                    else if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
-                            destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == false)
-                    {
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces;
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().trainPieces;
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked = true;
-                    }
-
-                    destination.GetComponent<DestinationLogic>()._checked = true;
-
-                }
-
-                else if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Split && !destination.GetComponent<DestinationLogic>()._checked)
-                {
-                    List<bool> markedCheck = new List<bool>();
-                    List<bool> routes_checkedCheck = new List<bool>();
-
-                    foreach (GameObject route in destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes)
-                    {
-                        if (!route.GetComponent<RouteLogic>()._checked)
+                        if (destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true &&
+                    destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == false)
                         {
-                            route.GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p1_firstMarkedRoute[0].GetComponent<RouteLogic>().netTrainPieces;
-                            route.GetComponent<RouteLogic>().netTrainPieces += route.GetComponent<RouteLogic>().trainPieces;
-                            route.GetComponent<RouteLogic>()._checked = true;
-
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces;
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>().trainPieces;
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked = true;
                         }
+                        else if (destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
+                                destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == false)
+                        {
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>().netTrainPieces;
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces += destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>().trainPieces;
+                            destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked = true;
+                        }
+
+
+
+                        destination.GetComponent<DestinationLogic>()._checked = true;
+
                     }
 
-                    destination.GetComponent<DestinationLogic>()._checked = true;
+                    else if (destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.Split && !destination.GetComponent<DestinationLogic>()._checked)
+                    {
+                        foreach (GameObject route in destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes)
+                        {
+                            if (!route.GetComponent<RouteLogic>()._checked)
+                            {
+                                route.GetComponent<RouteLogic>().netTrainPieces = destination.GetComponent<DestinationLogic>().p2_firstMarkedRoute[0].GetComponent<RouteLogic>().netTrainPieces;
+                                route.GetComponent<RouteLogic>().netTrainPieces += route.GetComponent<RouteLogic>().trainPieces;
+                                route.GetComponent<RouteLogic>()._checked = true;
+
+                            }
+                        }
+
+
+                        destination.GetComponent<DestinationLogic>()._checked = true;
+                    }
                 }
             }
 
-
-            foreach (GameObject destination in _connectedDestinations) // last foreach loop
+            if (cs_playerManager1.playerTurn)
             {
-                if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.End && destination.GetComponent<DestinationLogic>()._start == false)
+                foreach (GameObject destination in p1_connectedDestinations) // last foreach loop
                 {
-                    if (cs_playerManager1.playerTurn)
+                    if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.End && destination.GetComponent<DestinationLogic>()._start == false)
                     {
                         destination.GetComponent<DestinationLogic>().p1_final_netTrainPieces = destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces;
                         destination.GetComponent<DestinationLogic>()._checked = true;
@@ -384,84 +561,170 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                         }
 
                     }
-                    else if (cs_playerManager2.playerTurn)
+
+
+                }
+
+            }
+            else if (cs_playerManager2.playerTurn)
+            {
+                foreach (GameObject destination in p2_connectedDestinations) // last foreach loop
+                {
+                    if (destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.End && destination.GetComponent<DestinationLogic>()._start == false)
                     {
                         destination.GetComponent<DestinationLogic>().p2_final_netTrainPieces = destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces;
                         destination.GetComponent<DestinationLogic>()._checked = true;
                         destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked = true;
+                        if (destination.GetComponent<DestinationLogic>().p2_final_netTrainPieces > destination.GetComponent<DestinationLogic>().p2_longestRoute)
+                        {
+                            destination.GetComponent<DestinationLogic>().p2_longestRoute = destination.GetComponent<DestinationLogic>().p2_final_netTrainPieces;
+                        }
+
                     }
+
+
                 }
 
             }
 
-            foreach (GameObject destination in _connectedDestinations)
+            if (cs_playerManager1.playerTurn)
             {
-                if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Linked && !destination.GetComponent<DestinationLogic>()._checked)
+                foreach (GameObject destination in p1_connectedDestinations)
                 {
-                    if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
-                        destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true)
+                    if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.Linked && !destination.GetComponent<DestinationLogic>()._checked)
+                    {
+                        if (destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
+                    destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true)
+                        {
+                            destination.GetComponent<DestinationLogic>()._checked = true;
+                        }
+
+                    }
+
+                    else if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.Split && !destination.GetComponent<DestinationLogic>()._checked)
                     {
                         destination.GetComponent<DestinationLogic>()._checked = true;
                     }
 
                 }
 
-                else if (destination.GetComponent<DestinationLogic>().destinationState == DestinationStates.Split && !destination.GetComponent<DestinationLogic>()._checked)
+            }
+            else if (cs_playerManager2.playerTurn)
+            {
+                foreach (GameObject destination in p2_connectedDestinations)
                 {
-                    destination.GetComponent<DestinationLogic>()._checked = true;
+                    if (destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.Linked && !destination.GetComponent<DestinationLogic>()._checked)
+                    {
+                        if (destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[1].GetComponent<RouteLogic>()._checked == true &&
+                    destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked == true)
+                        {
+                            destination.GetComponent<DestinationLogic>()._checked = true;
+                        }
+
+                    }
+
+                    else if (destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.Split && !destination.GetComponent<DestinationLogic>()._checked)
+                    {
+                        destination.GetComponent<DestinationLogic>()._checked = true;
+                    }
+
+                }
+
+            }
+
+            if (cs_playerManager1.playerTurn)
+            {
+                foreach (GameObject _endDestination in endDestinations)
+                {
+                    if (_endDestination.GetComponent<DestinationLogic>().p1_longestRoute > endDestination.GetComponent<DestinationLogic>().p1_longestRoute)
+                    {
+                        endDestination.GetComponent<DestinationLogic>().p1_longestRoute = _endDestination.GetComponent<DestinationLogic>().p1_longestRoute;
+                    }
+
+                }
+
+            }
+            else if (cs_playerManager2.playerTurn)
+            {
+                foreach (GameObject _endDestination in endDestinations)
+                {
+                    if (_endDestination.GetComponent<DestinationLogic>().p2_longestRoute > endDestination.GetComponent<DestinationLogic>().p2_longestRoute)
+                    {
+                        endDestination.GetComponent<DestinationLogic>().p2_longestRoute = _endDestination.GetComponent<DestinationLogic>().p2_longestRoute;
+                    }
+
                 }
 
             }
         }
+
         endDestinations.Clear();
     }
-
     private void QuickReset()
     {
-        foreach (GameObject destination in _connectedDestinations)
+        if (cs_playerManager1.playerTurn)
         {
-            destination.GetComponent<DestinationLogic>()._start = false;
-            destination.GetComponent<DestinationLogic>()._checked = false;
+            foreach (GameObject destination in p1_connectedDestinations)
+            {
+                destination.GetComponent<DestinationLogic>()._start = false;
+                destination.GetComponent<DestinationLogic>()._checked = false;
+            }
+            foreach (GameObject route in p1_connectedRoutes)
+            {
+                route.GetComponent<RouteLogic>()._checked = false;
+                route.GetComponent<RouteLogic>()._marked = false;
+                route.GetComponent<RouteLogic>().netTrainPieces = 0;
+            }
+
         }
-        foreach (GameObject route in _connectedRoutes)
+        else if (cs_playerManager2.playerTurn)
         {
-            route.GetComponent<RouteLogic>()._checked = false;
-            route.GetComponent<RouteLogic>().netTrainPieces = 0;
+            foreach (GameObject destination in p2_connectedDestinations)
+            {
+                destination.GetComponent<DestinationLogic>()._start = false;
+                destination.GetComponent<DestinationLogic>()._checked = false;
+            }
+            foreach (GameObject route in p2_connectedRoutes)
+            {
+                route.GetComponent<RouteLogic>()._checked = false;
+                route.GetComponent<RouteLogic>()._marked = false;
+                route.GetComponent<RouteLogic>().netTrainPieces = 0;
+            }
+
         }
     }
     private void InfoGathering()
     {
         if (cs_playerManager1.playerTurn)
         {
-            foreach (GameObject destination in _connectedDestinations)
+            foreach (GameObject destination in p1_connectedDestinations)
             {
-                sub_connectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedDestintaions);
-                sub_connectedRoutes.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedRoutes);
-                sub_connectedRoutes.Add(gameObject);
-
+                p1_subConnectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedDestintaions);
+                p1_subConnectedRoutes.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedRoutes);
+                p1_subConnectedRoutes.Add(gameObject);
             }
 
-            _connectedRoutes.AddRange(sub_connectedRoutes);
-            _connectedDestinations.AddRange(sub_connectedDestinations);
+            p1_connectedRoutes.AddRange(p1_subConnectedRoutes);
+            p1_connectedDestinations.AddRange(p1_subConnectedDestinations);
 
-            sub_connectedRoutes.Clear();
-            sub_connectedDestinations.Clear();
+            p1_subConnectedRoutes.Clear();
+            p1_subConnectedDestinations.Clear();
 
         }
         else if (cs_playerManager2.playerTurn)
         {
-            foreach (GameObject destination in _connectedDestinations)
+            foreach (GameObject destination in p2_connectedDestinations)
             {
-                sub_connectedRoutes.AddRange(destination.GetComponent<DestinationLogic>().p2_connectedRoutes);
-                sub_connectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p2_connectedDestintaions);
-                sub_connectedRoutes.Add(gameObject);
+                p2_subConnectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p2_connectedDestintaions);
+                p2_subConnectedRoutes.AddRange(destination.GetComponent<DestinationLogic>().p2_connectedRoutes);
+                p2_subConnectedRoutes.Add(gameObject);
             }
 
-            _connectedRoutes.AddRange(sub_connectedRoutes);
-            _connectedDestinations.AddRange(sub_connectedDestinations);
+            p2_connectedRoutes.AddRange(p2_subConnectedRoutes);
+            p2_connectedDestinations.AddRange(p2_subConnectedDestinations);
 
-            sub_connectedRoutes.Clear();
-            sub_connectedDestinations.Clear();
+            p2_subConnectedRoutes.Clear();
+            p2_subConnectedDestinations.Clear();
         }
     }
 
@@ -469,10 +732,10 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     {
         if (cs_playerManager1.playerTurn)
         {
-            foreach (GameObject destination in _connectedDestinations)
+            foreach (GameObject destination in p1_connectedDestinations)
             {
-                var union_connectedRoutes = destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Union(_connectedRoutes);
-                var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Union(_connectedDestinations);
+                var union_connectedRoutes = destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Union(p1_connectedRoutes);
+                var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Union(p1_connectedDestinations);
                 destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Clear();
                 destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Clear();
 
@@ -491,10 +754,10 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         }
         else if (cs_playerManager2.playerTurn)
         {
-            foreach (GameObject destination in _connectedDestinations)
+            foreach (GameObject destination in p2_connectedDestinations)
             {
-                var union_connectedRoutes = destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Union(_connectedRoutes);
-                var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Union(_connectedDestinations);
+                var union_connectedRoutes = destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Union(p2_connectedRoutes);
+                var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Union(p2_connectedDestinations);
                 destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Clear();
                 destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Clear();
 
@@ -527,14 +790,14 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     {
         if (cs_playerManager1.playerTurn)
         {
-            foreach (GameObject destination in _connectedDestinations)
+            foreach (GameObject destination in p1_connectedDestinations)
             {
                 DestinationCompletionPlayerCheck(cs_playerManager1, destination.GetComponent<DestinationLogic>().p1_connectedDestintaions, cs_playerManager1);
             }
         }
         else if (cs_playerManager2.playerTurn)
         {
-            foreach (GameObject destination in _connectedDestinations)
+            foreach (GameObject destination in p2_connectedDestinations)
             {
                 DestinationCompletionPlayerCheck(cs_playerManager2, destination.GetComponent<DestinationLogic>().p2_connectedDestintaions, cs_playerManager2);
             }
@@ -561,6 +824,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                     if (_destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.from) // if the "from" matches another destination name
                     {
                         destinationCard.gameObject.GetComponent<DestinationCard>().cardComplete = true;
+                        destinationCard.gameObject.GetComponent<Image>().color = Color.green;
                     }
                 }
             }
@@ -572,6 +836,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                     if (_destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.to)
                     {
                         destinationCard.gameObject.GetComponent<DestinationCard>().cardComplete = true;
+                        destinationCard.gameObject.GetComponent<Image>().color = Color.green;
                     }
                 }
             }
@@ -579,4 +844,15 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
 
     }
 
+    private void DestinationManagement()
+    {
+        foreach(GameObject destinationCard in cs_playerManager1.destinationHandCards)
+        {
+            if (destinationCard.GetComponent<DestinationCard>().cardComplete)
+            {
+                cs_playerManager1.completedDestinationCards.Add(destinationCard);
+                cs_playerManager1.destinationHandCards.Remove(destinationCard);
+            }
+        }
+    }
 }
