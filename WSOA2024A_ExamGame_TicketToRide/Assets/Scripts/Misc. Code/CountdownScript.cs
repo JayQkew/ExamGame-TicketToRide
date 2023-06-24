@@ -6,8 +6,10 @@ public class CountdownScript : MonoBehaviour
 {
     public GameObject switchPlayerOverlay;
     public TextMeshProUGUI countDownTxt;
-    private float timer = 10f;
+    public float timer = 5f;
     private bool countingDown = false;
+
+    [SerializeField] GameManager cs_gameManager;
 
     private void Start()
     {
@@ -16,12 +18,15 @@ public class CountdownScript : MonoBehaviour
 
     public void StartCountdown()
     {
-        if (!countingDown)
+        if(cs_gameManager.hasGameEnded == false)
         {
-            switchPlayerOverlay.SetActive(true);
-            countingDown = true;
-            countDownTxt.text = timer.ToString("F0");
-            InvokeRepeating("UpdateTimer", 1f, 1f);
+            if (!countingDown)
+            {
+                switchPlayerOverlay.SetActive(true);
+                countingDown = true;
+                countDownTxt.text = timer.ToString("F0");
+                InvokeRepeating("UpdateTimer", 1f, 1f);
+            }
         }
     }
 
@@ -43,7 +48,15 @@ public class CountdownScript : MonoBehaviour
     {
         countingDown = false;
         switchPlayerOverlay.SetActive(false);
-        timer = 10f;
+        timer = 5f;
         CancelInvoke("UpdateTimer");
+    }
+
+    public void GameIsOver()
+    {
+        if(cs_gameManager.hasGameEnded == true)
+        {
+            switchPlayerOverlay.SetActive(false);
+        }
     }
 }
