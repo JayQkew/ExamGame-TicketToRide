@@ -70,20 +70,20 @@ public class TrainCard : MonoBehaviour, IPointerClickHandler
                 }
             //}
         //}
-        //if(cs_actionManager.canDrawNorm == true) //checks if a normal card can be picked up
-        //{
-            //if(cs_actionManager.pickUpLocoCount < 1) //checks if a locomotive card has not been
-            //{
-                //if (cs_playerManager1.playerTurn)
-                //{
-                //    PlayerCheck(cs_playerManager1, eventData);
-                //}
-                //else if (cs_playerManager2.playerTurn)
-                //{
-                //    PlayerCheck(cs_playerManager2, eventData);
-                //}
-            //}
-        //}
+        if(cs_actionManager.canDrawNorm == true) //checks if a normal card can be picked up
+        {
+            if(cs_actionManager.pickUpLocoCount < 1) //checks if a locomotive card has not been
+            {
+                if (cs_playerManager1.playerTurn)
+                {
+                    PlayerCheck(cs_playerManager1, eventData);
+                }
+                else if (cs_playerManager2.playerTurn)
+                {
+                    PlayerCheck(cs_playerManager2, eventData);
+                }
+            }
+        }
     }
 
     private void PlayerCheck(PlayerManager cs_playerManagerScript, PointerEventData eventData)

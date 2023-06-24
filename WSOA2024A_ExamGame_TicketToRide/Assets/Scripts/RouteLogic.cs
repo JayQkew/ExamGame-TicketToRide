@@ -240,9 +240,8 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                     }
                 }
             }
-
             endDestination.GetComponent<DestinationLogic>()._start = true;
-            endDestination.GetComponent<DestinationLogic>()._checked = true; 
+            endDestination.GetComponent<DestinationLogic>()._checked = true;
             endDestination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().netTrainPieces = endDestination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>().trainPieces;
             endDestination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes[0].GetComponent<RouteLogic>()._checked = true;
 
@@ -406,171 +405,175 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 }
 
             }
+            endDestinations.Clear();
         }
-        endDestinations.Clear();
     }
-
-    private void QuickReset()
+private void QuickReset()
+{
+    foreach (GameObject destination in _connectedDestinations)
+    {
+        destination.GetComponent<DestinationLogic>()._start = false;
+        destination.GetComponent<DestinationLogic>()._checked = false;
+    }
+    foreach (GameObject route in _connectedRoutes)
+    {
+        route.GetComponent<RouteLogic>()._checked = false;
+        route.GetComponent<RouteLogic>().netTrainPieces = 0;
+    }
+}
+private void InfoGathering()
+{
+    if (cs_playerManager1.playerTurn)
     {
         foreach (GameObject destination in _connectedDestinations)
         {
-            destination.GetComponent<DestinationLogic>()._start = false;
-            destination.GetComponent<DestinationLogic>()._checked = false;
-        }
-        foreach (GameObject route in _connectedRoutes)
-        {
-            route.GetComponent<RouteLogic>()._checked = false;
-            route.GetComponent<RouteLogic>().netTrainPieces = 0;
-        }
-    }
-    private void InfoGathering()
-    {
-        if (cs_playerManager1.playerTurn)
-        {
-            foreach (GameObject destination in _connectedDestinations)
-            {
-                sub_connectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedDestintaions);
-                sub_connectedRoutes.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedRoutes);
-                sub_connectedRoutes.Add(gameObject);
-
-            }
-
-            _connectedRoutes.AddRange(sub_connectedRoutes);
-            _connectedDestinations.AddRange(sub_connectedDestinations);
-
-            sub_connectedRoutes.Clear();
-            sub_connectedDestinations.Clear();
+            sub_connectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedDestintaions);
+            sub_connectedRoutes.AddRange(destination.GetComponent<DestinationLogic>().p1_connectedRoutes);
+            sub_connectedRoutes.Add(gameObject);
 
         }
-        else if (cs_playerManager2.playerTurn)
-        {
-            foreach (GameObject destination in _connectedDestinations)
-            {
-                sub_connectedRoutes.AddRange(destination.GetComponent<DestinationLogic>().p2_connectedRoutes);
-                sub_connectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p2_connectedDestintaions);
-                sub_connectedRoutes.Add(gameObject);
-            }
 
-            _connectedRoutes.AddRange(sub_connectedRoutes);
-            _connectedDestinations.AddRange(sub_connectedDestinations);
+        _connectedRoutes.AddRange(sub_connectedRoutes);
+        _connectedDestinations.AddRange(sub_connectedDestinations);
 
-            sub_connectedRoutes.Clear();
-            sub_connectedDestinations.Clear();
-        }
-    }
-
-    private void InfoSharing()
-    {
-        if (cs_playerManager1.playerTurn)
-        {
-            foreach (GameObject destination in _connectedDestinations)
-            {
-                var union_connectedRoutes = destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Union(_connectedRoutes);
-                var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Union(_connectedDestinations);
-                destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Clear();
-                destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Clear();
-
-                foreach (GameObject _route in union_connectedRoutes)
-                {
-                    destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Add(_route);
-                }
-
-                foreach (GameObject _destination in union_connectedDestinations)
-                {
-                    destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Add(_destination);
-                }
-
-                LongestRouteCheck(destination, destination.GetComponent<DestinationLogic>().p1_connectedDestintaions, destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes);
-            }
-        }
-        else if (cs_playerManager2.playerTurn)
-        {
-            foreach (GameObject destination in _connectedDestinations)
-            {
-                var union_connectedRoutes = destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Union(_connectedRoutes);
-                var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Union(_connectedDestinations);
-                destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Clear();
-                destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Clear();
-
-
-                foreach (GameObject _route in union_connectedRoutes)
-                {
-                    destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Add(_route);
-                }
-
-                foreach (GameObject _destination in union_connectedDestinations)
-                {
-                    destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Add(_destination);
-                }
-
-                LongestRouteCheck(destination, destination.GetComponent<DestinationLogic>().p2_connectedDestintaions, destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes);
-            }
-        }
-    }
-
-    private void LongestRouteCheck(GameObject destination, List<GameObject> destinationList, List<GameObject> playerClaimedLocalRoutes) // second player gets all already collected routes bug.
-    {
-        foreach (GameObject _destination in destinationList) // foreach destination
-        {
-            _destination.GetComponent<DestinationLogic>().LocalRouteCheck();
-        }
+        sub_connectedRoutes.Clear();
+        sub_connectedDestinations.Clear();
 
     }
-
-    private void DestinationCompletion()
+    else if (cs_playerManager2.playerTurn)
     {
-        if (cs_playerManager1.playerTurn)
+        foreach (GameObject destination in _connectedDestinations)
         {
-            foreach (GameObject destination in _connectedDestinations)
-            {
-                DestinationCompletionPlayerCheck(cs_playerManager1, destination.GetComponent<DestinationLogic>().p1_connectedDestintaions, cs_playerManager1);
-            }
+            sub_connectedRoutes.AddRange(destination.GetComponent<DestinationLogic>().p2_connectedRoutes);
+            sub_connectedDestinations.AddRange(destination.GetComponent<DestinationLogic>().p2_connectedDestintaions);
+            sub_connectedRoutes.Add(gameObject);
         }
-        else if (cs_playerManager2.playerTurn)
+
+        _connectedRoutes.AddRange(sub_connectedRoutes);
+        _connectedDestinations.AddRange(sub_connectedDestinations);
+
+        sub_connectedRoutes.Clear();
+        sub_connectedDestinations.Clear();
+    }
+}
+
+private void InfoSharing()
+{
+    if (cs_playerManager1.playerTurn)
+    {
+        foreach (GameObject destination in _connectedDestinations)
         {
-            foreach (GameObject destination in _connectedDestinations)
+            var union_connectedRoutes = destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Union(_connectedRoutes);
+            var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Union(_connectedDestinations);
+            destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Clear();
+            destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Clear();
+
+            foreach (GameObject _route in union_connectedRoutes)
             {
-                DestinationCompletionPlayerCheck(cs_playerManager2, destination.GetComponent<DestinationLogic>().p2_connectedDestintaions, cs_playerManager2);
+                destination.GetComponent<DestinationLogic>().p1_connectedRoutes.Add(_route);
             }
+
+            foreach (GameObject _destination in union_connectedDestinations)
+            {
+                destination.GetComponent<DestinationLogic>().p1_connectedDestintaions.Add(_destination);
+            }
+
+            LongestRouteCheck(destination, destination.GetComponent<DestinationLogic>().p1_connectedDestintaions, destination.GetComponent<DestinationLogic>().p1_claimedLocalRoutes);
         }
     }
-
-    private void DestinationCompletionPlayerCheck(PlayerManager playerManager, List<GameObject> playerLinkedDestinations, PlayerManager player)
+    else if (cs_playerManager2.playerTurn)
     {
-        foreach (GameObject destinationCard in playerManager.destinationHandCards) // loops through players destinationCards.
+        foreach (GameObject destination in _connectedDestinations)
         {
-            DestinationCheck(playerManager, playerLinkedDestinations, destinationCard, player);
+            var union_connectedRoutes = destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Union(_connectedRoutes);
+            var union_connectedDestinations = destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Union(_connectedDestinations);
+            destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Clear();
+            destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Clear();
+
+
+            foreach (GameObject _route in union_connectedRoutes)
+            {
+                destination.GetComponent<DestinationLogic>().p2_connectedRoutes.Add(_route);
+            }
+
+            foreach (GameObject _destination in union_connectedDestinations)
+            {
+                destination.GetComponent<DestinationLogic>().p2_connectedDestintaions.Add(_destination);
+            }
+
+            LongestRouteCheck(destination, destination.GetComponent<DestinationLogic>().p2_connectedDestintaions, destination.GetComponent<DestinationLogic>().p2_claimedLocalRoutes);
         }
     }
+}
 
-    private void DestinationCheck(PlayerManager playerManager, List<GameObject> playerLinkedDestinations, GameObject destinationCard, PlayerManager player)
+private void LongestRouteCheck(GameObject destination, List<GameObject> destinationList, List<GameObject> playerClaimedLocalRoutes) // second player gets all already collected routes bug.
+{
+    foreach (GameObject _destination in destinationList) // foreach destination
     {
-        foreach (GameObject destination in playerLinkedDestinations) // loops through list in the Destination list for the specific player.
-        {
-            Debug.Log(destination);
-            if (destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.to) // if the "to" of the destination card in the players hand matches the name of the linked Destination.
-            {
-                foreach (GameObject _destination in playerLinkedDestinations) // if yes, loop through the list again
-                {
-                    if (_destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.from) // if the "from" matches another destination name
-                    {
-                        destinationCard.gameObject.GetComponent<DestinationCard>().cardComplete = true;
-                    }
-                }
-            }
-
-            if (destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.from)
-            {
-                foreach (GameObject _destination in playerLinkedDestinations)
-                {
-                    if (_destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.to)
-                    {
-                        destinationCard.gameObject.GetComponent<DestinationCard>().cardComplete = true;
-                    }
-                }
-            }
-        }
-
+        _destination.GetComponent<DestinationLogic>().LocalRouteCheck();
     }
 
 }
+
+private void DestinationCompletion()
+{
+    if (cs_playerManager1.playerTurn)
+    {
+        foreach (GameObject destination in _connectedDestinations)
+        {
+            DestinationCompletionPlayerCheck(cs_playerManager1, destination.GetComponent<DestinationLogic>().p1_connectedDestintaions, cs_playerManager1);
+        }
+    }
+    else if (cs_playerManager2.playerTurn)
+    {
+        foreach (GameObject destination in _connectedDestinations)
+        {
+            DestinationCompletionPlayerCheck(cs_playerManager2, destination.GetComponent<DestinationLogic>().p2_connectedDestintaions, cs_playerManager2);
+        }
+    }
+}
+
+private void DestinationCompletionPlayerCheck(PlayerManager playerManager, List<GameObject> playerLinkedDestinations, PlayerManager player)
+{
+    foreach (GameObject destinationCard in playerManager.destinationHandCards) // loops through players destinationCards.
+    {
+        DestinationCheck(playerManager, playerLinkedDestinations, destinationCard, player);
+    }
+}
+
+private void DestinationCheck(PlayerManager playerManager, List<GameObject> playerLinkedDestinations, GameObject destinationCard, PlayerManager player)
+{
+    foreach (GameObject destination in playerLinkedDestinations) // loops through list in the Destination list for the specific player.
+    {
+        Debug.Log(destination);
+        if (destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.to) // if the "to" of the destination card in the players hand matches the name of the linked Destination.
+        {
+            foreach (GameObject _destination in playerLinkedDestinations) // if yes, loop through the list again
+            {
+                if (_destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.from) // if the "from" matches another destination name
+                {
+                    destinationCard.gameObject.GetComponent<DestinationCard>().cardComplete = true;
+                }
+            }
+        }
+
+        if (destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.from)
+        {
+            foreach (GameObject _destination in playerLinkedDestinations)
+            {
+                if (_destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.to)
+                {
+                    destinationCard.gameObject.GetComponent<DestinationCard>().cardComplete = true;
+                }
+            }
+        }
+    }
+
+}
+
+}
+
+
+
+
+
