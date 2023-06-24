@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     #region VARIABLES:
     [HideInInspector] public List<GameObject> trainHandCards = new List<GameObject>();
     [SerializeField] public List<GameObject> destinationHandCards = new List<GameObject>();
+    [SerializeField] public List<GameObject> completedDestinationCards = new List<GameObject>();
     [SerializeField] public List<GameObject> colourPiles = new List<GameObject>(9);
     public Transform destinationHand;
     [SerializeField] public bool playerTurn;

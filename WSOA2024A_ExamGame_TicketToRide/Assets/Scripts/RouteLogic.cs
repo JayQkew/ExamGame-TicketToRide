@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class RouteLogic : MonoBehaviour, IPointerClickHandler
 {
@@ -817,6 +818,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                     if (_destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.from) // if the "from" matches another destination name
                     {
                         destinationCard.gameObject.GetComponent<DestinationCard>().cardComplete = true;
+                        destinationCard.gameObject.GetComponent<Image>().color = Color.green;
                     }
                 }
             }
@@ -828,6 +830,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                     if (_destination.name == destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.to)
                     {
                         destinationCard.gameObject.GetComponent<DestinationCard>().cardComplete = true;
+                        destinationCard.gameObject.GetComponent<Image>().color = Color.green;
                     }
                 }
             }
@@ -835,9 +838,15 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
 
     }
 
+    private void DestinationManagement()
+    {
+        foreach(GameObject destinationCard in cs_playerManager1.destinationHandCards)
+        {
+            if (destinationCard.GetComponent<DestinationCard>().cardComplete)
+            {
+                cs_playerManager1.completedDestinationCards.Add(destinationCard);
+                cs_playerManager1.destinationHandCards.Remove(destinationCard);
+            }
+        }
+    }
 }
-
-
-
-
-

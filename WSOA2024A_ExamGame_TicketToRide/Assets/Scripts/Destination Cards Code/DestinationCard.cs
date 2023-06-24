@@ -47,31 +47,6 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
 
     }
 
-    private void Update()
-    {
-        if (cardComplete)
-        {
-            GetComponent<Image>().color = Color.green;
-
-            if (transform.parent.parent.name == "Player_1")
-            {
-                if (transform.parent.name == "destinationHand")
-                {
-                    cs_playerManager1.privatePoints += sO_DestinationTicket.points;
-                    transform.SetParent(GameObject.Find("p1_completedDestinations").transform);
-                }
-            }
-            else if (transform.parent.parent.name == "Player_2")
-            {
-                if (transform.parent.name == "destinationHand")
-                {
-                    cs_playerManager2.privatePoints += sO_DestinationTicket.points;
-                    transform.SetParent(GameObject.Find("p2_completedDestinations").transform);
-                }
-            }
-        }
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         if (cs_playerManager1.playerTurn)
