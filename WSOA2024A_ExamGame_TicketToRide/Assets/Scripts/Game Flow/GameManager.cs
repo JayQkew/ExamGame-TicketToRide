@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject endP2TurnButton;
     [Header("Pause Game Stuff")]
     [SerializeField] GameObject PauseGamePanel;
-    [SerializeField]private bool isPaused = false;
     [Header("Last Round BULLSHIIIIIIIIT")]
     [SerializeField] public bool hasLastRoundStarted;
     [SerializeField] public GameObject winScreen;
@@ -52,6 +51,7 @@ public class GameManager : MonoBehaviour
     {
         UpdateGameState(GameState.Player1Turn);
         hasGameEnded = false;
+        PauseGamePanel.SetActive(false);
     }
 
     private void Update()
@@ -192,7 +192,7 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1f; // Resume the game by setting the time scale back to 1
-        isPaused = false;
+        PauseGamePanel.SetActive(false);
     }
 
     public void QuitGame()
