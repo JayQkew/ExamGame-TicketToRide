@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SanFranciscoAtlanta
   m_EditorClassIdentifier: 
   from: san francisco
-  to: antlanta
+  to: atlanta
   destinationImage: {fileID: 0}
   points: 17
