@@ -16,6 +16,7 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
     [SerializeField] PlayerManager cs_playerManager1;
     [SerializeField] PlayerManager cs_playerManager2;
     [SerializeField] DestinationDeck cs_destinationDeck;
+    [SerializeField] GameManager cs_gameManager;
     #endregion
 
     #region GAMEOBJECTS:
@@ -36,6 +37,8 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
         cs_playerManager2 = GameObject.Find("Player_2").GetComponent<PlayerManager>();
 
         cs_destinationDeck = GameObject.Find("DestinationsDeck").GetComponent<DestinationDeck>();
+
+        cs_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         #endregion
     }
@@ -73,10 +76,16 @@ public class DestinationCard : MonoBehaviour, IPointerClickHandler
                 break;
         }
 
-        if (cs_destinationDeck.cardsChosen >= 1)
+        if (cs_destinationDeck.cardsChosen >= 1 && cs_gameManager.currentTurn > 1)
         {
             cs_destinationDeck.doneButton.SetActive(true);
         }
+
+        if (cs_destinationDeck.cardsChosen >= 2 && cs_gameManager.currentTurn <= 1)
+        {
+            cs_destinationDeck.doneButton.SetActive(true);
+        }
+
 
     }
 }

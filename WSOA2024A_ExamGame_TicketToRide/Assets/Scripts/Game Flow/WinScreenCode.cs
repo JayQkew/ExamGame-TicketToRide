@@ -13,6 +13,7 @@ public class WinScreenCode : MonoBehaviour
     [SerializeField] public GameObject DrawTxt;
     [SerializeField] TextMeshProUGUI player1PointsTxt;
     [SerializeField] TextMeshProUGUI player2PointsTxt;
+    [SerializeField] TextMeshProUGUI LongestRouteTxt;
     #endregion
 
     #region OTHER SCRIPTS
@@ -21,8 +22,14 @@ public class WinScreenCode : MonoBehaviour
     [SerializeField] PlayerManager cs_player2Manager;
     #endregion
 
+    #region VARIABLES
+    [SerializeField] GameObject[] destinations;
+    #endregion
+
     private void Start()
     {
+        destinations = GameObject.FindGameObjectsWithTag("destination");
+
         WinScreen.SetActive(false);
         Player1Txt.SetActive(false);
         Player2Txt.SetActive(false);
@@ -31,21 +38,104 @@ public class WinScreenCode : MonoBehaviour
 
     public void CheckWinner()
     {
-        int player1Points = cs_player1Manager.points + cs_player1Manager.privatePoints;
-        int player2Points = cs_player2Manager.points + cs_player2Manager.privatePoints;
+        int p1_longestRoute = 0;
+        int p2_longestRoute = 0;
 
-        player1PointsTxt.text = player1Points.ToString();
-        player2PointsTxt.text = player2Points.ToString();
+        //foreach (GameObject destination in destinations)
+        //{
+        //    if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.End && destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.End)
+        //    {
+        //        if (destination.GetComponent<DestinationLogic>().p1_longestRoute > p1_longestRoute)
+        //        {
+        //            p1_longestRoute = destination.GetComponent<DestinationLogic>().p1_longestRoute;
+        //        }
+        //        if (destination.GetComponent<DestinationLogic>().p2_longestRoute > p2_longestRoute)
+        //        {
+        //            p2_longestRoute = destination.GetComponent<DestinationLogic>().p2_longestRoute;
+        //        }
+        //    }
+        //}
 
-        if (player1Points > player2Points)
+
+        //int player1Points = cs_player1Manager.points + cs_player1Manager.privatePoints;
+        //int player2Points = cs_player2Manager.points + cs_player2Manager.privatePoints;
+
+        //if (p1_longestRoute > p2_longestRoute)
+        //{
+        //    player1Points += 10;
+        //    LongestRouteTxt.text = "Player 1!";
+        //    Debug.Log("Player 1 got longest Route");
+        //}
+        //else if (p2_longestRoute > p1_longestRoute)
+        //{
+        //    player2Points += 10;
+        //    LongestRouteTxt.text = "Player 2!";
+        //    Debug.Log("Player 2 got longest Route");
+        //}
+        //else if (p1_longestRoute == p2_longestRoute)
+        //{
+        //    player1Points += 10;
+        //    player2Points += 10;
+        //    LongestRouteTxt.text = "Draw!";
+        //}
+
+        PlayerManager cs_playerManager1 = cs_player1Manager;
+        PlayerManager cs_playerManager2 = cs_player2Manager;
+
+        #region     PLAYER 1 PRIVATE POINTS
+        if (cs_playerManager1.completedDestinationCards.Count >= 1)
+        {
+            foreach (GameObject completedDestination in cs_playerManager1.completedDestinationCards)
+            {
+                cs_playerManager1.privatePoints += completedDestination.GetComponent<DestinationCard>().sO_DestinationTicket.points;
+                Debug.Log("P1 Points added: " + completedDestination.GetComponent<DestinationCard>().sO_DestinationTicket.points);
+            }
+        }
+        if (cs_playerManager1.destinationHandCards.Count >= 1)
+        {
+            foreach (GameObject destinationCard in cs_playerManager1.destinationHandCards)
+            {
+                cs_playerManager1.privatePoints -= destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.points;
+                Debug.Log("P1 Points deducted: " + destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.points);
+            }
+        }
+        #endregion
+
+        #region     PLAYER 2 PRIVATE POINTS
+        if (cs_playerManager2.completedDestinationCards.Count >= 1)
+        {
+            foreach (GameObject completedDestination in cs_playerManager2.completedDestinationCards)
+            {
+                cs_playerManager2.privatePoints += completedDestination.GetComponent<DestinationCard>().sO_DestinationTicket.points;
+                Debug.Log("P2 Points added: " + completedDestination.GetComponent<DestinationCard>().sO_DestinationTicket.points);
+            }
+        }
+        if (cs_playerManager2.destinationHandCards.Count >= 1)
+        {
+            foreach (GameObject destinationCard in cs_playerManager2.destinationHandCards)
+            {
+                cs_playerManager2.privatePoints -= destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.points;
+                Debug.Log("P2 Points deducted: " + destinationCard.GetComponent<DestinationCard>().sO_DestinationTicket.points);
+            }
+        }
+        #endregion
+
+        cs_playerManager1.points += cs_playerManager1.privatePoints;
+        cs_playerManager2.points += cs_playerManager2.privatePoints;
+
+
+        player1PointsTxt.text = cs_player1Manager.points.ToString();
+        player2PointsTxt.text = cs_player2Manager.points.ToString();
+
+        if (cs_player1Manager.points > cs_player2Manager.points)
         {
             Player1Txt.SetActive(true);
         }
-        if ( player2Points > player1Points)
+        if ( cs_player2Manager.points > cs_player1Manager.points)
         {
             Player2Txt.SetActive(true);
         }
-        if (player1Points == player2Points)
+        if (cs_player1Manager.points == cs_player2Manager.points)
         {
             DrawTxt.SetActive(true);
         }

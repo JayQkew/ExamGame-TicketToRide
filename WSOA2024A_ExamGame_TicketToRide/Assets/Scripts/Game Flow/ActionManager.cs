@@ -29,6 +29,9 @@ public class ActionManager : MonoBehaviour
     [SerializeField] DestinationDeck cs_destinationDeck;
     [SerializeField] TrainDeckManager cs_traindeckmanager;
     [SerializeField] GameManager cs_gameManager;
+    [SerializeField] PlayerManager cs_playerManager1;
+    [SerializeField] PlayerManager cs_playerManager2;
+    [SerializeField] WinScreenCode cs_winScreenCode;
     #endregion
 
     private void Start()
@@ -47,7 +50,7 @@ public class ActionManager : MonoBehaviour
     //checks if a turn was taken or not
     public void TakeNextTurn()
     {
-        if(isTurnOver == true)
+        if (isTurnOver == true)
         {
             cs_destinationDeck.canDrawDestinationCard = false;
             cs_traindeckmanager.canDrawTrainCard = false;
@@ -55,7 +58,7 @@ public class ActionManager : MonoBehaviour
             canDrawNorm = false;
             canClaimRoute = false;
         }
-        if(isTurnOver ==false)
+        if (isTurnOver == false)
         {
             cs_destinationDeck.canDrawDestinationCard = true;
             cs_traindeckmanager.canDrawTrainCard = true;
@@ -77,35 +80,35 @@ public class ActionManager : MonoBehaviour
             isTurnOver = true;
         }
         //checks if a card from the train deck has been picked up
-        if(cs_traindeckmanager.cardPickUpCounter >= 1)
+        if (cs_traindeckmanager.cardPickUpCounter >= 1)
         {
             cs_destinationDeck.canDrawDestinationCard = false;
             canClaimRoute = false;
         }
         //checks if a locomotive card has been taken from the train market
-        if(pickUpLocoCount >= 1)
+        if (pickUpLocoCount >= 1)
         {
             isTurnOver = true;
             canDrawNorm = false;
         }
-        if(pickUpNormCount >= 1)
+        if (pickUpNormCount >= 1)
         {
             canDrawLoco = false;
         }
         //Check if 1 normal card has been taken from the train market
-        if(maxCardsCollected >= 1)
+        if (maxCardsCollected >= 1)
         {
             canDrawLoco = false;
             cs_destinationDeck.canDrawDestinationCard = false;
             canClaimRoute = false;
         }
-        if(amountRoutesClaimed == 1)
+        if (amountRoutesClaimed == 1)
         {
             isTurnOver = true;
         }
 
         //Button manager stuff
-        if(isTurnOver == true)
+        if (isTurnOver == true)
         {
             endPlayer1TurnButton.interactable = true;
             endPlayer2TurnButton.interactable = true;
@@ -133,9 +136,15 @@ public class ActionManager : MonoBehaviour
         amountRoutesClaimed = 0;
 
         cs_gameManager.currentTurn++;
-        if(cs_gameManager.hasLastRoundStarted == true)
+        if (cs_gameManager.hasLastRoundStarted == true)
         {
-            cs_gameManager.additiobalTurns++;
+            cs_gameManager.additionalTurns++;
+
+            if(cs_gameManager.additionalTurns == 3)
+            {
+                cs_gameManager.hasGameEnded = true;
+                cs_winScreenCode.OpenWinScreen();
+            }
         }
     }
 

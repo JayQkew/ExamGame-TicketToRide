@@ -102,7 +102,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 colourPile.GetComponent<ColourPileLogic>().colourSelect = true;
             }
 
-            await Task.Delay(2500); // wait 3 seconds before exicuting next line.
+            await Task.Delay(5000); // wait 3 seconds before exicuting next line.
 
             foreach (GameObject colourPile in cs_playerManagerCode.colourPiles) // loop though the colourPiles to see if they have been selected.
             {
@@ -133,6 +133,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
             InfoSharing();
             DestinationCompletion();
             DestinationStateCheck();
+            DestinationManagement();
         }
         else if (cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards < so_routes.trainPieces && cs_playerManagerCode.colourPiles[8].transform.childCount >= cardsLeft - 1)
         {
@@ -158,6 +159,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
             InfoSharing();
             DestinationCompletion();
             DestinationStateCheck();
+            DestinationManagement();
         }
         else
         {
@@ -777,7 +779,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void LongestRouteCheck(GameObject destination, List<GameObject> destinationList, List<GameObject> playerClaimedLocalRoutes) // second player gets all already collected routes bug.
+    private void LongestRouteCheck(GameObject destination, List<GameObject> destinationList, List<GameObject> playerClaimedLocalRoutes) 
     {
         foreach (GameObject _destination in destinationList) // foreach destination
         {
@@ -846,12 +848,20 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
 
     private void DestinationManagement()
     {
-        foreach(GameObject destinationCard in cs_playerManager1.destinationHandCards)
+        foreach (GameObject destinationCard in cs_playerManager1.destinationHandCards)
         {
             if (destinationCard.GetComponent<DestinationCard>().cardComplete)
             {
                 cs_playerManager1.completedDestinationCards.Add(destinationCard);
                 cs_playerManager1.destinationHandCards.Remove(destinationCard);
+            }
+        }
+        foreach (GameObject destinationCard in cs_playerManager2.destinationHandCards)
+        {
+            if (destinationCard.GetComponent<DestinationCard>().cardComplete)
+            {
+                cs_playerManager2.completedDestinationCards.Add(destinationCard);
+                cs_playerManager2.destinationHandCards.Remove(destinationCard);
             }
         }
     }

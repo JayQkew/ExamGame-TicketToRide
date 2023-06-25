@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class DestinationDeck : MonoBehaviour, IPointerClickHandler
 {
-    
+
     #region LISTS:
     [SerializeField] List<DestinationCard> sO_destinationCards = new List<DestinationCard>(); //THe list of destination tickets for the game]
     [SerializeField] List<GameObject> destinationCards = new List<GameObject>();
@@ -59,6 +59,13 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
     [SerializeField] GameObject go_playerManager1;
     [SerializeField] GameObject go_playerManager2;
     #endregion
+
+    [SerializeField] public GameManager cs_gameManager;
+
+    private void Awake()
+    {
+        cs_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
     void Start()
     {
         #region ADDING DESTINATIONS:
@@ -96,6 +103,8 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
 
         canDrawDestinationCard = true;
         destinationCardAction = false;
+
+        ChoicesPopUp();
     }
 
     public void DrawDestinationCards(Vector3 position, Transform parent) // method to use when drawing a random destination card
@@ -142,7 +151,7 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
 
     public void ShuffleDiscardedDestination() // Shuffles the discarded destination cards back into the destinationCards list
     {
-        if(destinationCards.Count <= 0)
+        if (destinationCards.Count <= 0)
         {
             for (int i = 0; i < discardedDestinationCards.Count; i++)
             {
@@ -158,13 +167,18 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData) // when the action is chosen
     {
-        if(canDrawDestinationCard == true)
+        if (canDrawDestinationCard == true)
         {
-            p_destinationChoices.gameObject.SetActive(true); // set the panel active
-            for (int i = 0; i < 3; i++)
-            {
-                DrawDestinationCards(choices[i].transform.position, choices[i].transform); // draw 3 random destination cards and parent them to the choices
-            }
+            ChoicesPopUp();
+        }
+    }
+
+    public void ChoicesPopUp()
+    {
+        p_destinationChoices.gameObject.SetActive(true); // set the panel active
+        for (int i = 0; i < 3; i++)
+        {
+            DrawDestinationCards(choices[i].transform.position, choices[i].transform); // draw 3 random destination cards and parent them to the choices
         }
     }
 
@@ -177,9 +191,19 @@ public class DestinationDeck : MonoBehaviour, IPointerClickHandler
                 DiscardDestinationCard(choice.transform.GetChild(0).gameObject); // discard those children
             }
         }
+        cardsChosen = 0;
         p_destinationChoices.SetActive(false); // set the panel to false
         doneButton.gameObject.SetActive(false); // set the button itself to false
 
         destinationCardAction = true;
     }
+
+    public void Player2DestinationStart()
+    {
+        if (cs_gameManager.currentTurn < 2)
+        {
+            ChoicesPopUp();
+        }
+    }
+
 }

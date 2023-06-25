@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading.Tasks;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool hasLastRoundStarted;
     [SerializeField] public GameObject winScreen;
     [SerializeField] public bool hasGameEnded;
-    [SerializeField] public int additiobalTurns;
+    [SerializeField] public int additionalTurns;
     #endregion
 
     #region OTHER SCRIPTS
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
     [Header("Round Code")]
     [SerializeField] public TextMeshProUGUI roundNumberTxt;
     [SerializeField] public int currentTurn;
-    [HideInInspector][SerializeField] public int currentRound;
+    [SerializeField] public int currentRound;
     #endregion
 
     private void Awake()
@@ -155,14 +156,6 @@ public class GameManager : MonoBehaviour
         {
             hasLastRoundStarted = true;
         }
-
-        
-        if(additiobalTurns == 3)
-        {
-            hasGameEnded = true;
-            cs_winScreenCode.OpenWinScreen();
-        }
-
     }
 
     public void UpdateRoundNumber()

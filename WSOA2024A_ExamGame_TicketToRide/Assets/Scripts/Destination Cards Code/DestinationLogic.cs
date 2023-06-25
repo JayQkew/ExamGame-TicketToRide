@@ -30,6 +30,7 @@ public class DestinationLogic : MonoBehaviour
 
     private PlayerManager cs_playerManager1;
     private PlayerManager cs_playerManager2;
+    private GameManager cs_gameManager;
 
     private void Awake()
     {
@@ -116,8 +117,26 @@ public class DestinationLogic : MonoBehaviour
 
 
     }
+    public int LongestRoutePlayer()
+    {
+        int longestRoute = 0;
+        if (cs_gameManager.hasGameEnded) // if the game ended 
+        {
+            if (p1_longestRoute > p2_longestRoute)
+            {
+                longestRoute = p1_longestRoute;
+            }
+            else if (p2_longestRoute > p1_longestRoute)
+            {
+                longestRoute = p2_longestRoute;
+            }
+        }
+
+        return longestRoute;
+    }
 
 }
+
 
 public enum DestinationStates
 {

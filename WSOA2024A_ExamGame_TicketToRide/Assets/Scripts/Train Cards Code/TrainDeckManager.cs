@@ -71,6 +71,15 @@ public class TrainDeckManager : MonoBehaviour, IPointerClickHandler
         canDrawTrainCard = true;
 
     }
+
+    private void Start()
+    {
+        for (int i = 4; i > 0; i--)
+        {
+            DrawCard(Vector3.zero, go_playerManager1.transform, "trainCard");
+            DrawCard(Vector3.zero, go_playerManager2.transform, "trainCard");
+        }
+    }
     private void Update()
     {
         ShuffleDeck(); // constatnly check if the deck needs to be shuffled (when the trainCards.Count is 0 or less)
