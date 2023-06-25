@@ -5,9 +5,6 @@ using TMPro;
 public class CountdownScript : MonoBehaviour
 {
     public GameObject switchPlayerOverlay;
-    public TextMeshProUGUI countDownTxt;
-    public float timer = 5f;
-    private bool countingDown = false;
 
     [SerializeField] GameManager cs_gameManager;
 
@@ -16,40 +13,20 @@ public class CountdownScript : MonoBehaviour
         switchPlayerOverlay.SetActive(false);
     }
 
-    public void StartCountdown()
+    public void OpenSwitchingPanel()
     {
         if(cs_gameManager.hasGameEnded == false)
         {
-            if (!countingDown)
-            {
-                switchPlayerOverlay.SetActive(true);
-                countingDown = true;
-                countDownTxt.text = timer.ToString("F0");
-                InvokeRepeating("UpdateTimer", 1f, 1f);
-            }
+            switchPlayerOverlay.SetActive(true);
         }
     }
 
-    void UpdateTimer()
+    public void CloseSwitchingPanel()
     {
-        timer -= 1f;
-
-        if (timer >= 0f)
+        if(cs_gameManager.hasGameEnded == false)
         {
-            countDownTxt.text = timer.ToString("F0");
+            switchPlayerOverlay.SetActive(false);
         }
-        else
-        {
-            ResetCountdown();
-        }
-    }
-
-    void ResetCountdown()
-    {
-        countingDown = false;
-        switchPlayerOverlay.SetActive(false);
-        timer = 5f;
-        CancelInvoke("UpdateTimer");
     }
 
     public void GameIsOver()

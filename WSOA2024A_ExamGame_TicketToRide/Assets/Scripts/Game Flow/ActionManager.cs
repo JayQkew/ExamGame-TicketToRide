@@ -135,7 +135,7 @@ public class ActionManager : MonoBehaviour
         cs_gameManager.currentTurn++;
         if(cs_gameManager.hasLastRoundStarted == true)
         {
-            cs_gameManager.addtionalRounds++;
+            cs_gameManager.additiobalTurns++;
         }
     }
 

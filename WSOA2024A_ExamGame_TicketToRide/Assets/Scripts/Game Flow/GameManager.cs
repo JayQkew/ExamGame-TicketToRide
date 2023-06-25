@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool hasLastRoundStarted;
     [SerializeField] public GameObject winScreen;
     [SerializeField] public bool hasGameEnded;
+    [SerializeField] public int additiobalTurns;
     #endregion
 
     #region OTHER SCRIPTS
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
     {
         CheckSwitching();
         UpdateRoundNumber();
+        CheckLastRound();
     }
 
     public void UpdateGameState(GameState newState)
@@ -152,27 +154,13 @@ public class GameManager : MonoBehaviour
         if(cs_player1Manager.trainPieces <= 2 || cs_player2Manager.trainPieces <= 2)
         {
             hasLastRoundStarted = true;
-
-            if(hasLastRoundStarted == true)
-            {
-                UpdateGameState(GameState.LastRound);
-            }
         }
 
-        if(hasLastRoundStarted == true)
+        
+        if(additiobalTurns == 3)
         {
-            int previousRound = currentRound;
-            currentRound = currentTurn / 2;
-
-            if (currentRound == previousRound + 1)
-            {
-                Debug.Log("Final round has started");
-                if (currentRound == previousRound + 2)
-                {
-                    hasGameEnded = true;
-                    cs_winScreenCode.WinScreen.SetActive(true);
-                }
-            }
+            hasGameEnded = true;
+            cs_winScreenCode.OpenWinScreen();
         }
 
     }
