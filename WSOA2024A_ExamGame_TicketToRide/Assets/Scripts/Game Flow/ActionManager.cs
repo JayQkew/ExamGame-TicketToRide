@@ -133,6 +133,10 @@ public class ActionManager : MonoBehaviour
         amountRoutesClaimed = 0;
 
         cs_gameManager.currentTurn++;
+        if(cs_gameManager.hasLastRoundStarted == true)
+        {
+            cs_gameManager.addtionalRounds++;
+        }
     }
 
     public void ChangeStateP1()

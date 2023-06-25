@@ -44,4 +44,10 @@ public class WinScreenCode : MonoBehaviour
             DrawTxt.SetActive(true);
         }
     }
+
+    public void OpenWinScreen()
+    {
+        WinScreen.SetActive(true);
+        CheckWinner();
+    }
 }
