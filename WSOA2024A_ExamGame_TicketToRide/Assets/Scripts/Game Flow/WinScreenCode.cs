@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class WinScreenCode : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class WinScreenCode : MonoBehaviour
     [SerializeField] public GameObject Player1Txt;
     [SerializeField] public GameObject Player2Txt;
     [SerializeField] public GameObject DrawTxt;
+    [SerializeField] TextMeshProUGUI player1PointsTxt;
+    [SerializeField] TextMeshProUGUI player2PointsTxt;
     #endregion
 
     #region OTHER SCRIPTS
@@ -31,6 +34,9 @@ public class WinScreenCode : MonoBehaviour
         int player1Points = cs_player1Manager.points + cs_player1Manager.privatePoints;
         int player2Points = cs_player2Manager.points + cs_player2Manager.privatePoints;
 
+        player1PointsTxt.text = player1Points.ToString();
+        player2PointsTxt.text = player2Points.ToString();
+
         if (player1Points > player2Points)
         {
             Player1Txt.SetActive(true);
@@ -43,5 +49,11 @@ public class WinScreenCode : MonoBehaviour
         {
             DrawTxt.SetActive(true);
         }
+    }
+
+    public void OpenWinScreen()
+    {
+        WinScreen.SetActive(true);
+        CheckWinner();
     }
 }
