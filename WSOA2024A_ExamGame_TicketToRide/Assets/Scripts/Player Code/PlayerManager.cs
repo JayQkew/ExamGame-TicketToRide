@@ -16,7 +16,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public int trainPieces = 40;
     [SerializeField] public int points = 0;
     [SerializeField] public int privatePoints = 0;
-    [SerializeField] public bool playerChoosingColour = false;
     #endregion
 
     #region COMPONENTS:

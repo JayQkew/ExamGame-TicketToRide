@@ -55,7 +55,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(cs_actionManager.canClaimRoute == true)
+        if (cs_actionManager.canClaimRoute == true)
         {
             if (!routeClaimed)
             {
@@ -96,20 +96,12 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         else if (isGreyRoute)
         {
             Debug.Log("Chose grey");
-            cs_playerManagerCode.playerChoosingColour = true;
-            foreach (GameObject colourPile in cs_playerManagerCode.colourPiles)
-            {
-                colourPile.GetComponent<ColourPileLogic>().colourSelect = true;
-            }
-
-            await Task.Delay(5000); // wait 3 seconds before exicuting next line.
 
             foreach (GameObject colourPile in cs_playerManagerCode.colourPiles) // loop though the colourPiles to see if they have been selected.
             {
                 if (colourPile.GetComponent<ColourPileLogic>()._colourSelected == true) // if a card is selected
                 {
                     CardCheck2(cs_playerManagerCode, cs_playerManagerCode.colourPiles.IndexOf(colourPile));
-                    cs_playerManagerCode.playerChoosingColour = false;
                 }
             }
         }
@@ -193,6 +185,16 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     private void DestinationStateCheck()
     {
         List<GameObject> endDestinations = new List<GameObject>();
+        List<GameObject> allEndDestinations = new List<GameObject>();
+        GameObject[] allDestinations = GameObject.FindGameObjectsWithTag("destination");
+
+        foreach (GameObject dest in allDestinations)
+        {
+            if (dest.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.End || dest.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.End)
+            {
+                allEndDestinations.Add(dest);
+            }
+        }
 
         if (cs_playerManager1.playerTurn)
         {
@@ -658,6 +660,34 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 }
 
             }
+
+            foreach (GameObject _endDestination in allEndDestinations)
+            {
+                foreach (GameObject dest in allEndDestinations)
+                {
+                    if (dest.GetComponent<DestinationLogic>().p1_longestRoute > _endDestination.GetComponent<DestinationLogic>().p1_longestRoute)
+                    {
+                        _endDestination.GetComponent<DestinationLogic>().p1_longestRoute = dest.GetComponent<DestinationLogic>().p1_longestRoute;
+                    }
+
+                    if (dest.GetComponent<DestinationLogic>().p2_longestRoute > _endDestination.GetComponent<DestinationLogic>().p2_longestRoute)
+                    {
+                        _endDestination.GetComponent<DestinationLogic>().p2_longestRoute = dest.GetComponent<DestinationLogic>().p2_longestRoute;
+                    }
+                }
+
+                foreach (GameObject dest in allEndDestinations)
+                {
+                    if (dest.GetComponent<DestinationLogic>().p1_longestRoute > dest.GetComponent<DestinationLogic>().p2_longestRoute)
+                    {
+                        dest.GetComponent<DestinationLogic>()._longestRouteHolder = LongestRouteHolder.Player1;
+                    }
+                    else if (dest.GetComponent<DestinationLogic>().p2_longestRoute > dest.GetComponent<DestinationLogic>().p1_longestRoute)
+                    {
+                        dest.GetComponent<DestinationLogic>()._longestRouteHolder = LongestRouteHolder.Player2;
+                    }
+                }
+            }
         }
 
         endDestinations.Clear();
@@ -779,7 +809,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void LongestRouteCheck(GameObject destination, List<GameObject> destinationList, List<GameObject> playerClaimedLocalRoutes) 
+    private void LongestRouteCheck(GameObject destination, List<GameObject> destinationList, List<GameObject> playerClaimedLocalRoutes)
     {
         foreach (GameObject _destination in destinationList) // foreach destination
         {
@@ -865,4 +895,11 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
             }
         }
     }
+}
+
+public enum LongestRouteHolder
+{
+    None,
+    Player1,
+    Player2
 }

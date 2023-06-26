@@ -232,7 +232,7 @@ public class TrainCard : MonoBehaviour, IPointerClickHandler
             }
         }
 
-
+        cs_actionManager.canDrawLoco = false;
 
     }
 }

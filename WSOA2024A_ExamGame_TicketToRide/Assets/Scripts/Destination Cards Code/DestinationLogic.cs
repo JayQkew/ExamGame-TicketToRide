@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DestinationLogic : MonoBehaviour
 {
+    [SerializeField] public LongestRouteHolder _longestRouteHolder;
     [SerializeField] public DestinationStates p1_destinationState;
     [SerializeField] public DestinationStates p2_destinationState;
     [SerializeField] public bool _start;

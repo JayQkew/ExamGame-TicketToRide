@@ -24,6 +24,7 @@ public class WinScreenCode : MonoBehaviour
 
     #region VARIABLES
     [SerializeField] GameObject[] destinations;
+    LongestRouteHolder longestRoute;
     #endregion
 
     private void Start()
@@ -38,46 +39,35 @@ public class WinScreenCode : MonoBehaviour
 
     public void CheckWinner()
     {
-        int p1_longestRoute = 0;
-        int p2_longestRoute = 0;
+        GameObject[] destinations = GameObject.FindGameObjectsWithTag("destination");
 
-        //foreach (GameObject destination in destinations)
-        //{
-        //    if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.End && destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.End)
-        //    {
-        //        if (destination.GetComponent<DestinationLogic>().p1_longestRoute > p1_longestRoute)
-        //        {
-        //            p1_longestRoute = destination.GetComponent<DestinationLogic>().p1_longestRoute;
-        //        }
-        //        if (destination.GetComponent<DestinationLogic>().p2_longestRoute > p2_longestRoute)
-        //        {
-        //            p2_longestRoute = destination.GetComponent<DestinationLogic>().p2_longestRoute;
-        //        }
-        //    }
-        //}
+        foreach (GameObject destination in destinations)
+        {
+            if (destination.GetComponent<DestinationLogic>().p1_destinationState == DestinationStates.End || destination.GetComponent<DestinationLogic>().p2_destinationState == DestinationStates.End)
+            {
+                if (destination.GetComponent<DestinationLogic>()._longestRouteHolder == LongestRouteHolder.Player1)
+                {
+                    longestRoute = LongestRouteHolder.Player1;
+                }
+                if (destination.GetComponent<DestinationLogic>()._longestRouteHolder == LongestRouteHolder.Player2)
+                {
+                    longestRoute = LongestRouteHolder.Player2;
+                }
+            }
+        }
 
-
-        //int player1Points = cs_player1Manager.points + cs_player1Manager.privatePoints;
-        //int player2Points = cs_player2Manager.points + cs_player2Manager.privatePoints;
-
-        //if (p1_longestRoute > p2_longestRoute)
-        //{
-        //    player1Points += 10;
-        //    LongestRouteTxt.text = "Player 1!";
-        //    Debug.Log("Player 1 got longest Route");
-        //}
-        //else if (p2_longestRoute > p1_longestRoute)
-        //{
-        //    player2Points += 10;
-        //    LongestRouteTxt.text = "Player 2!";
-        //    Debug.Log("Player 2 got longest Route");
-        //}
-        //else if (p1_longestRoute == p2_longestRoute)
-        //{
-        //    player1Points += 10;
-        //    player2Points += 10;
-        //    LongestRouteTxt.text = "Draw!";
-        //}
+        if (longestRoute == LongestRouteHolder.Player1)
+        {
+            cs_player1Manager.points += 10;
+            LongestRouteTxt.text = "Player 1!";
+            Debug.Log("Player 1 got longest Route");
+        }
+        else if (longestRoute == LongestRouteHolder.Player2)
+        {
+            cs_player2Manager.points += 10;
+            LongestRouteTxt.text = "Player 2!";
+            Debug.Log("Player 2 got longest Route");
+        }
 
         PlayerManager cs_playerManager1 = cs_player1Manager;
         PlayerManager cs_playerManager2 = cs_player2Manager;
@@ -122,6 +112,7 @@ public class WinScreenCode : MonoBehaviour
 
         cs_playerManager1.points += cs_playerManager1.privatePoints;
         cs_playerManager2.points += cs_playerManager2.privatePoints;
+
 
 
         player1PointsTxt.text = cs_player1Manager.points.ToString();

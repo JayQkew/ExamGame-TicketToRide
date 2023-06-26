@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using System.Threading;
 
 public class ColourPileLogic : MonoBehaviour, IPointerClickHandler
 {
@@ -10,21 +11,38 @@ public class ColourPileLogic : MonoBehaviour, IPointerClickHandler
     [SerializeField] public string colour;
     [SerializeField] public int numberOfCards;
     [SerializeField] public TextMeshProUGUI numberDisplay;
-    [SerializeField] public bool colourSelect = false;
+    [SerializeField] public TextMeshProUGUI selectedDisplay;
     [SerializeField] public bool _colourSelected= false;
+
+
+    [SerializeField] public GameObject[] p1_colourPiles;
+    [SerializeField] public GameObject[] p2_colourPiles;
     #endregion
+
+    private void Awake()
+    {
+        p1_colourPiles = GameObject.FindGameObjectsWithTag("p1_colourPile");
+        p2_colourPiles = GameObject.FindGameObjectsWithTag("p2_colourPile");
+    }
     private void Update()
     {
-        numberOfCards = transform.childCount - 1; // number of children (-1 for the TMPro)
+        numberOfCards = transform.childCount - 2; // number of children (-1 for the TMPro)
         numberDisplay.text = numberOfCards.ToString();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(colourSelect)
+        _colourSelected = true;
+
+        foreach (var p in p1_colourPiles)
         {
-            _colourSelected = true;
-            
+            p.GetComponent<ColourPileLogic>().selectedDisplay.gameObject.SetActive(false);
         }
+        foreach (var p in p2_colourPiles)
+        {
+            p.GetComponent<ColourPileLogic>().selectedDisplay.gameObject.SetActive(false);
+        }
+
+        selectedDisplay.gameObject.SetActive(true);
     }
 }

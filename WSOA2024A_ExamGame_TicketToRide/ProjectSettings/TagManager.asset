@@ -10,6 +10,8 @@ TagManager:
   - claimedRoute
   - _claimedRoute
   - destination
+  - p1_colourPile
+  - p2_colourPile
   layers:
   - Default
   - TransparentFX
