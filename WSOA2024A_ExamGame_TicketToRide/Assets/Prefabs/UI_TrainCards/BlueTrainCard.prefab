@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2127377768360910188}
   m_Layer: 5
   m_Name: BlueTrainCard
-  m_TagString: marketTrainCard
+  m_TagString: trainCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

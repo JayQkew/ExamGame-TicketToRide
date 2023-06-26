@@ -481,6 +481,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 984896371}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -641,6 +643,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -900,6 +904,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1264590086}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -1127,6 +1133,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1132978448}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -1348,6 +1356,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -1451,6 +1461,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -1724,6 +1736,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1446227599}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -1889,6 +1903,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 2049181008}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -1986,6 +2002,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 304000101}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -2110,6 +2128,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 306268135}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -2360,6 +2380,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -2875,6 +2897,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -3199,6 +3223,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 204824208}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -3295,6 +3321,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 239672494}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -3376,6 +3404,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1246466950}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -3456,6 +3486,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -4165,6 +4197,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 923200940}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -4255,6 +4289,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -4634,6 +4670,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -5037,6 +5075,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -5243,6 +5283,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -8203,6 +8245,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -8298,6 +8342,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 978367540}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -8392,6 +8438,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 768306814}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -8471,6 +8519,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -8952,6 +9002,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 747311223}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -9033,6 +9085,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -9192,6 +9246,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -9470,6 +9526,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1711003238}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -9725,6 +9783,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1237500747}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -9878,6 +9938,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -9972,6 +10034,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 931138396}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -10191,6 +10255,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -10310,6 +10376,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -10395,6 +10463,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 567664577}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -10474,6 +10544,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 535794475}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -10564,6 +10636,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1308655508}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -10772,6 +10846,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -11038,6 +11114,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -11130,6 +11208,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -12195,6 +12275,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 403488631}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -12276,6 +12358,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -12366,6 +12450,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -12449,6 +12535,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 703853071}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -13044,6 +13132,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 531355109}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -13133,6 +13223,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 87983083}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -13639,6 +13731,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1585158966}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -13871,6 +13965,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -13974,6 +14070,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 2017833155}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -14134,6 +14232,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 2048259531}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -14330,6 +14430,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -14426,6 +14528,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -14506,6 +14610,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -14677,6 +14783,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -14763,6 +14871,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -14991,6 +15101,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -15565,6 +15677,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 157462238}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -15645,6 +15759,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -15810,6 +15926,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -15911,6 +16029,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -16087,6 +16207,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 675862771}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -16178,6 +16300,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 306843308}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -16327,6 +16451,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -16420,6 +16546,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 114376343}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -16946,6 +17074,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 772846194}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -18288,6 +18418,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -18790,6 +18922,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -18990,6 +19124,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 185964191}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -19085,6 +19221,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -19487,6 +19625,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -19988,6 +20128,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -20571,6 +20713,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1635644605}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -21755,6 +21899,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1032465446}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -22182,6 +22328,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -22268,6 +22416,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -22484,6 +22634,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1568214627}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -22924,6 +23076,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -23230,6 +23384,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -23318,6 +23474,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -23450,6 +23608,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 643854528}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -23673,6 +23833,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -24205,6 +24367,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -24297,6 +24461,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -24417,6 +24583,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -24647,6 +24815,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -24735,6 +24905,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -24838,6 +25010,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -25267,6 +25441,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 2107510573}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -25425,6 +25601,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -25527,6 +25705,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -25758,6 +25938,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1040064869}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -25978,6 +26160,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1079873758}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -26083,6 +26267,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -26170,6 +26356,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 196284225}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -26335,6 +26523,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -26414,6 +26604,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -27222,6 +27414,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -27312,6 +27506,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 1
+  otherDoubleRoute: {fileID: 1924852872}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -27519,6 +27715,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []
@@ -27605,6 +27803,8 @@ MonoBehaviour:
   netTrainPieces: 0
   _checked: 0
   _marked: 0
+  isDoubleRoute: 0
+  otherDoubleRoute: {fileID: 0}
   initial_Destinations: []
   p1_connectedDestinations: []
   p2_connectedDestinations: []

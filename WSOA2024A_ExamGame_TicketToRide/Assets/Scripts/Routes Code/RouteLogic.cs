@@ -26,6 +26,8 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
     [SerializeField] public int netTrainPieces = 0;
     [SerializeField] public bool _checked = false;
     [SerializeField] public bool _marked = false;
+    [SerializeField] private bool isDoubleRoute = false;
+    [SerializeField] private GameObject otherDoubleRoute;
 
     [SerializeField] public List<GameObject> initial_Destinations = new List<GameObject>();
 
@@ -62,12 +64,10 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
                 if (cs_playerManager1.playerTurn)
                 {
                     ClaimRoute(cs_playerManager1);
-                    cs_actionManager.amountRoutesClaimed++;
                 }
                 if (cs_playerManager2.playerTurn)
                 {
                     ClaimRoute(cs_playerManager2);
-                    cs_actionManager.amountRoutesClaimed++;
                 }
             }
         }
@@ -81,29 +81,59 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private async void CardCheck(PlayerManager cs_playerManagerCode) // checks if the player has cards of that colour.
+    private void CardCheck(PlayerManager cs_playerManagerCode) // checks if the player has cards of that colour.
     {
-        if (!isGreyRoute)
+        if (!isDoubleRoute)
         {
-            for (int i = 0; i < cs_playerManagerCode.cs_colourPileLogic.Length; i++) // loops through the array of colorpile scripts
+            if (!isGreyRoute)
             {
-                if (cs_playerManagerCode.cs_colourPileLogic[i].colour == so_routes.colour) // checks if the colours match
+                for (int i = 0; i < cs_playerManagerCode.cs_colourPileLogic.Length; i++) // loops through the array of colorpile scripts
                 {
-                    CardCheck2(cs_playerManagerCode, i);
+                    if (cs_playerManagerCode.cs_colourPileLogic[i].colour == so_routes.colour) // checks if the colours match
+                    {
+                        CardCheck2(cs_playerManagerCode, i);
+                    }
                 }
             }
-        }
-        else if (isGreyRoute)
-        {
-            Debug.Log("Chose grey");
+            else if (isGreyRoute)
+            {
+                Debug.Log("Chose grey");
 
-            foreach (GameObject colourPile in cs_playerManagerCode.colourPiles) // loop though the colourPiles to see if they have been selected.
-            {
-                if (colourPile.GetComponent<ColourPileLogic>()._colourSelected == true) // if a card is selected
+                foreach (GameObject colourPile in cs_playerManagerCode.colourPiles) // loop though the colourPiles to see if they have been selected.
                 {
-                    CardCheck2(cs_playerManagerCode, cs_playerManagerCode.colourPiles.IndexOf(colourPile));
+                    if (colourPile.GetComponent<ColourPileLogic>()._colourSelected == true) // if a card is selected
+                    {
+                        CardCheck2(cs_playerManagerCode, cs_playerManagerCode.colourPiles.IndexOf(colourPile));
+                    }
                 }
             }
+
+        }
+        else if (isDoubleRoute && !otherDoubleRoute.GetComponent<RouteLogic>().routeClaimed)
+        {
+            if (!isGreyRoute)
+            {
+                for (int i = 0; i < cs_playerManagerCode.cs_colourPileLogic.Length; i++) // loops through the array of colorpile scripts
+                {
+                    if (cs_playerManagerCode.cs_colourPileLogic[i].colour == so_routes.colour) // checks if the colours match
+                    {
+                        CardCheck2(cs_playerManagerCode, i);
+                    }
+                }
+            }
+            else if (isGreyRoute)
+            {
+                Debug.Log("Chose grey");
+
+                foreach (GameObject colourPile in cs_playerManagerCode.colourPiles) // loop though the colourPiles to see if they have been selected.
+                {
+                    if (colourPile.GetComponent<ColourPileLogic>()._colourSelected == true) // if a card is selected
+                    {
+                        CardCheck2(cs_playerManagerCode, cs_playerManagerCode.colourPiles.IndexOf(colourPile));
+                    }
+                }
+            }
+
         }
     }
 
@@ -126,6 +156,8 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
             DestinationCompletion();
             DestinationStateCheck();
             DestinationManagement();
+            cs_actionManager.amountRoutesClaimed++;
+
         }
         else if (cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards < so_routes.trainPieces && cs_playerManagerCode.cs_colourPileLogic[8].numberOfCards >= cardsLeft)
         {
@@ -152,7 +184,9 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
             DestinationCompletion();
             DestinationStateCheck();
             DestinationManagement();
+            cs_actionManager.amountRoutesClaimed++;
         }
+
         else
         {
             Debug.Log("Cant Do That BRUH");
