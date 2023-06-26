@@ -127,7 +127,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
             DestinationStateCheck();
             DestinationManagement();
         }
-        else if (cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards < so_routes.trainPieces && cs_playerManagerCode.colourPiles[8].transform.childCount >= cardsLeft - 1)
+        else if (cs_playerManagerCode.cs_colourPileLogic[i].numberOfCards < so_routes.trainPieces && cs_playerManagerCode.cs_colourPileLogic[8].numberOfCards >= cardsLeft)
         {
             cs_playerManagerCode.trainPieces -= so_routes.trainPieces;
             cs_playerManagerCode.points += so_routes.points;
@@ -138,7 +138,7 @@ public class RouteLogic : MonoBehaviour, IPointerClickHandler
             }
             for (int j = 0; j < cardsLeft; j++)
             {
-                if (cs_playerManagerCode.colourPiles[8].transform.childCount > 1)
+                if (cs_playerManagerCode.cs_colourPileLogic[8].numberOfCards >= 1)
                 {
                     cs_trainDeckManager.DiscardCard(cs_playerManagerCode.colourPiles[8].transform.GetChild(0).gameObject);
 

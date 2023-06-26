@@ -26,7 +26,7 @@ public class ColourPileLogic : MonoBehaviour, IPointerClickHandler
     }
     private void Update()
     {
-        numberOfCards = transform.childCount - 2; // number of children (-1 for the TMPro)
+        numberOfCards = transform.childCount - 2; // number of children (-2 for the TMPro's)
         numberDisplay.text = numberOfCards.ToString();
     }
 
