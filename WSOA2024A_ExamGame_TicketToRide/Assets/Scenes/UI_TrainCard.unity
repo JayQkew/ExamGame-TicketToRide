@@ -591,7 +591,7 @@ MonoBehaviour:
   - {fileID: 493573628}
   destinationHand: {fileID: 780582442}
   playerTurn: 0
-  trainPieces: 9
+  trainPieces: 40
   points: 0
   privatePoints: 0
   tmp_trainPieces: {fileID: 1125804276}
@@ -14280,7 +14280,7 @@ MonoBehaviour:
   - {fileID: 1114693430}
   destinationHand: {fileID: 181533323}
   playerTurn: 1
-  trainPieces: 9
+  trainPieces: 40
   points: 0
   privatePoints: 0
   tmp_trainPieces: {fileID: 1132739164}
